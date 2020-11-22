@@ -3,51 +3,45 @@ package com.madera.kotlin
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
+class PasswordMissActivity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.connect_view)
+        setContentView(R.layout.passwordmiss_view)
 
         // Déclaration des composants de la vue
-        val btnConnect = findViewById(R.id.btnConnect) as Button
-        val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
+        val btnRetour = findViewById(R.id.btnRetour) as Button
         val logoInfo = findViewById(R.id.logoInfo) as ImageView
+        val btnEnvoyerMail = findViewById(R.id.btnEnvoyerMail) as Button
 
-        titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-        // Listener Button Connexion
-         btnConnect.setOnClickListener {
+        //Listeners
+        btnRetour.setOnClickListener {
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
-            Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
-            val i = Intent(this, PasswordMissActivity::class.java)
+            Toast.makeText(this@PasswordMissActivity, "Retour à la page d'accueil !", Toast.LENGTH_SHORT).show()
+            val i = Intent(this, MainActivity::class.java)
             startActivity(i)
         }
+        btnEnvoyerMail.setOnClickListener {
 
-        // Listener Mot de passe oublié
-        titlePassMiss.setOnClickListener {
+            //TODO Envoyer un mail à l'utilisateur pour récupération du mot de passe et rediriger vers la page
+
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
-            Toast.makeText(this@MainActivity, "Vous avez oubliez votre mot de passe ?", Toast.LENGTH_SHORT).show()
-            val i = Intent(this, PasswordMissActivity::class.java)
+            Toast.makeText(this@PasswordMissActivity, "Envoi validé !", Toast.LENGTH_SHORT).show()
+            val i = Intent(this, PasswordSendActivity::class.java)
             startActivity(i)
         }
-
-        // Listener Bulle d'info
         logoInfo.setOnClickListener {
             // build alert dialog
             val dialogBuilder = AlertDialog.Builder(this)
 
             // set message of alert dialog
-            dialogBuilder.setMessage("Pour accéder à votre espace personnel, veuillez saisir votre nom d'utilisateur ainsi que votre mot de passe.")
+            dialogBuilder.setMessage("Pas de panique, il est possible de récupérer son mot de passe en saississant une adresse e-mail disposant des accès à l'application.")
                     // if the dialog is cancelable
                     .setCancelable(false)
                     // positive button text and action
@@ -58,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             // create dialog box
             val alert = dialogBuilder.create()
             // set title for alert dialog box
-            alert.setTitle("Bienvenue !")
+            alert.setTitle("Mot de passe oublié ?")
             // show alert dialog
             alert.show()
         }
