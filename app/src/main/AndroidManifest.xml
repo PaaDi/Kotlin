@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PasswordMissActivity">
+        <activity android:name=".Authentification.PasswordMissActivity">
         </activity>
-        <activity android:name=".PasswordSendActivity">
+        <activity android:name=".Authentification.PasswordSendActivity">
         </activity>
 
     </application>
