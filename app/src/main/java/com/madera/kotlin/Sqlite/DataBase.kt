@@ -8,17 +8,17 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper;
 class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", null, 1)
 {
+
     override fun onCreate(db: SQLiteDatabase?)
     {
         db?.execSQL("CREATE TABLE users (idUser INTEGER PRIMARY KEY, pseudoUser TEXT, passwordUser TEXT, nameUser TEXT, firstNameUser TEXT, mailUser TEXT, roleUser INTEGER)")
     }
-
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int)
     {
         TODO("Not yet implemented")
     }
 
-    // Création d'utilisateur dans la BDD
+    // Create user in DB
     fun createUser(user: User)
     {
         val values = ContentValues()
@@ -55,8 +55,27 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
             }
         return users
         }
+
     // Récupère le nombre d'utilisateurs dans la BDD
     fun getUsersCount() : Int = DatabaseUtils.queryNumEntries(readableDatabase,"users",null).toInt()
+
+    /* Login function */
+    fun tryToConnect( user:String, pass:String) : Boolean{
+
+        var connectSuccess:Boolean = false
+
+        readableDatabase.rawQuery("SELECT * FROM users WHERE pseudoUser = ? AND passwordUser = ?", arrayOf(user, pass)).use { cursor ->
+
+            if (cursor.count != 0){
+               connectSuccess = true
+            }
+
+
+        }
+
+
+        return connectSuccess
+    }
 }
 
 
