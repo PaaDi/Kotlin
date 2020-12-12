@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_500"
+    tools:context=".Controller.Menu.FilterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="668dp"
+        android:layout_height="58dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|left"
+        android:background="@color/white"
+        android:queryHint="Search by city name" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="198dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center|right"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+
+</FrameLayout>

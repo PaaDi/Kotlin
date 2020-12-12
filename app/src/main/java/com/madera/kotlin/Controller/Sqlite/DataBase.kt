@@ -1,11 +1,12 @@
-package com.madera.kotlin.Sqlite
+package com.madera.kotlin.Controller.Sqlite
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper;
+import com.madera.kotlin.Entity.User
+
 class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", null, 1)
 {
 
