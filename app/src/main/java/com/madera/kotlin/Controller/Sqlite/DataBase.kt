@@ -1,10 +1,11 @@
-package com.madera.kotlin.Sqlite
+package com.madera.kotlin.Controller.Sqlite
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
+import android.database.sqlite.SQLiteOpenHelper;
+import com.madera.kotlin.Entity.User
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -14,11 +15,7 @@ import org.json.JSONException
 
 import org.json.JSONObject
 
-
-
-
-
-class DataBase(context: Context) : SQLiteOpenHelper(context, "maderaBase.db", null, 1)
+class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", null, 1)
 {
 
     override fun onCreate(db: SQLiteDatabase?)

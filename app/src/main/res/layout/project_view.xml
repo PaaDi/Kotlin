@@ -6,43 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <fragment
-        android:id="@+id/menuFragment"
+        android:id="@+id/menuFragment2"
         android:name="com.madera.kotlin.Controller.Menu.MenuFragment"
         android:layout_width="902dp"
         android:layout_height="115dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <fragment
-        android:id="@+id/filterfragment"
+        android:id="@+id/filterfragment2"
         android:name="com.madera.kotlin.Controller.Menu.FilterFragment"
         android:layout_width="900dp"
         android:layout_height="79dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuFragment"
+        app:layout_constraintTop_toBottomOf="@+id/menuFragment2"
         tools:ignore="MissingConstraints" />
-
-    <fragment
-        android:id="@+id/buttonFragment"
-        android:name="com.madera.kotlin.Controller.Menu.ButtonFragment"
-        android:layout_width="900dp"
-        android:layout_height="245dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filterfragment" />
-
-    <fragment
-        android:id="@+id/fragment3"
-        android:name="com.madera.kotlin.Controller.Menu.ProjectListFragment"
-        android:layout_width="900dp"
-        android:layout_height="761dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFragment" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

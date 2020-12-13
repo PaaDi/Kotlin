@@ -1,5 +1,4 @@
-package com.madera.kotlin
-
+package com.madera.kotlin.Controller
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -11,13 +10,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.androidnetworking.AndroidNetworking
-import com.madera.kotlin.Authentification.PasswordMissActivity
-import com.madera.kotlin.Sqlite.DataBase
-import com.madera.kotlin.Sqlite.User
+import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
+import com.madera.kotlin.Controller.Sqlite.DataBase
+import com.madera.kotlin.Entity.User
+import com.madera.kotlin.Controller.Menu.MenuActivity
+import com.madera.kotlin.R
 import com.madera.kotlin.Sqlite.dbTest
 
 
@@ -59,6 +56,9 @@ class MainActivity : AppCompatActivity() {
 
              if (connectUser){
                  Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
+                 val i = Intent(this, MenuActivity::class.java)
+                 startActivity(i)
+
              }else{
                  Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
              }*/

@@ -1,11 +1,11 @@
-package com.madera.kotlin.Authentification
+package com.madera.kotlin.Controller.Authentification
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.madera.kotlin.MainActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.R
 
 class PasswordSendActivity : AppCompatActivity() {

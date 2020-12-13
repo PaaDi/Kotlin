@@ -1,4 +1,4 @@
-package com.madera.kotlin.Sqlite
+package com.madera.kotlin.Entity
 
 data class User(
     val pseudoUser: String,
