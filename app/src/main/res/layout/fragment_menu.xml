@@ -15,7 +15,7 @@
         android:layout_height="51dp"
         android:layout_gravity="center"
         android:text="Accueil"
-        android:textColor="@color/black"
+        android:textColor="@color/gray_500"
         android:textSize="30sp" />
 
     <Button

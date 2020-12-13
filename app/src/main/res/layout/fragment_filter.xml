@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|left"
         android:background="@color/white"
-        android:queryHint="Search by city name" />
+        android:queryHint="Rechercher dans la liste" />
 
     <Spinner
         android:id="@+id/spinner1"
