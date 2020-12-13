@@ -1,4 +1,4 @@
-package com.madera.kotlin.Sqlite;
+package com.madera.kotlin.Controller.Sqlite;
 
 import android.util.Log;
 
