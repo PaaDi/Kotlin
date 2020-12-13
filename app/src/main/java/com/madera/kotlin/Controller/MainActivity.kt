@@ -1,5 +1,4 @@
-package com.madera.kotlin
-
+package com.madera.kotlin.Controller
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.madera.kotlin.Authentification.PasswordMissActivity
+import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
+import com.madera.kotlin.Controller.Sqlite.DataBase
+import com.madera.kotlin.Entity.User
+import com.madera.kotlin.Controller.Menu.MenuActivity
+import com.madera.kotlin.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,20 +21,48 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
 
-        // Déclaration des composants de la vue
+        //region Components
         val btnConnect = findViewById(R.id.btnConnect) as Button
         val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
         val logoInfo = findViewById(R.id.logoInfo) as ImageView
+        val userToConnect = findViewById(R.id.userName) as TextView
+        val passToConnect = findViewById(R.id.userPass) as TextView
+        //endregion
+
+        //region DBQueries
+        /* DB connect to activity */
+        val database = DataBase(this)
+
+        /* TESTS add user in BDD if it's empty */
+        if (database.getUsersCount() == 0)
+        {
+            database.createUser(User("admin","admin","Paletou","Max","maxime.paletou@viacesi.fr",1))
+        }
+        
+        //endregion
 
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
 
-
+        //region Events Listeners
         // Listener Button Connexion
          btnConnect.setOnClickListener {
+
+             // Try to connect user
+             var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
+
+             if (connectUser){
+                 Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
+                 val i = Intent(this, MenuActivity::class.java)
+                 startActivity(i)
+
+             }else{
+                 Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
+             }
+
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
-            Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
-            val i = Intent(this, PasswordMissActivity::class.java)
-            startActivity(i)
+
+            //val i = Intent(this, PasswordMissActivity::class.java)
+            //startActivity(i)
         }
 
         // Listener Mot de passe oublié
@@ -63,5 +94,6 @@ class MainActivity : AppCompatActivity() {
             // show alert dialog
             alert.show()
         }
+        //endregion
     }
 }
