@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_500"
+    android:background="#0C8148"
     tools:context=".Controller.Menu.FilterFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,7 +14,7 @@
         android:layout_height="58dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|left"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:queryHint="Rechercher dans la liste" />
 
     <Spinner

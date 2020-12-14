@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/green_800"
+    android:background="#0C5A43"
     tools:context=".MenuFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/txtAccueil"
-        android:layout_width="129dp"
-        android:layout_height="51dp"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Accueil"
         android:textColor="@color/gray_500"
-        android:textSize="30sp" />
+        android:textSize="36sp" />
 
     <Button
         android:id="@+id/button"
@@ -29,9 +29,18 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="108dp"
+        android:layout_height="103dp"
         android:layout_gravity="center|left"
         android:src="@drawable/unnamed" />
+
+    <TextView
+        android:id="@+id/txtUsername"
+        android:layout_width="648dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="NomUtilisateur"
+        android:textColor="#FFFFFFFF"
+        android:textSize="16sp" />
 
 </FrameLayout>

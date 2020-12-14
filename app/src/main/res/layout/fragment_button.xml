@@ -9,21 +9,21 @@
     <Button
         android:id="@+id/btnListProject"
         android:layout_width="445dp"
-        android:layout_height="260dp"
+        android:layout_height="170dp"
         android:layout_gravity="center|left"
-        android:text="Liste des projets"
-        android:textColor="@color/black"
+        android:text="Les projets"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:backgroundTint="@color/white" />
+        app:backgroundTint="#0C8148" />
 
     <Button
         android:id="@+id/btnListClient"
         android:layout_width="445dp"
-        android:layout_height="260dp"
+        android:layout_height="170dp"
         android:layout_gravity="center|right"
-        android:text="Liste des clients"
-        android:textColor="@color/black"
+        android:text="Les Clients"
+        android:textColor="#FFFFFF"
         android:textColorHighlight="@color/green_500"
         android:textSize="24sp"
-        app:backgroundTint="@color/white" />
+        app:backgroundTint="#0C8148" />
 </FrameLayout>

@@ -1,11 +1,13 @@
 package com.madera.kotlin.Controller.Menu
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.madera.kotlin.R
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,14 +21,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class MenuFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var txtAccueil: String? = null
+    private var txtUsername: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            txtAccueil = it.getString(ARG_PARAM1)
+            txtUsername = it.getString(ARG_PARAM2)
         }
     }
 
@@ -36,6 +38,10 @@ class MenuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false)
+
+        //set the text of your text view
+        val txtAccueil = view!!.findViewById(R.id.txtAccueil) as TextView
+        txtAccueil.setText("Projets")
     }
 
     companion object {
@@ -49,11 +55,11 @@ class MenuFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(txtAccueil: String, txtUsername: String) =
             MenuFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, txtAccueil)
+                    putString(ARG_PARAM2, txtUsername)
                 }
             }
     }
