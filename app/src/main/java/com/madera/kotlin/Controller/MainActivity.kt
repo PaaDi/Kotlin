@@ -3,7 +3,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,7 +13,7 @@ import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Sqlite.DataBase
 import com.madera.kotlin.Entity.User
-import com.madera.kotlin.Controller.Menu.MenuActivity
+import com.madera.kotlin.Controller.Home.HomeActivity
 import com.madera.kotlin.Controller.Sqlite.dbTest
 import com.madera.kotlin.R
 
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
              if (connectUser){
                  Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
-                 val i = Intent(this, MenuActivity::class.java)
+                 val i = Intent(this, HomeActivity::class.java)
                  startActivity(i)
 
              }else{
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
 
-            val i = Intent(this, MenuActivity::class.java)
+            val i = Intent(this, HomeActivity::class.java)
             startActivity(i)
         }
 

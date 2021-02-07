@@ -10,14 +10,14 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/btnCreateProject"
+        android:id="@+id/btnCreateClient"
         android:layout_width="700dp"
         android:layout_height="65dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@color/black"
-        android:text="Creér un nouveau projet"
+        android:text="Creér un nouveau client"
         android:textColor="#222222"
         app:backgroundTint="#FFFFFF" />
 

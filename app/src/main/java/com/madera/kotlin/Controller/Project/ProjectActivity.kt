@@ -1,4 +1,4 @@
-package com.madera.kotlin.Controller.Menu
+package com.madera.kotlin.Controller.Home
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -22,8 +22,6 @@ class ProjectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.project_view)
-
-
 
         val btnFilter = findViewById<Spinner>(R.id.spinner1)
         val items = arrayOf("François", "Yves", "Guillaume", "Marta", "Mélanie")

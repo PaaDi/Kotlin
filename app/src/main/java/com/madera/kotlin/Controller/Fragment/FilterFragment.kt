@@ -1,4 +1,4 @@
-package com.madera.kotlin.Controller.Menu
+package com.madera.kotlin.Controller.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

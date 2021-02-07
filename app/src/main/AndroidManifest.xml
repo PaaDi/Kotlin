@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.madera.kotlin">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotlin2">
-
+        <activity android:name=".Controller.Client.NewClientActivity"></activity>
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.madera.kotlin.Controller.Authentification.PasswordMissActivity">
-        </activity>
-        <activity android:name="com.madera.kotlin.Controller.Authentification.PasswordSendActivity">
-        </activity>
-        <activity android:name="com.madera.kotlin.Controller.Menu.MenuActivity">
-        </activity>
-        <activity android:name="com.madera.kotlin.Controller.Menu.ProjectActivity">
-        </activity>
+        <activity android:name=".Controller.Authentification.PasswordMissActivity"></activity>
+        <activity android:name=".Controller.Authentification.PasswordSendActivity"></activity>
+        <activity android:name=".Controller.Home.HomeActivity"></activity>
+        <activity android:name=".Controller.Home.ProjectActivity"></activity>
+        <activity android:name=".Controller.Home.ClientActivity"></activity>
     </application>
 
 </manifest>

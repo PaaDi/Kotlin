@@ -1,13 +1,11 @@
-package com.madera.kotlin.Controller.Menu
+package com.madera.kotlin.Controller.Fragment
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.madera.kotlin.R
-
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,19 +14,21 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
+ * Use the [ButtonFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MenuFragment : Fragment() {
+class ButtonFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var txtAccueil: String? = null
-    private var txtUsername: String? = null
+    private var param1: String? = null
+    private var param2: String? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            txtAccueil = it.getString(ARG_PARAM1)
-            txtUsername = it.getString(ARG_PARAM2)
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -37,11 +37,7 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false)
-
-        //set the text of your text view
-        val txtAccueil = view!!.findViewById(R.id.txtAccueil) as TextView
-        txtAccueil.setText("Projets")
+        return inflater.inflate(R.layout.fragment_button, container, false)
     }
 
     companion object {
@@ -51,15 +47,15 @@ class MenuFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MenuFragment.
+         * @return A new instance of fragment ButtonFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(txtAccueil: String, txtUsername: String) =
-            MenuFragment().apply {
+        fun newInstance(param1: String, param2: String) =
+            ButtonFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, txtAccueil)
-                    putString(ARG_PARAM2, txtUsername)
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
             }
     }

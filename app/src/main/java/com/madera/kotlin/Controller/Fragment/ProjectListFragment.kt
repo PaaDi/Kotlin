@@ -1,4 +1,4 @@
-package com.madera.kotlin.Controller.Menu
+package com.madera.kotlin.Controller.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.madera.kotlin.Controller.Home.MyItemRecyclerViewAdapter
 import com.madera.kotlin.R
-import com.madera.kotlin.Controller.Menu.dummy.DummyContent
+import com.madera.kotlin.Controller.Home.dummy.DummyContent
 
 /**
  * A fragment representing a list of Items.

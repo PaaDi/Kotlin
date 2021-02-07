@@ -1,4 +1,4 @@
-package com.madera.kotlin.Controller.Menu.dummy
+package com.madera.kotlin.Controller.Home.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

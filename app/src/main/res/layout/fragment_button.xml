@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.Menu.ButtonFragment">
+    tools:context=".Controller.Fragment.ButtonFragment">
 
     <Button
         android:id="@+id/btnListProject"
         android:layout_width="445dp"
         android:layout_height="170dp"
         android:layout_gravity="center|left"
-        android:text="Les projets"
+        android:text="Les Projets"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:backgroundTint="#0C8148" />

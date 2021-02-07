@@ -1,4 +1,4 @@
-package com.madera.kotlin.Controller.Menu
+package com.madera.kotlin.Controller.Home
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.madera.kotlin.R
 
-import com.madera.kotlin.Controller.Menu.dummy.DummyContent.DummyItem
+import com.madera.kotlin.Controller.Home.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
