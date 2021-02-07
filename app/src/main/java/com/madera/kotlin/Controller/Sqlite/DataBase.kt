@@ -57,7 +57,6 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
                     cursor.getString(cursor.getColumnIndex("mailUser")),
                     cursor.getInt(cursor.getColumnIndex("roleUser"))
                 )
-
                 users.add(user)
             }
 
