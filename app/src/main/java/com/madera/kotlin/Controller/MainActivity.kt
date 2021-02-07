@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
          btnConnect.setOnClickListener {
 
              // Try to connect user
-            /* var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
+             var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
 
 
              if (connectUser){
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
              }else{
                  Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
-             }*/
+             }
 
             // database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
