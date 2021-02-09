@@ -12,6 +12,7 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -123,8 +124,8 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
             .setTag("test")
             .setPriority(Priority.MEDIUM)
             .build()
-            .getAsJSONArray(object : JSONArrayRequestListener {
-                override fun onResponse(response: JSONArray) {
+            .getAsJSONObject(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject ) {
                     var test = response.toString()
                 }
 

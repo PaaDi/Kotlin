@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import static android.content.ContentValues.TAG;
 
-public class dbTest {
+public class dbTestUNUSED {
 
  public void loginToAPI(String user, String pass){
      JSONObject jsonObject = new JSONObject();

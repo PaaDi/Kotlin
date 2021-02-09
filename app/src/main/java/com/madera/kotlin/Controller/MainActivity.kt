@@ -14,7 +14,7 @@ import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Sqlite.DataBase
 import com.madera.kotlin.Entity.User
 import com.madera.kotlin.Controller.Home.HomeActivity
-import com.madera.kotlin.Controller.Sqlite.dbTest
+import com.madera.kotlin.Controller.Sqlite.dbTestUNUSED
 import com.madera.kotlin.R
 
 
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
              database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
-            val dbClass = dbTest()
+            val dbClass = dbTestUNUSED()
             // dbClass.loginToAPI(userToConnect.text.toString(),passToConnect.text.toString())
 
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
