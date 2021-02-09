@@ -1,10 +1,12 @@
 package com.madera.kotlin.Controller.Sqlite
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log
 import com.madera.kotlin.Entity.User
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
@@ -127,7 +129,15 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
                 }
 
                 override fun onError(error: ANError) {
-                    // handle error
+                    if (error.getErrorCode() != 0) {
+                        Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                        Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                        Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                    } else {
+                        Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                        Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                        Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                    }
                 }
             })
     }

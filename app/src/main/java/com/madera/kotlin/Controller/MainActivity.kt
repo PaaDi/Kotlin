@@ -63,10 +63,10 @@ class MainActivity : AppCompatActivity() {
                  Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
              }
 
-            // database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+             database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
             val dbClass = dbTest()
-             dbClass.loginToAPI(userToConnect.text.toString(),passToConnect.text.toString())
+            // dbClass.loginToAPI(userToConnect.text.toString(),passToConnect.text.toString())
 
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
 
