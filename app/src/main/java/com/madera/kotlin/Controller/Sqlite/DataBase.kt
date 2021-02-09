@@ -93,23 +93,10 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
         return connectSuccess
     }
 
- //region Test HTTPRequests
+ //region Requêtes API
 
     fun connectToApi(user: String, pass: String){
-       /* AndroidNetworking.post("http://maderaprod.mconan.ovh/API/login")
-                .addBodyParameter("username", user)
-                .addBodyParameter("password", pass)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONArray(object : JSONArrayRequestListener {
-                    override fun onResponse(response: JSONArray) {
 
-                    }
-
-                    override fun onError(error: ANError) {
-                        // handle error
-                    }
-                })*/
         val jsonObject = JSONObject()
         try {
             jsonObject.put("username", user)

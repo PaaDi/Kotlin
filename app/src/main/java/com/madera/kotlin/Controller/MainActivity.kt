@@ -23,86 +23,82 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
         AndroidNetworking.initialize(getApplicationContext());
+
         //region Components
-        val btnConnect = findViewById(R.id.btnConnect) as Button
-        val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
-        val logoInfo = findViewById(R.id.logoInfo) as ImageView
-        val userToConnect = findViewById(R.id.userName) as TextView
-        val passToConnect = findViewById(R.id.userPass) as TextView
+            val btnConnect = findViewById(R.id.btnConnect) as Button
+            val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
+            val logoInfo = findViewById(R.id.logoInfo) as ImageView
+            val userToConnect = findViewById(R.id.userName) as TextView
+            val passToConnect = findViewById(R.id.userPass) as TextView
         //endregion
 
         //region DBQueries
-        /* DB connect to activity */
-        val database = DataBase(this)
+            /* DB connect to activity */
+            val database = DataBase(this)
 
 
-        /* TESTS add user in BDD if it's empty */
-        if (database.getUsersCount() == 0)
-        {
-            database.createUser(User("admin", "admin", "Paletou", "Max", "maxime.paletou@viacesi.fr", 1))
-        }
+            /* TESTS add user in BDD if it's empty */
+            if (database.getUsersCount() == 0)
+            {
+                database.createUser(User("admin", "admin", "Paletou", "Max", "maxime.paletou@viacesi.fr", 1))
+            }
 
         //endregion
 
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
 
         //region Events Listeners
-        // Listener Button Connexion
-         btnConnect.setOnClickListener {
+            // Bouton de connexion
+             btnConnect.setOnClickListener {
 
-             // Try to connect user
-             var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
+                 // Test de connexion utilisateur
+                 //TODO: Remplacer la connexion locale par la connexion API
+                 var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
 
+                 if (connectUser){
+                     Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
+                     val i = Intent(this, HomeActivity::class.java)
+                     startActivity(i)
+                 }else{
+                     Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
+                 }
 
-             if (connectUser){
-                 Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
-                 val i = Intent(this, HomeActivity::class.java)
-                 startActivity(i)
+                 // Test de connexion API
+                 database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
-             }else{
-                 Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
-             }
+                val i = Intent(this, HomeActivity::class.java)
+                startActivity(i)
+            }
 
-             database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+            // Bouton mot de passe oublié
+            titlePassMiss.setOnClickListener {
+                // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+                Toast.makeText(this@MainActivity, "Vous avez oubliez votre mot de passe ?", Toast.LENGTH_SHORT).show()
+                val i = Intent(this, PasswordMissActivity::class.java)
+                startActivity(i)
+            }
 
-            val dbClass = dbTestUNUSED()
-            // dbClass.loginToAPI(userToConnect.text.toString(),passToConnect.text.toString())
+            // Bulle d'information
+            logoInfo.setOnClickListener {
+                // build alert dialog
+                val dialogBuilder = AlertDialog.Builder(this)
 
-            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+                // set message of alert dialog
+                dialogBuilder.setMessage("Pour accéder à votre espace personnel, veuillez saisir votre nom d'utilisateur ainsi que votre mot de passe.")
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // positive button text and action
+                        .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
+                            dialog.cancel()
+                        })
 
-            val i = Intent(this, HomeActivity::class.java)
-            startActivity(i)
-        }
-
-        // Listener Mot de passe oublié
-        titlePassMiss.setOnClickListener {
-            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
-            Toast.makeText(this@MainActivity, "Vous avez oubliez votre mot de passe ?", Toast.LENGTH_SHORT).show()
-            val i = Intent(this, PasswordMissActivity::class.java)
-            startActivity(i)
-        }
-
-        // Listener Bulle d'info
-        logoInfo.setOnClickListener {
-            // build alert dialog
-            val dialogBuilder = AlertDialog.Builder(this)
-
-            // set message of alert dialog
-            dialogBuilder.setMessage("Pour accéder à votre espace personnel, veuillez saisir votre nom d'utilisateur ainsi que votre mot de passe.")
-                    // if the dialog is cancelable
-                    .setCancelable(false)
-                    // positive button text and action
-                    .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
-                        dialog.cancel()
-                    })
-
-            // create dialog box
-            val alert = dialogBuilder.create()
-            // set title for alert dialog box
-            alert.setTitle("Bienvenue !")
-            // show alert dialog
-            alert.show()
-        }
+                // create dialog box
+                val alert = dialogBuilder.create()
+                // set title for alert dialog box
+                alert.setTitle("Bienvenue !")
+                // show alert dialog
+                alert.show()
+            }
         //endregion
     }
 }

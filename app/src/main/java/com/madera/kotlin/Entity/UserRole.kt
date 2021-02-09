@@ -8,5 +8,4 @@ class UserRole {
     var prenom: String = ""
     var email: String = ""
     var idRole: Int = 0
-
 }
