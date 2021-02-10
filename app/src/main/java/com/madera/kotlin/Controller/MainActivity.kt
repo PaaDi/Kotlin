@@ -9,20 +9,29 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Sqlite.DataBase
 import com.madera.kotlin.Entity.User
 import com.madera.kotlin.Controller.Home.HomeActivity
 import com.madera.kotlin.Controller.Sqlite.dbTestUNUSED
+import com.madera.kotlin.Database.MaderaBase
 import com.madera.kotlin.R
 
 
 class MainActivity : AppCompatActivity() {
+    companion object{
+        var dataBase: MaderaBase? = null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
         AndroidNetworking.initialize(getApplicationContext());
+
+        //region Database Implementation
+            MainActivity.dataBase = Room.databaseBuilder(this, MaderaBase::class.java, "MaderaBase").build()
+        //endregion
 
         //region Components
             val btnConnect = findViewById(R.id.btnConnect) as Button
@@ -33,15 +42,6 @@ class MainActivity : AppCompatActivity() {
         //endregion
 
         //region DBQueries
-            /* DB connect to activity */
-            val database = DataBase(this)
-
-
-            /* TESTS add user in BDD if it's empty */
-            if (database.getUsersCount() == 0)
-            {
-                database.createUser(User("admin", "admin", "Paletou", "Max", "maxime.paletou@viacesi.fr", 1))
-            }
 
         //endregion
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
                  // Test de connexion utilisateur
                  //TODO: Remplacer la connexion locale par la connexion API
-                 var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
+                 /*var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
 
                  if (connectUser){
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                  }
 
                  // Test de connexion API
-                 database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+                 database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())*/
 
                 val i = Intent(this, HomeActivity::class.java)
                 startActivity(i)

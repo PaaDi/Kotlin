@@ -32,7 +32,7 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
     }
 
     // Create user in DB
-    fun createUser(user: User)
+   /* fun createUser(user: User)
     {
         val values = ContentValues()
         values.put("pseudoUser", user.pseudoUser)
@@ -92,7 +92,7 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
 
 
         return connectSuccess
-    }
+    }*/
 
  //region Requêtes API
 
