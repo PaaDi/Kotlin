@@ -13,6 +13,10 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
     fun insert(user: User) = viewModelScope.launch {
         repository.insert(user)
     }
+
+    fun connectUser(login: String, pass: String) = viewModelScope.launch {
+        repository.connectUser(login,pass)
+    }
 }
 
 /**

@@ -12,4 +12,11 @@ class UserRepository(private val userDao: UserDao) {
     suspend fun insert(user: User){
         userDao.createUser(user)
     }
+
+    // Insertion de l'utilisateur dans la BDD
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun connectUser(login: String, pass: String){
+        userDao.connectUser(login,pass)
+    }
 }

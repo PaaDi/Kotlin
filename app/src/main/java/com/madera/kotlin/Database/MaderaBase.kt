@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.madera.kotlin.Dao.UserDao
 import com.madera.kotlin.Entity.User
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Database(entities = arrayOf(
     User::class
@@ -27,10 +29,34 @@ abstract class MaderaBase : RoomDatabase() {
                     context.applicationContext,
                     MaderaBase::class.java,
                     "Madera-db"
-                ).build()
+                ).allowMainThreadQueries().build()
 
                 INSTANCE = instance
                 instance
+            }
+        }
+
+        /**
+         * Callback de la database Madera pour pré-remplissage
+         * TODO Intégrer la liaison API pour mettre à jour la database avec les nouvelles informations
+         */
+        private class MaderaBaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback(){
+
+            override fun onCreate(db: SupportSQLiteDatabase) {
+                super.onCreate(db)
+                INSTANCE?.let { database ->
+                    scope.launch {
+                        populateDatabase(database.userDao())
+                    }
+                }
+            }
+
+            suspend fun populateDatabase(userDao: UserDao){
+                userDao.deleteAll()
+
+                // Ajout d'un utilisateur dans la base
+                var admin = User(0,"Administrateur","admin","Max","Paletou",1)
+                userDao.createUser(admin)
             }
         }
     }

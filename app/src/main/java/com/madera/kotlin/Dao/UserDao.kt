@@ -1,9 +1,6 @@
 package com.madera.kotlin.Dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.madera.kotlin.Entity.User
 import kotlinx.coroutines.flow.Flow
 
@@ -14,8 +11,12 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createUser(user: User) : Long
 
+
+    @Query("DELETE FROM user")
+    suspend fun deleteAll()
+
     @Query("SELECT * FROM user WHERE pseudoUser=:login AND passwordUser=:pass")
-    fun connectUser(login: String, pass: String) : User
+    fun connectUser(login: String, pass: String) : Boolean
 
     // Permet d'observer le mouvement des valeurs et afficher les valeurs à jour grâce à Flow provenant des coroutines Kotlin (Pas utile pour les utilisateurs mais peut l'être sur d'autres DAO
     @Query("SELECT * FROM user ORDER BY id ASC")

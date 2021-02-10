@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
@@ -17,21 +18,19 @@ import com.madera.kotlin.Entity.User
 import com.madera.kotlin.Controller.Home.HomeActivity
 import com.madera.kotlin.Controller.Sqlite.dbTestUNUSED
 import com.madera.kotlin.Database.MaderaBase
+import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
+import com.madera.kotlin.ViewModel.UserViewModel
+import com.madera.kotlin.ViewModel.UserViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {
-    companion object{
-        var dataBase: MaderaBase? = null
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
         AndroidNetworking.initialize(getApplicationContext());
 
-        //region Database Implementation
-            MainActivity.dataBase = Room.databaseBuilder(this, MaderaBase::class.java, "MaderaBase").build()
-        //endregion
 
         //region Components
             val btnConnect = findViewById(R.id.btnConnect) as Button
@@ -41,7 +40,10 @@ class MainActivity : AppCompatActivity() {
             val passToConnect = findViewById(R.id.userPass) as TextView
         //endregion
 
-        //region DBQueries
+        //region viewModel Implement
+            val userViewModel: UserViewModel by viewModels{
+                UserViewModelFactory((application as MaderaApplication).repositoryUser)
+            }
 
         //endregion
 
@@ -53,18 +55,19 @@ class MainActivity : AppCompatActivity() {
 
                  // Test de connexion utilisateur
                  //TODO: Remplacer la connexion locale par la connexion API
-                 /*var connectUser = database.tryToConnect(userToConnect.text.toString(),passToConnect.text.toString())
+                 val connectUser = userViewModel.connectUser(userToConnect.text.toString(),passToConnect.text.toString())
 
-                 if (connectUser){
+
+                 /*if (connectUser){
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
                      val i = Intent(this, HomeActivity::class.java)
                      startActivity(i)
                  }else{
                      Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
-                 }
+                 }*/
 
                  // Test de connexion API
-                 database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())*/
+                 //database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
                 val i = Intent(this, HomeActivity::class.java)
                 startActivity(i)

@@ -12,5 +12,5 @@ class User(
     @ColumnInfo(name = "passwordUser") val passwordUser: String,
     @ColumnInfo(name = "nameUser") val nameUser: String,
     @ColumnInfo(name = "firstNameUser") val firstNameUser: String,
-    @ColumnInfo(name = "roleUser") val roleUser: String,
+    @ColumnInfo(name = "roleUser") val roleUser: Int,
 )
