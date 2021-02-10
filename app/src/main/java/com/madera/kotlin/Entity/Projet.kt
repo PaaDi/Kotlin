@@ -2,7 +2,6 @@ package com.madera.kotlin.Entity
 
 import java.sql.Date
 
-
 data class Projet(
     val idProjet: Int,
     val nom: String,

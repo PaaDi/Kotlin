@@ -24,6 +24,7 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
     override fun onCreate(db: SQLiteDatabase?)
     {
         db?.execSQL("CREATE TABLE users (idUser INTEGER PRIMARY KEY, pseudoUser TEXT, passwordUser TEXT, nameUser TEXT, firstNameUser TEXT, mailUser TEXT, roleUser INTEGER)")
+        
     }
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int)
     {

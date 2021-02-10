@@ -1,5 +1,6 @@
 package `in`.madera.kotlin.Sqlite
 
+
 class Login {
     var idUser: Int = 0
     var username: String = ""
