@@ -19,7 +19,7 @@ abstract class MaderaBase : RoomDatabase() {
     // Insertion des DAO
     abstract fun userDao() : UserDao
 
-    // Singleton de ma database
+    // Singleton de ma database permettant de l'appeller quand nécessaire via instances
     companion object{
         @Volatile
         private var INSTANCE: MaderaBase? = null

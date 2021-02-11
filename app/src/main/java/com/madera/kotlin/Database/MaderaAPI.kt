@@ -13,18 +13,8 @@ import org.json.JSONException
 
 import org.json.JSONObject
 
-class MaderaAPI(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", null, 1)
+class MaderaAPI(context: Context)
 {
-
-    override fun onCreate(db: SQLiteDatabase?)
-    {
-       // db?.execSQL("CREATE TABLE users (idUser INTEGER PRIMARY KEY, pseudoUser TEXT, passwordUser TEXT, nameUser TEXT, firstNameUser TEXT, mailUser TEXT, roleUser INTEGER)")
-        
-    }
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int)
-    {
-        TODO("Not yet implemented")
-    }
 
     //region Requêtes API
 

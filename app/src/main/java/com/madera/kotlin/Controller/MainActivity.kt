@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
 
-        AndroidNetworking.initialize(getApplicationContext());
         val API = MaderaAPI(this)
 
         //region Components
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             val userViewModel: UserViewModel by viewModels{
                 UserViewModelFactory((application as MaderaApplication).repositoryUser)
             }
-
         //endregion
 
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
