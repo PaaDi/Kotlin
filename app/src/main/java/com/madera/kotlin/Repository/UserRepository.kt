@@ -1,6 +1,7 @@
 package com.madera.kotlin.Repository
 
 import androidx.annotation.WorkerThread
+import androidx.room.Query
 import com.madera.kotlin.Dao.UserDao
 import com.madera.kotlin.Entity.User
 
@@ -13,10 +14,8 @@ class UserRepository(private val userDao: UserDao) {
         userDao.createUser(user)
     }
 
-    // Insertion de l'utilisateur dans la BDD
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    suspend fun connectUser(login: String, pass: String){
-        userDao.connectUser(login,pass)
+    fun connectUser(login: String, pass: String) : Boolean
+    {
+        return userDao.connectUser(login,pass)
     }
 }

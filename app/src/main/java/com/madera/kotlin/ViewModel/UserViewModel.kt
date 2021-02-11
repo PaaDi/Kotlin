@@ -14,8 +14,9 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
         repository.insert(user)
     }
 
-    fun connectUser(login: String, pass: String) = viewModelScope.launch {
-        repository.connectUser(login,pass)
+    fun connectUser(login: String, pass: String) : Boolean
+    {
+        return repository.connectUser(login,pass)
     }
 }
 

@@ -8,6 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.madera.kotlin.Dao.UserDao
 import com.madera.kotlin.Entity.User
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Database(entities = arrayOf(
@@ -29,7 +30,11 @@ abstract class MaderaBase : RoomDatabase() {
                     context.applicationContext,
                     MaderaBase::class.java,
                     "Madera-db"
-                ).allowMainThreadQueries().build()
+                )
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .addCallback(MaderaBaseCallback(scope))
+                        .build()
 
                 INSTANCE = instance
                 instance
@@ -45,7 +50,7 @@ abstract class MaderaBase : RoomDatabase() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
                 INSTANCE?.let { database ->
-                    scope.launch {
+                    scope.launch(Dispatchers.IO) {
                         populateDatabase(database.userDao())
                     }
                 }

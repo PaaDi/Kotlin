@@ -11,7 +11,6 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createUser(user: User) : Long
 
-
     @Query("DELETE FROM user")
     suspend fun deleteAll()
 
