@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Home.HomeActivity
+import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.UserViewModel
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
+
         AndroidNetworking.initialize(getApplicationContext());
-        
+        val API = MaderaAPI(this)
+
         //region Components
             val btnConnect = findViewById(R.id.btnConnect) as Button
             val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                  val connectUser = userViewModel.connectUser(userToConnect.text.toString(),passToConnect.text.toString())
 
                  if (connectUser){
+                     API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
                      val i = Intent(this, HomeActivity::class.java)
                      startActivity(i)
