@@ -1,12 +1,11 @@
 package `in`.madera.kotlin.Sqlite
 
-class UserRole {
-    var idUser: Int = 0
-    var username: String = ""
-    var password: String = ""
-    var nom: String = ""
-    var prenom: String = ""
-    var email: String = ""
-    var idRole: Int = 0
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-}
+@Entity
+class UserRole (
+    @PrimaryKey var id: Int,
+    var role: String?,
+    var est_admin: Boolean
+)

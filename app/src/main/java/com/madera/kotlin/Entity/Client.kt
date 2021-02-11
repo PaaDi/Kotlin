@@ -4,8 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Chantier(
+data class Client(
     @PrimaryKey var id: Int,
     val nom: String?,
-    val notes: String?
+    val prenom: String?,
+    val adresse: String?,
+    val numero_tel: String?,
+    val entreprise: String?
 )

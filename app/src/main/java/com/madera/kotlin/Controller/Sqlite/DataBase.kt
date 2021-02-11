@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper;
-import com.madera.kotlin.Entity.User
+import com.madera.kotlin.Entity.Login
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -28,7 +28,7 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
     }
 
     // Create user in DB
-    fun createUser(user: User)
+    fun createUser(user: Login)
     {
         val values = ContentValues()
         values.put("pseudoUser", user.pseudoUser)
@@ -42,14 +42,14 @@ class DataBase(context: Context) : SQLiteOpenHelper(context,"maderaBase.db", nul
     }
 
     // Get users from DB
-    fun getAllUsers() : MutableList<User>{
-        val users = mutableListOf<User>()
+    fun getAllUsers() : MutableList<Login>{
+        val users = mutableListOf<Login>()
 
         // Request and Get users with cursor
         readableDatabase.rawQuery("SELECT * FROM users", null).use { cursor ->
             while (cursor.moveToNext())
             {
-                val user = User(
+                val user = Login(
                     cursor.getString(cursor.getColumnIndex("pseudoUser")),
                     cursor.getString(cursor.getColumnIndex("passwordUser")),
                     cursor.getString(cursor.getColumnIndex("nameUser")),

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Sqlite.DataBase
-import com.madera.kotlin.Entity.User
+import com.madera.kotlin.Entity.Login
 import com.madera.kotlin.Controller.Home.HomeActivity
 import com.madera.kotlin.Controller.Sqlite.dbTest
 import com.madera.kotlin.R
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         /* TESTS add user in BDD if it's empty */
         if (database.getUsersCount() == 0)
         {
-            database.createUser(User("admin", "admin", "Paletou", "Max", "maxime.paletou@viacesi.fr", 1))
+            database.createUser(Login("admin", "admin", "Paletou", "Max", "maxime.paletou@viacesi.fr", 1))
         }
 
         //endregion

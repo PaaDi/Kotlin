@@ -1,12 +1,16 @@
-package `in`.madera.kotlin.Sqlite
+package com.madera.kotlin.Entity
 
-class Login {
-    var idUser: Int = 0
-    var username: String = ""
-    var password: String = ""
-    var nom: String = ""
-    var prenom: String = ""
-    var email: String = ""
-    var idRole: Int = 0
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
-}
+@Entity
+data class Login(
+    @PrimaryKey var id: Int,
+    val pseudoUser: String?,
+    val passwordUser: String?,
+    val nameUser: String?,
+    val firstNameUser: String?,
+    val mailUser: String?,
+    val roleUser: Int
+)
