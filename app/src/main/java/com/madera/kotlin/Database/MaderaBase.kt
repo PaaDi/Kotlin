@@ -61,6 +61,7 @@ abstract class MaderaBase : RoomDatabase() {
 
                 // Ajout d'un utilisateur dans la base
                 var admin = User(0,"Administrateur","admin","Max","Paletou",1)
+
                 userDao.createUser(admin)
             }
         }

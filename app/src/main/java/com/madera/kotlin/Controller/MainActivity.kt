@@ -10,14 +10,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
-import com.madera.kotlin.Controller.Sqlite.DataBase
-import com.madera.kotlin.Entity.User
 import com.madera.kotlin.Controller.Home.HomeActivity
-import com.madera.kotlin.Controller.Sqlite.dbTestUNUSED
-import com.madera.kotlin.Database.MaderaBase
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.UserViewModel
@@ -30,8 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
         AndroidNetworking.initialize(getApplicationContext());
-
-
+        
         //region Components
             val btnConnect = findViewById(R.id.btnConnect) as Button
             val titlePassMiss = findViewById(R.id.titlePassMiss) as TextView
@@ -57,20 +51,17 @@ class MainActivity : AppCompatActivity() {
                  //TODO: Remplacer la connexion locale par la connexion API
                  val connectUser = userViewModel.connectUser(userToConnect.text.toString(),passToConnect.text.toString())
 
-
-                 /*if (connectUser){
+                 if (connectUser){
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
                      val i = Intent(this, HomeActivity::class.java)
                      startActivity(i)
                  }else{
                      Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
-                 }*/
+                 }
 
                  // Test de connexion API
                  //database.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
 
-                val i = Intent(this, HomeActivity::class.java)
-                startActivity(i)
             }
 
             // Bouton mot de passe oublié

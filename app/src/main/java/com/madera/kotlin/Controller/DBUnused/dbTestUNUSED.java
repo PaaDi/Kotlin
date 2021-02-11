@@ -1,9 +1,8 @@
-package com.madera.kotlin.Controller.Sqlite;
+package com.madera.kotlin.Controller.DBUnused;
 
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;;
 
