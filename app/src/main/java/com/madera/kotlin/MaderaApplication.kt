@@ -9,6 +9,9 @@ import com.androidnetworking.AndroidNetworking
 
 class MaderaApplication : Application() {
 
+    companion object{
+        var globalTest = "TestGlobalVar"
+    }
     override fun onCreate() {
         super.onCreate()
         // API Init

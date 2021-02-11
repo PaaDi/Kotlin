@@ -1,11 +1,14 @@
 package com.madera.kotlin.Controller.Fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.madera.kotlin.Controller.Home.HomeActivity
+import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
 
@@ -24,10 +27,11 @@ class MenuFragment : Fragment() {
     private var txtAccueil: String? = null
     private var txtUsername: String? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            txtAccueil = it.getString(ARG_PARAM1)
             txtUsername = it.getString(ARG_PARAM2)
         }
     }
@@ -40,8 +44,16 @@ class MenuFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_menu, container, false)
 
         //set the text of your text view
-        val txtAccueil = view!!.findViewById(R.id.txtAccueil) as TextView
-        txtAccueil.setText("Projets")
+        /*val txtAccueil = view!!.findViewById(R.id.txtAccueil) as TextView
+        txtAccueil.setText("Projets")*/
+
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        arguments?.getString(txtUsername)?.let {
+            txtUsername = it
+        }
     }
 
     companion object {
@@ -55,12 +67,14 @@ class MenuFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(txtAccueil: String, txtUsername: String) =
-            MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, txtAccueil)
-                    putString(ARG_PARAM2, txtUsername)
+        fun newInstance(txtUsername: String) =
+                MenuFragment().apply {
+                    arguments = Bundle(1).apply {
+                        putString(ARG_PARAM2, txtUsername)
+
+                    }
                 }
-            }
     }
+
+
 }
