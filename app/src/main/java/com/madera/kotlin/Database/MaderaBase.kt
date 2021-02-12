@@ -49,7 +49,7 @@ abstract class MaderaBase : RoomDatabase() {
 
         /**
          * Callback de la database Madera pour pré-remplissage
-         * TODO Intégrer la liaison API pour mettre à jour la database avec les nouvelles informations
+         * TODO Intégrer la liaison API pour créer la database avec les infos de la BDD online
          */
         private class MaderaBaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback(){
 

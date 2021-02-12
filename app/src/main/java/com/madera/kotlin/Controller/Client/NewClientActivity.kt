@@ -24,6 +24,7 @@ class NewClientActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(editClientView.text)){
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             }else{
+                // TODO : Envoi de l'ensbemble des informations nécessaire à la création client
                 val client = editClientView.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY, client)
                 setResult(Activity.RESULT_OK, replyIntent)

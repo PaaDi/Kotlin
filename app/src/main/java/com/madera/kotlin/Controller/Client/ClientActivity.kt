@@ -46,7 +46,6 @@ class ClientActivity : AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
 
-
         //region Components
         val btnCreateClient = findViewById(R.id.btnCreateClient) as Button
 
@@ -82,6 +81,7 @@ class ClientActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newClientActivityRequestCode && resultCode == Activity.RESULT_OK){
+            // TODO : Récupération de l'ensemble des informations nécessaire à la création client
             data?.getStringExtra(NewClientActivity.EXTRA_REPLY)?.let {
                 val client = Client(it)
                 clientViewModel.createClient(client)

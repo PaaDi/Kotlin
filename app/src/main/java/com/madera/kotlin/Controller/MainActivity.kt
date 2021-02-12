@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
              btnConnect.setOnClickListener {
 
                  // Test de connexion utilisateur
-                 //TODO: Remplacer la connexion locale par la connexion API
                  val connectUser = userViewModel.connectUser(userToConnect.text.toString(),passToConnect.text.toString())
 
                  if (connectUser){
