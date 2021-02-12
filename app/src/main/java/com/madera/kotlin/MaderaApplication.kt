@@ -6,6 +6,7 @@ import com.madera.kotlin.Repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import com.androidnetworking.AndroidNetworking
+import com.madera.kotlin.Repository.ClientRepository
 
 class MaderaApplication : Application() {
 
@@ -21,7 +22,9 @@ class MaderaApplication : Application() {
     val applicationScope = CoroutineScope(SupervisorJob())
 
     val database by lazy { MaderaBase.getDatabase(this, applicationScope) }
-    val repositoryUser by lazy { UserRepository(database.userDao()) }
+    val repositoryUser by lazy { UserRepository(database.userDao())}
+    val repositoryClient by lazy { ClientRepository(database.clientDao())}
+
 
 
 

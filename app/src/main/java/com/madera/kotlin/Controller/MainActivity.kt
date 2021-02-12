@@ -14,6 +14,7 @@ import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Home.HomeActivity
 import com.madera.kotlin.Database.MaderaAPI
+import com.madera.kotlin.Entity.User
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.UserViewModel
@@ -43,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         //endregion
 
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
-
         //region Events Listeners
             // Bouton de connexion
              btnConnect.setOnClickListener {
