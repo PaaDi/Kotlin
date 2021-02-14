@@ -4,20 +4,26 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.madera.kotlin.Dao.ClientDao
 import com.madera.kotlin.Dao.UserDao
+import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.Entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
 @Database(entities = arrayOf(
-    User::class
+        User::class, Client::class
 ), version = 1)
 abstract class MaderaBase : RoomDatabase() {
 
     // Insertion des DAO
     abstract fun userDao() : UserDao
+    abstract fun clientDao() : ClientDao
+
 
     // Singleton de ma database permettant de l'appeller quand nécessaire via instances
     companion object{
@@ -27,9 +33,9 @@ abstract class MaderaBase : RoomDatabase() {
         fun getDatabase(context: Context, scope: CoroutineScope): MaderaBase{
             return INSTANCE ?: synchronized(this){
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    MaderaBase::class.java,
-                    "Madera-db"
+                        context.applicationContext,
+                        MaderaBase::class.java,
+                        "Madera-db"
                 )
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
@@ -43,7 +49,7 @@ abstract class MaderaBase : RoomDatabase() {
 
         /**
          * Callback de la database Madera pour pré-remplissage
-         * TODO Intégrer la liaison API pour mettre à jour la database avec les nouvelles informations
+         * TODO Intégrer la liaison API pour créer la database avec les infos de la BDD online
          */
         private class MaderaBaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback(){
 
@@ -60,7 +66,7 @@ abstract class MaderaBase : RoomDatabase() {
                 userDao.deleteAll()
 
                 // Ajout d'un utilisateur dans la base
-                var admin = User(0,"Administrateur","admin","Max","Paletou",1)
+                var admin = User(0, "Administrateur", "admin", "Max", "Paletou", 1)
 
                 userDao.createUser(admin)
             }
