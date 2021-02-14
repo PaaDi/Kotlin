@@ -1,11 +1,14 @@
 package com.madera.kotlin.Entity
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.sql.Date
 
+@Entity(tableName = "projet")
 data class Projet(
-    val idProjet: Int,
-    val nom: String,
-    val idClient: Int,
-    val dateCreation: Date,
-    val notes: String,
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "nomProjet") val nomProjet: String,
+    @ColumnInfo(name = "datecreationProjet") val datecreationProjet: Date,
+    @ColumnInfo(name = "notesProjet") val notesProjet: String,
 )

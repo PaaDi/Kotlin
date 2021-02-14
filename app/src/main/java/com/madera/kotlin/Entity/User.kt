@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "user")
-class User(
+data class User(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "pseudoUser") val pseudoUser: String,
     @ColumnInfo(name = "passwordUser") val passwordUser: String,
