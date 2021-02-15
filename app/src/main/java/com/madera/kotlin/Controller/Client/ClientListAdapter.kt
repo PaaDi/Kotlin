@@ -4,7 +4,9 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,41 +14,43 @@ import com.madera.kotlin.Controller.Home.ClientActivity
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.R
 
-class ClientListAdapter : ListAdapter<Client, ClientListAdapter.ClientViewHolder>(ClientsComparator()){
+class ClientListAdapter(private val clients: List<Client>, private val listener: ClientsListAdapterListener?) : RecyclerView.Adapter<ClientListAdapter.ViewHolder>(),
+    View.OnClickListener {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientViewHolder{
-        return ClientViewHolder.create(parent)
+    interface ClientsListAdapterListener{
+        fun onClientSelected(client: Client)
     }
 
-    override fun onBindViewHolder(holder: ClientViewHolder, position: Int){
-        val current = getItem(position)
-        holder.bind(current.nom + " " + current.adresse + " " + current.professionnel + " " + current.id)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val cardView = itemView.findViewById<CardView>(R.id.cardViewClient)!!
+        val clientTypeIcon = itemView.findViewById<ImageView>(R.id.clientTypeIcon)
+        val nameClient = itemView.findViewById<TextView>(R.id.clientNameList)
     }
 
-    class ClientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        private val clientItemView: TextView = itemView.findViewById(R.id.textView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val viewItem = LayoutInflater.from(parent.context).inflate(R.layout.item_client, parent, false)
 
-        fun bind(text: String?){
-            clientItemView.text = text
-        }
+        return ViewHolder(viewItem)
+    }
 
-        companion object{
-            fun create(parent: ViewGroup): ClientViewHolder{
-                val view: View = LayoutInflater.from(parent.context)
-                        .inflate(R.layout.recyclerview_client, parent, false)
-                return ClientViewHolder(view)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val client = clients[position]
+        with(holder){
+            cardView.setOnClickListener(this@ClientListAdapter)
+            cardView.tag = client
+            nameClient.text = client.nom
+            if (client.professionnel == true){
+                clientTypeIcon.setImageResource(R.drawable.ic_baseline_clientprofessionnel)
+            }else{
+                clientTypeIcon.setImageResource(R.drawable.ic_baseline_clientparticulier)
             }
         }
     }
 
-    class ClientsComparator : DiffUtil.ItemCallback<Client>(){
-        override fun areItemsTheSame(oldItem: Client, newItem: Client): Boolean {
-            return oldItem === newItem
-        }
+    override fun getItemCount(): Int = clients.size
 
-        override fun areContentsTheSame(oldItem: Client, newItem: Client): Boolean {
-            return oldItem.nom == newItem.nom
-        }
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
     }
 
 }

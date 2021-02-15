@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
@@ -24,10 +25,12 @@ import com.madera.kotlin.ViewModel.ClientViewModel
 import com.madera.kotlin.ViewModel.ClientViewModelFactory
 
 
-class ClientActivity : AppCompatActivity() {
+class ClientActivity : AppCompatActivity(), ClientListAdapter.ClientsListAdapterListener {
 
     //region Global Component
     private val newClientActivityRequestCode = 1
+    private lateinit var clientsAdapter: ClientListAdapter
+    private lateinit var clients: MutableList<Client>
     //endregion
     //region viewModel Implement
     val clientViewModel: ClientViewModel by viewModels {
@@ -40,9 +43,10 @@ class ClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.client_view)
 
+        clients = mutableListOf()
         //region Implement Recylcer
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_client)
-            val adapterClient = ClientListAdapter()
+            val adapterClient = ClientListAdapter(clients,this)
             recyclerView.adapter = adapterClient
             recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
@@ -57,8 +61,9 @@ class ClientActivity : AppCompatActivity() {
         btnFilter.adapter = adapter
 
         //region Observer
+
             clientViewModel.AllClients.observe(this, Observer { clients ->
-                clients?.let { adapterClient.submitList(it) }
+                updateClients(clients!!)
             })
         //endregion
 
@@ -75,6 +80,12 @@ class ClientActivity : AppCompatActivity() {
             startActivityForResult(i, newClientActivityRequestCode)
         }
 
+    }
+
+    private fun updateClients(newClients: List<Client>) {
+        clients.clear()
+        clients.addAll(newClients)
+        clientsAdapter.notifyDataSetChanged()
     }
 
     @Override
@@ -126,6 +137,10 @@ class ClientActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    override fun onClientSelected(client: Client) {
+        TODO("Not yet implemented")
     }
 }
 
