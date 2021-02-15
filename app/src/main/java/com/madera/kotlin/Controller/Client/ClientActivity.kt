@@ -62,9 +62,12 @@ class ClientActivity : AppCompatActivity(), ClientListAdapter.ClientsListAdapter
 
         //region Observer
 
-            clientViewModel.AllClients.observe(this, Observer { clients ->
+        clientViewModel.AllClients.observe(this, Observer { clients ->
+            clients?.let { adapterClient.submitList(it) }
+        })
+           /* clientViewModel.AllClients.observe(this, Observer { clients ->
                 updateClients(clients!!)
-            })
+            })*/
         //endregion
 
         // Listener ClientActivity
