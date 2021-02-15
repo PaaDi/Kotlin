@@ -63,30 +63,48 @@
         app:layout_constraintTop_toBottomOf="@+id/titleInfo" />
 
     <CheckBox
-        android:id="@+id/checkProfessionnel"
-        android:layout_width="344dp"
-        android:layout_height="73dp"
-        android:layout_marginLeft="38dp"
+        android:id="@+id/checkParticulier"
+        android:layout_width="202dp"
+        android:layout_height="72dp"
         android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
         android:layout_marginTop="21dp"
-        android:text="Professionnel :"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Particulier :"
         android:textColor="#222222"
         android:textColorHighlight="#222222"
         android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkProfessionnel"
         app:layout_constraintStart_toEndOf="@+id/editTextNumber2"
         app:layout_constraintTop_toBottomOf="@+id/titleInfo" />
+
+    <CheckBox
+        android:id="@+id/checkProfessionnel"
+        android:layout_width="239dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="102dp"
+        android:text="Professionnel"
+        android:textColor="#222222"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/checkParticulier"
+        app:layout_constraintTop_toBottomOf="@+id/menuFragment" />
 
     <EditText
         android:id="@+id/txtName"
         android:layout_width="686dp"
         android:layout_height="56dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/titleName"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintTop_toBottomOf="@+id/checkProfessionnel" />
 
     <EditText
         android:id="@+id/txtCity"
@@ -118,8 +136,8 @@
         android:id="@+id/txtDesc"
         android:layout_width="611dp"
         android:layout_height="115dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -235,11 +253,10 @@
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="37dp"
         android:text="Sauvegarder"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/titleID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

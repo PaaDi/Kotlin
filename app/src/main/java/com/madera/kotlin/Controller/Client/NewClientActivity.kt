@@ -46,7 +46,7 @@ class NewClientActivity : AppCompatActivity() {
                 val clientVille = ClientVilleView.text.toString()
                 val clientCodePostal = ClientCodePostalView.text.toString()
                 val clientDescription = ClientDescriptionView.text.toString()
-                val clientIsPro = ClientIsProView.isChecked
+                val clientIsPro = ClientIsProView.isChecked.toString()
 
                 replyIntent.putExtra(EXTRA_CLIENT_NAME, clientName)
                 replyIntent.putExtra(EXTRA_CLIENT_ADRESS, clientAdress)

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Client.ClientListAdapter
+import com.madera.kotlin.Controller.Client.DetailsClientActivity
 import com.madera.kotlin.Controller.Client.NewClientActivity
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.MaderaApplication
@@ -91,7 +92,6 @@ class ClientActivity : AppCompatActivity() {
             // TODO : Récupération de l'ensemble des informations nécessaire à la création client
             data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_NAME)?.let {
                 nomClient = it
-               /*clientViewModel.createClient(client)*/
             }
             data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_ADRESS)?.let {
                 adresse = it
