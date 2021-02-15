@@ -79,13 +79,46 @@ class ClientActivity : AppCompatActivity() {
     @Override
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
+        var nomClient = ""
+        var secteurActivite = ""
+        var checkPro = false
+        var adresse = ""
+        var ville = ""
+        var codePostal = ""
+        var description = "" +
+                ""
         if (requestCode == newClientActivityRequestCode && resultCode == Activity.RESULT_OK){
             // TODO : Récupération de l'ensemble des informations nécessaire à la création client
-            data?.getStringExtra(NewClientActivity.EXTRA_REPLY)?.let {
-                val client = Client(it)
-                clientViewModel.createClient(client)
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_NAME)?.let {
+                nomClient = it
+               /*clientViewModel.createClient(client)*/
             }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_ADRESS)?.let {
+                adresse = it
+            }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_CODEPOSTAL)?.let {
+                codePostal = it
+            }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_DESCRIPTION)?.let {
+                description = it
+            }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_ISPRO)?.let {
+                if (it == "true"){
+                    checkPro = true
+                }else{
+                    checkPro = false
+                }
+            }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_SECTEUR)?.let {
+                secteurActivite = it
+            }
+            data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_VILLE)?.let {
+                ville = it
+            }
+
+            clientViewModel.createClient(Client(null,nomClient,adresse,codePostal.toInt(),ville,checkPro,secteurActivite,description))
+
+
         }else{
             Toast.makeText(
                     applicationContext,

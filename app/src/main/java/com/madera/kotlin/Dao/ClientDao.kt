@@ -15,6 +15,6 @@ interface ClientDao {
     @Query("SELECT * FROM client ORDER BY nom ASC")
     fun getAllClients(): Flow<List<Client>>
 
-   /* @Query("SELECT * FROM client WHERE id=:id")
-    fun getClientById(id: Int): Client*/
+    @Query("SELECT * FROM client WHERE id=:id")
+    fun getClientById(id: Int): Client
 }
