@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.ClientListAdapter
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
 import com.madera.kotlin.Controller.Client.NewClientActivity
@@ -24,7 +25,7 @@ import com.madera.kotlin.ViewModel.ClientViewModel
 import com.madera.kotlin.ViewModel.ClientViewModelFactory
 
 
-class ClientActivity : AppCompatActivity() {
+class ClientActivity : AppCompatActivity(), CellClickListener {
 
     //region Global Component
     private val newClientActivityRequestCode = 1
@@ -42,7 +43,7 @@ class ClientActivity : AppCompatActivity() {
 
         //region Implement Recylcer
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_client)
-            val adapterClient = ClientListAdapter()
+            val adapterClient = ClientListAdapter(this)
             recyclerView.adapter = adapterClient
             recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
@@ -75,6 +76,12 @@ class ClientActivity : AppCompatActivity() {
             startActivityForResult(i, newClientActivityRequestCode)
         }
 
+    }
+
+    override fun onCellClickListener(id: Int?) {
+        val intent = Intent(this,DetailsClientActivity::class.java)
+        intent.putExtra(DetailsClientActivity.EXTRA_CLIENT_ID, id)
+        startActivity(intent)
     }
 
     @Override

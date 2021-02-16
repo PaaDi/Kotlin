@@ -10,6 +10,10 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
     // LiveData permet d'ajouter un observer aux données et fiare un update de l'interface uniquement quand les données sont modifiéres
     val AllClients: LiveData<List<Client>> = repository.allClients.asLiveData()
 
+    fun getClientById(id: Int) : Client {
+        return repository.getClientById(id)
+    }
+
     // ViewModelScope permet de lancer un nouvelle coroutine pour insérer la data de manière non bloquante
     fun createClient(client: Client) = viewModelScope.launch {
         repository.createClient(client)

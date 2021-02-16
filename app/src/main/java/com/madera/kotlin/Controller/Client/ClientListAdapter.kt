@@ -12,7 +12,7 @@ import com.madera.kotlin.Controller.Home.ClientActivity
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.R
 
-class ClientListAdapter : ListAdapter<Client, ClientListAdapter.ClientViewHolder>(ClientsComparator()){
+class ClientListAdapter(private val cellClickListener: CellClickListener) : ListAdapter<Client, ClientListAdapter.ClientViewHolder>(ClientsComparator()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientViewHolder{
         return ClientViewHolder.create(parent)
@@ -21,6 +21,10 @@ class ClientListAdapter : ListAdapter<Client, ClientListAdapter.ClientViewHolder
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int){
         val current = getItem(position)
         holder.bind(current.nom + " " + current.adresse + " " + current.professionnel + " " + current.id)
+
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickListener(current.id)
+        }
     }
 
     class ClientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -49,4 +53,8 @@ class ClientListAdapter : ListAdapter<Client, ClientListAdapter.ClientViewHolder
         }
     }
 
+}
+
+interface CellClickListener{
+    fun onCellClickListener(id: Int?)
 }
