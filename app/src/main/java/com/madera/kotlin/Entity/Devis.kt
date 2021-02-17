@@ -1,15 +1,20 @@
 package com.madera.kotlin.Entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Dao
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-@Entity(tableName = "devis")
+@Entity(foreignKeys = arrayOf(
+
+    ForeignKey(entity = Chantier::class,
+        parentColumns = arrayOf("idChantier"),
+        childColumns = arrayOf("chantierId"),
+        onDelete = ForeignKey.CASCADE),)
+)
+
 data class Devis(
     @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "chantierId") val chantierId: Long,
     @ColumnInfo(name = "nomDevis") val nomDevis: String,
     @ColumnInfo(name = "etatDevis") val etatDevis: String,
     @ColumnInfo(name = "date_creationDevis") val date_creationDevis: Date,
