@@ -15,10 +15,10 @@ import com.google.gson.annotations.SerializedName
 )
 
 data class Plan(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val idPlan: Int,
     @ColumnInfo(name = "chantierId") val chantierId: Long,
     @ColumnInfo(name = "tailleX") val tailleX: Float,
     @ColumnInfo(name = "tailleY") val tailleY: Float,
-    @ColumnInfo(name = "nbeEtage") val nbeEtage: Int,
+    @ColumnInfo(name = "nbe_Etage") val nbe_Etage: Int,
 
 )

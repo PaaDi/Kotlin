@@ -9,7 +9,7 @@ import java.util.*
 
 @Entity(tableName = "typevariant")
 data class TypeVariants(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val idTypevariant: Int,
     @ColumnInfo(name = "nomTypevariant") val nomTypevariant: String,
     @ColumnInfo(name = "categorieTypevariant") val categorieTypevariant: String,
 )

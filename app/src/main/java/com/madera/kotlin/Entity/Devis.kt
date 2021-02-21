@@ -13,7 +13,7 @@ import java.util.*
 )
 
 data class Devis(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val idDevis: Int,
     @ColumnInfo(name = "chantierId") val chantierId: Long,
     @ColumnInfo(name = "nomDevis") val nomDevis: String,
     @ColumnInfo(name = "etatDevis") val etatDevis: String,

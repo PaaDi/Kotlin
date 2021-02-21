@@ -9,7 +9,7 @@ import java.util.*
 
 @Entity(tableName = "gamme")
 data class Gamme(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val idGamme: Int,
     @ColumnInfo(name = "nomGamme") val nomGamme: String,
     @ColumnInfo(name = "sans_angle") val sans_angle: String,
     @ColumnInfo(name = "angle_ouvrant") val angle_ouvrant: Date,

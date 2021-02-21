@@ -15,7 +15,7 @@ import java.sql.Date
 )
 
 data class Projet(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val idProjet: Int,
     @ColumnInfo(name = "clientId") val clientId: Long,
     @ColumnInfo(name = "nomProjet") val nomProjet: String,
     @ColumnInfo(name = "datecreationProjet") val datecreationProjet: Date,
