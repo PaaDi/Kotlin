@@ -17,10 +17,11 @@ class MaderaApplication : Application() {
         super.onCreate()
         // API Init
         AndroidNetworking.initialize(getApplicationContext());
+
+
     }
     // DATABASE Init
     val applicationScope = CoroutineScope(SupervisorJob())
-
     val database by lazy { MaderaBase.getDatabase(this, applicationScope) }
     val repositoryUser by lazy { UserRepository(database.userDao())}
     val repositoryClient by lazy { ClientRepository(database.clientDao())}

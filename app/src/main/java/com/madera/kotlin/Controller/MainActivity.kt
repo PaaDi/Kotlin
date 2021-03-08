@@ -19,6 +19,7 @@ import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.UserViewModel
 import com.madera.kotlin.ViewModel.UserViewModelFactory
+import com.madera.kotlin.MaderaApplication.Companion.globalTest
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.connect_view)
 
         val API = MaderaAPI(this)
+        val MAPP = MaderaApplication()
 
         //region Components
             val btnConnect = findViewById(R.id.btnConnect) as Button
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                      API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
                      val i = Intent(this, HomeActivity::class.java)
+                     globalTest = userToConnect.text.toString()
                      startActivity(i)
                  }else{
                      Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Vous avez oubliez votre mot de passe ?", Toast.LENGTH_SHORT).show()
                 val i = Intent(this, PasswordMissActivity::class.java)
                 startActivity(i)
+
             }
 
             // Bulle d'information
