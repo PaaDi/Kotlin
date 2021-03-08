@@ -1,9 +1,6 @@
 package com.madera.kotlin.Dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.madera.kotlin.Entity.Client
 import kotlinx.coroutines.flow.Flow
 
@@ -17,4 +14,7 @@ interface ClientDao {
 
     @Query("SELECT * FROM client WHERE idClient=:id")
     fun getClientById(id: Int): Client
+
+    @Delete
+    fun delete(client: Client): Boolean
 }

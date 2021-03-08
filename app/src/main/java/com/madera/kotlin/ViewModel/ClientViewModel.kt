@@ -18,6 +18,10 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
     fun createClient(client: Client) = viewModelScope.launch {
         repository.createClient(client)
     }
+
+    fun deleteClient(client: Client) : Boolean {
+        return repository.deleteClient(client)
+    }
 }
 
 class ClientViewModelFactory(private val repository: ClientRepository) : ViewModelProvider.Factory{

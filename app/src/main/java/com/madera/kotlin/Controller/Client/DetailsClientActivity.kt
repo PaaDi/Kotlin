@@ -30,6 +30,5 @@ class DetailsClientActivity : AppCompatActivity() {
         val clientName = findViewById<TextView>(R.id.nameClientDetails)
         clientName.text = clientDetail.refClient.toString()
 
-
     }
 }
