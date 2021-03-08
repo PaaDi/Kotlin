@@ -7,14 +7,15 @@ import java.util.*
 @Entity(foreignKeys = arrayOf(
 
     ForeignKey(entity = Chantier::class,
-        parentColumns = arrayOf("idChantier"),
-        childColumns = arrayOf("chantierId"),
+        parentColumns = arrayOf("refChantier"),
+        childColumns = arrayOf("chantierRef"),
         onDelete = ForeignKey.CASCADE),)
 )
 
 data class Devis(
     @PrimaryKey(autoGenerate = true) val idDevis: Int,
-    @ColumnInfo(name = "chantierId") val chantierId: Long,
+    @ColumnInfo(name = "refDevis") val refDevis: Long,
+    @ColumnInfo(name = "chantierRef") val chantierRef: Long,
     @ColumnInfo(name = "nomDevis") val nomDevis: String,
     @ColumnInfo(name = "etatDevis") val etatDevis: String,
     @ColumnInfo(name = "date_creationDevis") val date_creationDevis: Date,

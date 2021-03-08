@@ -122,8 +122,8 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
             data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_VILLE)?.let {
                 ville = it
             }
-
-            clientViewModel.createClient(Client(null,nomClient,adresse,codePostal.toInt(),ville,checkPro,secteurActivite,description))
+            val rnds = (0..99999999).random().toLong()
+            clientViewModel.createClient(Client(null, rnds,nomClient,adresse,codePostal.toInt(),ville,checkPro,secteurActivite,description))
 
 
         }else{

@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "module")
 data class Module(
     @PrimaryKey(autoGenerate = true) val idModule: Int,
+    @ColumnInfo(name = "refModule") val refModule: Long,
     @ColumnInfo(name = "nomModule") val nomModule: String,
     @ColumnInfo(name = "categorieModule") val categorieModule: String,
     @ColumnInfo(name = "uniteModule") val uniteModule: String,

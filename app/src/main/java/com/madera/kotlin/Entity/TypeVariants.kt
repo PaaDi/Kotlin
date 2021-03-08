@@ -10,6 +10,7 @@ import java.util.*
 @Entity(tableName = "typevariant")
 data class TypeVariants(
     @PrimaryKey(autoGenerate = true) val idTypevariant: Int,
+    @ColumnInfo(name = "refTypevariant") val refTypevariant: Long,
     @ColumnInfo(name = "nomTypevariant") val nomTypevariant: String,
     @ColumnInfo(name = "categorieTypevariant") val categorieTypevariant: String,
 )

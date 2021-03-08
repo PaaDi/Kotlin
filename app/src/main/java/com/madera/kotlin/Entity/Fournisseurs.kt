@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "fournisseur")
 data class Fournisseurs(
     @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "refFournisseur") val refFournisseur: Long,
     @ColumnInfo(name = "nomFournisseur") val nomFournisseur: String,
     @ColumnInfo(name = "adresseFournisseur") val adresseFournisseur: String,
     @ColumnInfo(name = "nomcontactFournisseur") val nomcontactFournisseur: String,

@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "composant")
 data class Composants(
     @PrimaryKey(autoGenerate = true) val idComposant: Int,
+    @ColumnInfo(name = "refComposant") val refComposant: Long,
     @ColumnInfo(name = "nomComposant") val nomComposant: String,
     @ColumnInfo(name = "categorieComposant") val categorieComposant: String,
     @ColumnInfo(name = "prixComposant") val prixComposant: Float,

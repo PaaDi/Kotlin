@@ -28,7 +28,7 @@ class DetailsClientActivity : AppCompatActivity() {
         val clientDetail = clientViewModel.getClientById(clientId)
 
         val clientName = findViewById<TextView>(R.id.nameClientDetails)
-        clientName.text = clientDetail.nom
+        clientName.text = clientDetail.refClient.toString()
 
 
     }
