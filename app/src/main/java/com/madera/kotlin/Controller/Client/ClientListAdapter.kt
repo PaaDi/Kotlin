@@ -20,18 +20,20 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
 
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int){
         val current = getItem(position)
-        holder.bind(current.nom + " " + current.adresse + " " + current.professionnel + " " + current.idClient)
+        holder.bind(current.nom + " " + current.adresse + " " + current.professionnel + " " + current.idClient,current.adresse)
 
         holder.itemView.setOnClickListener {
-            cellClickListener.onCellClickListener(current.idClient                  )
+            cellClickListener.onCellClickListener(current.idClient)
         }
     }
 
     class ClientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
+        private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
 
-        fun bind(text: String?){
+        fun bind(text: String?, text2: String?){
             clientItemView.text = text
+            clientItemView2.text = text2
         }
 
         companion object{
