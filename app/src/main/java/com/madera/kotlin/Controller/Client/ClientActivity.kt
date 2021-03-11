@@ -96,7 +96,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
         var description = "" +
                 ""
         if (requestCode == newClientActivityRequestCode && resultCode == Activity.RESULT_OK){
-            // TODO : Récupération de l'ensemble des informations nécessaire à la création client
+
             data?.getStringExtra(NewClientActivity.EXTRA_CLIENT_NAME)?.let {
                 nomClient = it
             }

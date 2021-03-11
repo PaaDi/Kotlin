@@ -11,4 +11,6 @@ class ContactRepository(private val contactDao: ContactDao) {
     suspend fun createContact(contact: Contact){
         contactDao.createContact(contact)
     }
+
+    //TODO : Ajouter les appels aux requêtes manquantes
 }

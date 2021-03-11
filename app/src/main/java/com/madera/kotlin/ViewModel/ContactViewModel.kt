@@ -11,6 +11,8 @@ class ContactViewModel(private val repository: ContactRepository) : ViewModel() 
     fun createContact(contact: Contact) = viewModelScope.launch {
         repository.createContact(contact)
     }
+
+    // TODO : Ajouter les appels au repo manquants
 }
 
 class ContactViewModelFactory(private val repository: ContactRepository) : ViewModelProvider.Factory{
