@@ -23,8 +23,8 @@ class ClientRepository(private val clientDao: ClientDao) {
     }
 
     // Suppression d'un client
-     fun deleteClient(client: Client) : Boolean {
-        return clientDao.delete(client)
+     fun deleteClient(client: Client) {
+        clientDao.delete(client)
     }
 
 

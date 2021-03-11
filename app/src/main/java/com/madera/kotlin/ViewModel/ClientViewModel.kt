@@ -19,8 +19,8 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
         repository.createClient(client)
     }
 
-    fun deleteClient(client: Client) : Boolean {
-        return repository.deleteClient(client)
+    fun deleteClient(client: Client) {
+        repository.deleteClient(client)
     }
 }
 

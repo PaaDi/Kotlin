@@ -16,5 +16,5 @@ interface ClientDao {
     fun getClientById(id: Int): Client
 
     @Delete
-    fun delete(client: Client): Boolean
+    fun delete(client: Client)
 }
