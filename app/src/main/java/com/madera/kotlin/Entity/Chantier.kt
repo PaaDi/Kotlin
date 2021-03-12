@@ -22,6 +22,7 @@ import androidx.room.PrimaryKey
 
 data class Chantier(
     @PrimaryKey(autoGenerate = true) val idChantier: Long,
+    @ColumnInfo(name = "refChantier") val refChantier: Long,
     @ColumnInfo(name = "projetRef") val projetRef: Long,
     @ColumnInfo(name = "userRef") val userRef: Long,
     @ColumnInfo(name = "nomChantier") val nomChantier: String,
