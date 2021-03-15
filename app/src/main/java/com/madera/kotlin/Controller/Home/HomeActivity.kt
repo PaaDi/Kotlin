@@ -11,7 +11,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_view)
+        setContentView(R.layout.connect_view)
 
         //region Components
         val btnListProject = findViewById(R.id.btnListProject) as Button
@@ -42,13 +42,6 @@ class HomeActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-
-
-        val dropdown = findViewById<Spinner>(R.id.spinner1)
-        val items = arrayOf("François", "Yves", "Guillaume", "Marta", "Mélanie")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        //set the spinners adapter to the previously created one.
-        dropdown.adapter = adapter
 
     }
 }

@@ -17,7 +17,6 @@
 
     <fragment
         android:id="@+id/filterfragment2"
-        android:name="com.madera.kotlin.Controller.Fragment.FilterFragment"
         android:layout_width="900dp"
         android:layout_height="79dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +29,9 @@
         android:id="@+id/recyclerview_client"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

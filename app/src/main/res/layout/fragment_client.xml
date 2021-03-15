@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.Home.ui.chantier.ClientFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="929dp"
+        android:layout_height="168dp"
+        android:background="#00AD59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="365dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="10px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Client View"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15px"
+            android:layout_marginLeft="15px"
+            android:layout_marginTop="150px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:background="#FFFFFF" />
+
+        <Button
+            android:name="com.madera.kotlin.Controller.Home.ui.chantier.ClientFragment"
+            android:id="@+id/btnCreateClient"
+            android:layout_width="415dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="1100px"
+            android:layout_marginLeft="1100px"
+            android:text="Créer un nouveau client"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_client"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/recyclerview_client" />
+
+    <TextView
+        android:id="@+id/text_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

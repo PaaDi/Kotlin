@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    tools:context="com.kotlinwebview.MainActivity">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:textAlignment="center"
+            android:title="METIER" />
+
+        <item
+            android:id="@+id/nav_project"
+            android:icon="@drawable/project_management"
+            android:title="Projets" />
+
+        <item
+            android:id="@+id/nav_chantier"
+            android:icon="@drawable/construction_worker"
+            android:title="Chantiers" />
+
+        <item
+            android:id="@+id/nav_devis"
+            android:icon="@drawable/devis"
+            android:title="Devis" />
+
+        <item
+            android:id="@+id/nav_client"
+            android:icon="@drawable/client"
+            android:title="Client" />
+
+        <item
+            android:id="@+id/nav_support"
+            android:textAlignment="center"
+            android:title="SUPPORT" />
+
+        <item
+            android:id="@+id/nav_siteweb"
+            android:icon="@drawable/web"
+            android:title="Site Web" />
+
+        <item
+            android:id="@+id/nav_mail"
+            android:icon="@drawable/email"
+            android:title="Envoyer un e-mail" />
+
+        <item
+            android:id="@+id/nav_aide"
+            android:icon="@drawable/help"
+            android:title="Aide" />
+
+        <item
+            android:id="@+id/nav_compte"
+            android:textAlignment="center"
+            android:title="COMPTE" />
+
+        <item
+            android:id="@+id/nav_profil"
+            android:icon="@drawable/user"
+            android:title="Mon profil" />
+
+        <item
+            android:id="@+id/nav_disconnect"
+            android:icon="@drawable/door"
+            android:title="Déconnexion" />
+    </group>
+</menu>

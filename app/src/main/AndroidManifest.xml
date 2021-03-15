@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotlin2">
-        <activity android:name=".Controller.Client.DetailsClientActivity"></activity>
+        <activity
+            android:name=".Controller.Home.HomeViewActivity"
+            android:label="@string/title_activity_home_view"
+            android:theme="@style/Theme.Kotlin2.NoActionBar"></activity>
+        <activity android:name=".Controller.Client.DetailsClientActivity" />
         <activity android:name=".Controller.Client.NewClientActivity" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>

@@ -23,16 +23,6 @@ class ProjectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.project_view)
 
-        val btnFilter = findViewById<Spinner>(R.id.spinner1)
-        val items = arrayOf("François", "Yves", "Guillaume", "Marta", "Mélanie")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        //set the spinners adapter to the previously created one.
-        btnFilter.adapter = adapter
-
-
-
-
-
     }
 
     
