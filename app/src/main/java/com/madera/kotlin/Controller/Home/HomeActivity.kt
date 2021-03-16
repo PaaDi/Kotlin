@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.home_view)
 
         //region Components
-        val btnListProject = findViewById(R.id.btnListProject) as Button
+/*        val btnListProject = findViewById(R.id.btnListProject) as Button
         val btnListClient = findViewById(R.id.btnListClient) as Button
 
         //region Events Listeners
@@ -40,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
             ).show()
             val i = Intent(this, ClientActivity::class.java)
             startActivity(i)
-        }
+        }*/
 
 
 

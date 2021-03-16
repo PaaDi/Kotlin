@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Home.HomeActivity
+import com.madera.kotlin.Controller.Home.HomeViewActivity
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.User
 import com.madera.kotlin.MaderaApplication
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                  if (connectUser){
                      API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
-                     val i = Intent(this, HomeActivity::class.java)
+                     val i = Intent(this, HomeViewActivity::class.java)
                      globalTest = userToConnect.text.toString()
                      startActivity(i)
                  }else{

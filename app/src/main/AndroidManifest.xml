@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.madera.kotlin">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".MaderaApplication"
         android:allowBackup="true"
@@ -13,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotlin2">
-        <activity android:name=".Controller.Client.DetailsClientActivity"></activity>
+        <activity
+            android:name=".Controller.Home.HomeViewActivity"
+            android:label="@string/title_activity_home_view"
+            android:theme="@style/Theme.Kotlin2.NoActionBar"></activity>
+        <activity android:name=".Controller.Client.DetailsClientActivity" />
         <activity android:name=".Controller.Client.NewClientActivity" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
@@ -28,5 +30,7 @@
         <activity android:name=".Controller.Home.ProjectActivity" />
         <activity android:name=".Controller.Home.ClientActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
