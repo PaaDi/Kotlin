@@ -51,11 +51,6 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
         //region Components
         val btnCreateClient = findViewById(R.id.btnCreateClient) as Button
 
-        val btnFilter = findViewById<Spinner>(R.id.spinner1)
-        val items = arrayOf("Melvin", "Maxime", "Barbara", "Maximilien", "Mathis")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        //set the spinners adapter to the previously created one.
-        btnFilter.adapter = adapter
 
         //region Observer
             clientViewModel.AllClients.observe(this, Observer { clients ->

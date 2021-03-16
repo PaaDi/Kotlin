@@ -26,7 +26,7 @@
             android:src="@drawable/unnamed" />
 
         <TextView
-            android:id="@+id/txtUsername"
+            android:id="@+id/txtAccueil"
             android:layout_width="265dp"
             android:layout_height="68dp"
             android:layout_marginStart="665px"

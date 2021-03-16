@@ -35,7 +35,7 @@
         android:src="@drawable/unnamed" />
 
     <TextView
-        android:id="@+id/txtUsername"
+        android:id="@+id/txtAccueil"
         android:layout_width="585dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
