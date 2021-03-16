@@ -91,15 +91,42 @@
 
     </RelativeLayout>
 
-    <fragment
-        android:id="@+id/buttonFragment"
-        android:name="com.madera.kotlin.Controller.Fragment.ButtonFragment"
-        android:layout_width="900dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="25dp"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="912dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="250dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1" />
+        app:layout_constraintTop_toTopOf="@id/relativeLayout1">
+
+        <Button
+            android:id="@+id/btnListProject"
+            android:layout_width="445dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center|left"
+            android:text="Les Projets"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#0C8148" />
+
+        <Button
+            android:id="@+id/btnListClient"
+            android:layout_width="445dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center|right"
+            android:layout_marginStart="950px"
+            android:layout_marginLeft="950px"
+            android:text="Les Clients"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="@color/green_500"
+            android:textSize="24sp"
+            app:backgroundTint="#0C8148" />
+
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
