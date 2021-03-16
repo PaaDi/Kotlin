@@ -14,6 +14,7 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
         return repository.getClientById(id)
     }
 
+
     // ViewModelScope permet de lancer un nouvelle coroutine pour insérer la data de manière non bloquante
     fun createClient(client: Client) = viewModelScope.launch {
         repository.createClient(client)

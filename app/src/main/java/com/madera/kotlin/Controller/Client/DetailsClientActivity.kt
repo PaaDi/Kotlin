@@ -25,10 +25,24 @@ class DetailsClientActivity : AppCompatActivity() {
 
         val clientId = intent.getIntExtra(EXTRA_CLIENT_ID, 1)
 
+
         val clientDetail = clientViewModel.getClientById(clientId)
 
         val clientName = findViewById<TextView>(R.id.nameClientDetails)
-        clientName.text = clientDetail.refClient.toString()
+        val clientActivity = findViewById<TextView>(R.id.activityClientDetails)
+        val clientAdress = findViewById<TextView>(R.id.adressClientDetails)
+        val clientCity = findViewById<TextView>(R.id.cityClientDetails)
+        val clientPostal = findViewById<TextView>(R.id.postalClientDetails)
+        val clientDescription = findViewById<TextView>(R.id.descriptionClientDetails)
+        val clientProfessionnal = findViewById<TextView>(R.id.professionnalClientDetails)
+
+        clientName.text = clientDetail.nom
+        clientActivity.text = clientDetail.secteur
+        clientAdress.text = clientDetail.adresse
+        clientCity.text = clientDetail.ville
+        clientPostal.text = clientDetail.codePostal.toString()
+        clientDescription.text = clientDetail.description
+        clientProfessionnal.text = clientDetail.professionnel.toString()
 
     }
 }
