@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/imageViewP"
-            android:layout_width="80dp"
-            android:layout_height="66dp"
+            android:layout_width="89dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center|left"
             android:layout_marginStart="400px"
             android:layout_marginLeft="400px"
@@ -32,13 +32,40 @@
             android:layout_height="68dp"
             android:layout_marginStart="25px"
             android:layout_marginLeft="25px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
             android:layout_marginBottom="10px"
             android:text="PYRAMID"
             android:textColor="#FFFFFF"
             android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="1300px"
+            android:layout_marginLeft="1300px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/business_man" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="1100px"
+            android:layout_marginLeft="1100px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/help" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="1500px"
+            android:layout_marginLeft="1500px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/menu" />
 
     </RelativeLayout>
 

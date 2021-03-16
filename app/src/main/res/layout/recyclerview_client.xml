@@ -27,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteY="0dp" />
 
