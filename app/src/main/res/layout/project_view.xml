@@ -6,38 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/menuFragment2"
-        android:name="com.madera.kotlin.Controller.Fragment.MenuFragment"
-        android:layout_width="902dp"
-        android:layout_height="115dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <fragment
-        android:id="@+id/filterfragment2"
-        android:name="com.madera.kotlin.Controller.Fragment.FilterFragment"
-        android:layout_width="900dp"
-        android:layout_height="79dp"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="929dp"
+        android:layout_height="168dp"
+        android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createpfragment"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="250px"
+            android:layout_marginLeft="250px"
+            android:src="@drawable/unnamed" />
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="265dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="665px"
+            android:layout_marginLeft="665px"
+            android:layout_marginTop="10px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Espace Projet"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15px"
+            android:layout_marginLeft="15px"
+            android:layout_marginTop="150px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:background="#FFFFFF" />
+
+    </RelativeLayout>
 
     <fragment
         android:id="@+id/createpfragment"
         android:name="com.madera.kotlin.Controller.Project.CreateProjectFragment"
         android:layout_width="900dp"
         android:layout_height="90dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/filterfragment2"
+        app:layout_constraintBottom_toTopOf="@id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuFragment2"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
