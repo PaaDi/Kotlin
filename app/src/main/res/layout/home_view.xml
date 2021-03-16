@@ -8,24 +8,14 @@
 
 
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.madera.kotlin.Controller.Fragment.MenuFragment"
-        android:layout_width="902dp"
-        android:layout_height="115dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <fragment
         android:id="@+id/filterfragment"
         android:name="com.madera.kotlin.Controller.Fragment.FilterFragment"
         android:layout_width="900dp"
         android:layout_height="79dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuFragment"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="135dp" />
 
     <fragment
         android:id="@+id/buttonFragment"
