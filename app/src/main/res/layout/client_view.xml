@@ -36,9 +36,25 @@
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
             android:layout_marginBottom="10px"
-            android:text="Espace Client"
+            android:text="Liste des clients"
             android:textColor="#FFFFFF"
             android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/btnCreateClient"
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="800dp"
+            android:layout_marginLeft="800dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="+"
+            android:textColor="#0C5A43"
+            android:textSize="36sp"
+            app:backgroundTint="#FFFFFF" />
 
     </RelativeLayout>
 
@@ -82,7 +98,6 @@
         android:id="@+id/recyclerview_client"
         android:layout_width="982dp"
         android:layout_height="916dp"
-        android:layout_marginTop="15dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -90,26 +105,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreateClient"
         tools:listitem="@layout/recyclerview_client" />
-
-    <Button
-        android:id="@+id/btnCreateClient"
-        android:layout_width="333dp"
-        android:layout_height="43dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="250dp"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginRight="250dp"
-        android:layout_marginBottom="25dp"
-        android:text="Créer un nouveau client"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview_client"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.358"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relativeLayoutTop"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

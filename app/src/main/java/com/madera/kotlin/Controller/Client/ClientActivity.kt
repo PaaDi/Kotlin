@@ -63,7 +63,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
             Toast.makeText(
                 this@ClientActivity,
-                "Création d'un nouveau client !",
+                "Vous souhaitez créer un nouveau client ?",
                 Toast.LENGTH_SHORT
             ).show()
 
