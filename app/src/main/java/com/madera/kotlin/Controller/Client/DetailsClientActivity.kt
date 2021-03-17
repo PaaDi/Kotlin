@@ -2,6 +2,7 @@ package com.madera.kotlin.Controller.Client
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
@@ -26,6 +27,7 @@ class DetailsClientActivity : AppCompatActivity() {
     private lateinit var clientPostal: EditText
     private lateinit var clientDescription: EditText
     private lateinit var clientProfessionnel: TextView
+    private  lateinit var  buttonDelete: Button
 
     val clientViewModel: ClientViewModel by viewModels {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
@@ -59,6 +61,14 @@ class DetailsClientActivity : AppCompatActivity() {
             clientProfessionnel.text = "Client Particulier"
         }
 
+    /*
+    Button suppression treatment
+     */
+        buttonDelete = findViewById(R.id.delete_btn)
 
+        buttonDelete.setOnClickListener {
+            clientViewModel.deleteClient(clientDetail)
+            super.onBackPressed()
+        }
     }
 }

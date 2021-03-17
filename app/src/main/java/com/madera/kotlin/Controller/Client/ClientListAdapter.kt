@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -20,7 +21,7 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
 
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int){
         val current = getItem(position)
-        holder.bind(current.nom + " " + current.adresse + " " + current.professionnel + " " + current.idClient,current.adresse)
+        holder.bind(current.nom + " - Réf. : " + current.refClient,current.adresse + " - " + current.codePostal + " " + current.ville, current.professionnel)
 
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickListener(current.idClient)
@@ -30,10 +31,19 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
     class ClientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
         private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
+        val clientImage: ImageView = itemView.findViewById(R.id.iconClient)
 
-        fun bind(text: String?, text2: String?){
+
+        fun bind(text: String?, text2: String?, isPro: Boolean){
             clientItemView.text = text
             clientItemView2.text = text2
+            if (isPro){
+                clientImage.setImageResource(R.drawable.professionnal_icon)
+            }else{
+                clientImage.setImageResource(R.drawable.particulier_icon)
+            }
+
+
         }
 
         companion object{
