@@ -1,17 +1,19 @@
 package com.madera.kotlin.ViewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.madera.kotlin.Entity.Chantier
 import com.madera.kotlin.Repository.ChantierRepository
+import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class ChantierViewModel(private val repository: ChantierRepository) : ViewModel() {
 
-    fun getAllChantiersByUser(ref : Long) : LiveData<List<Chantier>>{
+    fun getAllChantiersByUser(ref : Int) : LiveData<List<Chantier>>{
         return repository.getAllChantiersByUser(ref).asLiveData()
+    }
+
+    fun createChantier(chantier: Chantier) = viewModelScope.launch {
+        repository.createChantier(chantier)
     }
 }
 

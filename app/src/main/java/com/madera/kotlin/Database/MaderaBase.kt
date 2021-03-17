@@ -6,9 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.madera.kotlin.Dao.ChantierDao
 import com.madera.kotlin.Dao.ClientDao
+import com.madera.kotlin.Dao.ProjetDao
 import com.madera.kotlin.Dao.UserDao
+import com.madera.kotlin.Entity.Chantier
 import com.madera.kotlin.Entity.Client
+import com.madera.kotlin.Entity.Projet
 import com.madera.kotlin.Entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,13 +20,15 @@ import kotlinx.coroutines.launch
 
 
 @Database(entities = arrayOf(
-        User::class, Client::class
+        User::class, Client::class, Projet::class, Chantier::class
 ), version = 1)
 abstract class MaderaBase : RoomDatabase() {
 
     // Insertion des DAO
     abstract fun userDao() : UserDao
     abstract fun clientDao() : ClientDao
+    abstract fun projetDao() : ProjetDao
+    abstract fun chantierDao() : ChantierDao
 
 
     // Singleton de ma database permettant de l'appeller quand nécessaire via instances

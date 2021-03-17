@@ -14,6 +14,10 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
         repository.insert(user)
     }
 
+    fun getUserByName(pseudo: String): User {
+        return repository.getUserByName(pseudo)
+    }
+
     fun connectUser(login: String, pass: String) : Boolean
     {
         return repository.connectUser(login,pass)

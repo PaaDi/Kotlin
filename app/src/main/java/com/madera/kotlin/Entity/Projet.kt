@@ -9,16 +9,16 @@ import java.sql.Date
 @Entity(foreignKeys = arrayOf(
 
     ForeignKey(entity = Client::class,
-        parentColumns = arrayOf("refClient"),
-        childColumns = arrayOf("clientRef"),
+        parentColumns = arrayOf("idClient"),
+        childColumns = arrayOf("clientId"),
         onDelete = ForeignKey.CASCADE),)
 )
 
 data class Projet(
-    @PrimaryKey(autoGenerate = true) val idProjet: Int,
+    @PrimaryKey(autoGenerate = true) val idProjet: Int?,
     @ColumnInfo(name = "refProjet") val refProjet: Long,
-    @ColumnInfo(name = "clientRef") val clientRef: Long,
+    @ColumnInfo(name = "clientId") val clientId: Int,
     @ColumnInfo(name = "nomProjet") val nomProjet: String,
-    @ColumnInfo(name = "datecreationProjet") val datecreationProjet: Date,
+    @ColumnInfo(name = "datecreationProjet") val datecreationProjet: String,
     @ColumnInfo(name = "notesProjet") val notesProjet: String,
 )

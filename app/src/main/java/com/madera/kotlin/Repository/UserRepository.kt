@@ -14,6 +14,10 @@ class UserRepository(private val userDao: UserDao) {
         userDao.createUser(user)
     }
 
+    fun getUserByName(pseudo:String) : User{
+        return userDao.getUserByName(pseudo)
+    }
+
     fun connectUser(login: String, pass: String) : Boolean
     {
         return userDao.connectUser(login,pass)

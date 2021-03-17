@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                      API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
                      val i = Intent(this, HomeActivity::class.java)
-                     globalTest = userToConnect.text.toString()
+                     globalTest = userViewModel.getUserByName(userToConnect.text.toString())
                      startActivity(i)
                  }else{
                      Toast.makeText(this@MainActivity, "Mot de passe ou utilisateur incorrect !", Toast.LENGTH_SHORT).show()

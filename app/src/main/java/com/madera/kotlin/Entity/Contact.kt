@@ -6,14 +6,14 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(foreignKeys = arrayOf(ForeignKey(entity = Client::class,
-        parentColumns = arrayOf("refClient"),
-        childColumns = arrayOf("clientRef"),
+        parentColumns = arrayOf("idClient"),
+        childColumns = arrayOf("clientId"),
         onDelete = ForeignKey.CASCADE)))
 
 data class Contact(
     @PrimaryKey(autoGenerate = true) val idContact: Int,
     @ColumnInfo(name = "refContact") val refContact: Long,
-    @ColumnInfo(name = "clientRef") val clientRef: Long,
+    @ColumnInfo(name = "clientId") val clientId: Int,
     @ColumnInfo(name = "nomContact") val nomContact: String,
     @ColumnInfo(name = "prenomContact") val prenomContact: String,
     @ColumnInfo(name = "fonctionContact") val fonctionContact: String,

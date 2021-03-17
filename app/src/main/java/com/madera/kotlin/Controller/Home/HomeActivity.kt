@@ -3,15 +3,47 @@ package com.madera.kotlin.Controller.Home
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.madera.kotlin.Controller.Client.CellClickListener
+import com.madera.kotlin.Controller.Client.DetailsClientActivity
+import com.madera.kotlin.Entity.Chantier
+import com.madera.kotlin.Entity.Projet
+import com.madera.kotlin.MaderaApplication
+import com.madera.kotlin.MaderaApplication.Companion.globalTest
 import com.madera.kotlin.R
+import com.madera.kotlin.ViewModel.ChantierViewModel
+import com.madera.kotlin.ViewModel.ChantierViewModelFactory
+import com.madera.kotlin.ViewModel.ProjetViewModel
+import com.madera.kotlin.ViewModel.ProjetViewModelFactory
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), CellClickListener {
+    val projetViewModel : ProjetViewModel by viewModels {
+        ProjetViewModelFactory((application as MaderaApplication).repositoryProjet)
+    }
+    val chantierViewModel: ChantierViewModel by viewModels {
+        ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_view)
+        val rnds = (0..99999999).random().toLong()
+        //region Implement Recycler
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_projet)
+        val adapterProjet = ProjetListAdapter(this)
+        recyclerView.adapter = adapterProjet
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        //endregion
+
+        //region Observer
+        projetViewModel.getAllProjetsByUser(globalTest.idUser.toInt()).observe(this,{
+            projets -> projets?.let { adapterProjet.submitList(it) }
+        })
+        //endregion
 
         //region Components
         val btnListProject = findViewById(R.id.btnListProject) as Button
@@ -42,6 +74,11 @@ class HomeActivity : AppCompatActivity() {
             startActivity(i)
         }
 
+    }
 
+    override fun onCellClickListener(id: Int?) {
+        val intent = Intent(this, DetailsClientActivity::class.java)
+        intent.putExtra(DetailsClientActivity.EXTRA_CLIENT_ID, id)
+        startActivity(intent)
     }
 }

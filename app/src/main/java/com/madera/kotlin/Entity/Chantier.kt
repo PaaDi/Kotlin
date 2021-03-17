@@ -8,23 +8,23 @@ import androidx.room.PrimaryKey
 @Entity(foreignKeys = arrayOf(
 
         ForeignKey(entity = User::class,
-        parentColumns = arrayOf("refUser"),
-        childColumns = arrayOf("userRef"),
+        parentColumns = arrayOf("idUser"),
+        childColumns = arrayOf("userId"),
         onDelete = ForeignKey.CASCADE),
 
         ForeignKey(entity = Projet::class,
-        parentColumns = arrayOf("refProjet"),
-        childColumns = arrayOf("projetRef"),
+        parentColumns = arrayOf("idProjet"),
+        childColumns = arrayOf("projetId"),
         onDelete = ForeignKey.CASCADE)
 
     )
 )
 
 data class Chantier(
-    @PrimaryKey(autoGenerate = true) val idChantier: Long,
+    @PrimaryKey(autoGenerate = true) val idChantier: Int?,
     @ColumnInfo(name = "refChantier") val refChantier: Long,
-    @ColumnInfo(name = "projetRef") val projetRef: Long,
-    @ColumnInfo(name = "userRef") val userRef: Long,
+    @ColumnInfo(name = "projetId") val projetId: Int,
+    @ColumnInfo(name = "userId") val userId: Int,
     @ColumnInfo(name = "nomChantier") val nomChantier: String,
     @ColumnInfo(name = "notesChantier") val notesChantier: String,
 )

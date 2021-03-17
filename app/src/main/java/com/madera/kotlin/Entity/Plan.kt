@@ -9,15 +9,15 @@ import com.google.gson.annotations.SerializedName
 @Entity(foreignKeys = arrayOf(
 
     ForeignKey(entity = Chantier::class,
-        parentColumns = arrayOf("refChantier"),
-        childColumns = arrayOf("chantierRef"),
+        parentColumns = arrayOf("idChantier"),
+        childColumns = arrayOf("chantierId"),
         onDelete = ForeignKey.CASCADE),)
 )
 
 data class Plan(
     @PrimaryKey(autoGenerate = true) val idPlan: Int,
     @ColumnInfo(name = "refPlan") val refPlan: Long,
-    @ColumnInfo(name = "chantierRef") val chantierId: Long,
+    @ColumnInfo(name = "chantierId") val chantierId: Int,
     @ColumnInfo(name = "tailleX") val tailleX: Float,
     @ColumnInfo(name = "tailleY") val tailleY: Float,
     @ColumnInfo(name = "nbe_Etage") val nbe_Etage: Int,
