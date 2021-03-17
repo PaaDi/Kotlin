@@ -7,6 +7,21 @@
     android:background="#EEEEEE"
     tools:context=".Controller.Client.NewClientActivity">
 
+    <Button
+        android:id="@+id/btnCreateContact"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginBottom="77dp"
+        android:text="+"
+        android:textColor="#0C5A43"
+        android:textSize="36sp"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="912dp"
@@ -44,8 +59,8 @@
             android:id="@+id/imageView2"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1300px"
-            android:layout_marginLeft="1300px"
+            android:layout_marginStart="1500px"
+            android:layout_marginLeft="1500px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/business_man" />
 
@@ -53,19 +68,10 @@
             android:id="@+id/imageView3"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1100px"
-            android:layout_marginLeft="1100px"
+            android:layout_marginStart="1300px"
+            android:layout_marginLeft="1300px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/help" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="110dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
-            android:layout_marginTop="25px"
-            app:srcCompat="@drawable/menu" />
 
     </RelativeLayout>
 

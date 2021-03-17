@@ -20,6 +20,7 @@ class DetailsClientActivity : AppCompatActivity() {
         const val EXTRA_CLIENT_ID = "clientId"
     }
 
+    private lateinit var clientIdentifiant: TextView
     private lateinit var clientName: EditText
     private lateinit var clientActivity : EditText
     private lateinit var clientAdress : EditText
@@ -40,6 +41,7 @@ class DetailsClientActivity : AppCompatActivity() {
         val clientId = intent.getIntExtra(EXTRA_CLIENT_ID, 1)
         val clientDetail = clientViewModel.getClientById(clientId)
 
+        clientIdentifiant = findViewById(R.id.idClientDetails)
         clientName = findViewById(R.id.nameClientDetails)
         clientActivity = findViewById(R.id.activityClientDetails)
         clientAdress = findViewById(R.id.adressClientDetails)
@@ -48,6 +50,7 @@ class DetailsClientActivity : AppCompatActivity() {
         clientDescription = findViewById(R.id.descriptionClientDetails)
         clientProfessionnel = findViewById(R.id.professionnelClientDetails)
 
+        clientIdentifiant.text = clientDetail.refClient.toString()
         clientName.setText(clientDetail.nom)
         clientActivity.setText(clientDetail.secteur)
         clientAdress.setText(clientDetail.adresse)
