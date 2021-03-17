@@ -5,22 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
-    tools:context=".Controller.Client.NewClientActivity">
-
-    <Button
-        android:id="@+id/btnCreateContact"
-        android:layout_width="68dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginBottom="77dp"
-        android:text="+"
-        android:textColor="#0C5A43"
-        android:textSize="36sp"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".Controller.Contact.NewContactActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -102,7 +87,7 @@
             app:srcCompat="@drawable/left_arrow" />
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/button_saveContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1500px"
@@ -118,121 +103,52 @@
             tools:layout_editor_absoluteY="169dp" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/titleInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginLeft="260dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginRight="260dp"
-        android:text="Informations Générales"
-        android:textColor="#222222"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <CheckBox
-        android:id="@+id/checkProfessionnel"
-        android:layout_width="239dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
-        android:text="Professionnel"
-        android:textColor="#222222"
-        android:textColorHighlight="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionClientDetails" />
-
     <EditText
-        android:id="@+id/nameClientDetails"
-        android:layout_width="790dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="68dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/titleSecteur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
-
-    <EditText
-        android:id="@+id/cityClientDetails"
-        android:layout_width="356dp"
-        android:layout_height="50dp"
+        android:id="@+id/nameContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleCity" />
+        app:layout_constraintTop_toBottomOf="@+id/titleName" />
 
     <EditText
-        android:id="@+id/postalClientDetails"
-        android:layout_width="364dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
+        android:id="@+id/phoneContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="28dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
-        app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
 
     <EditText
-        android:id="@+id/descriptionClientDetails"
-        android:layout_width="784dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginLeft="46dp"
+        android:id="@+id/mailContactDetails"
+        android:layout_width="778dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="689dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleCity2" />
-
-    <TextView
-        android:id="@+id/titlePostal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="344dp"
-        android:layout_marginLeft="344dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginRight="252dp"
-        android:layout_marginBottom="19dp"
-        android:text="Code postal :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/postalClientDetails"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/titleCity"
-        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/titleMail" />
 
     <TextView
         android:id="@+id/titleName"
@@ -240,7 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="1dp"
         android:text="Nom :"
         android:textColor="#222222"
@@ -250,90 +166,93 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <EditText
-        android:id="@+id/adressClientDetails"
-        android:layout_width="785dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginLeft="46dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
+        android:id="@+id/fonctionContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
+        app:layout_constraintStart_toEndOf="@+id/phoneContactDetails"
+        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
 
     <EditText
-        android:id="@+id/activityClientDetails"
-        android:layout_width="788dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginLeft="46dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
+        android:id="@+id/surnameContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleSecteur" />
+        app:layout_constraintTop_toBottomOf="@id/titlePrenom" />
 
     <TextView
-        android:id="@+id/titleSecteur"
+        android:id="@+id/titlePrenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="308dp"
+        android:layout_marginRight="308dp"
+        android:text="Prénom :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <TextView
+        android:id="@+id/titleFonction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="25dp"
-        android:text="Secteur d'activité :"
+        android:layout_marginTop="20dp"
+        android:text="Fonction"
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/nameContactDetails" />
 
     <TextView
-        android:id="@+id/titleAdress"
+        android:id="@+id/titlePhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="25dp"
-        android:text="Adresse :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityClientDetails" />
-
-    <TextView
-        android:id="@+id/titleCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="25dp"
-        android:text="Ville :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
-
-    <TextView
-        android:id="@+id/titleCity2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="274dp"
+        android:layout_marginRight="274dp"
         android:layout_marginBottom="20dp"
-        android:text="Description :"
+        android:text="Téléphone :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionClientDetails"
+        app:layout_constraintBottom_toTopOf="@+id/fonctionContactDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/titleFonction"
+        app:layout_constraintTop_toBottomOf="@+id/surnameContactDetails"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/titleMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="20dp"
+        android:text="Adresse e-mail"
+        android:textColor="#222222"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
+        app:layout_constraintTop_toBottomOf="@id/phoneContactDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

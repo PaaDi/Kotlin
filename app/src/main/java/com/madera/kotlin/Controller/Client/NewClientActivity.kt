@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
+import com.madera.kotlin.Controller.Contact.NewContactActivity
 import com.madera.kotlin.R
 
 class NewClientActivity : AppCompatActivity() {
+
+    //region Global Component
+    private val newContactActivityRequestCode = 1
 
     private lateinit var ClientNameView: EditText
     private lateinit var ClientSecteurView: EditText
@@ -33,6 +37,7 @@ class NewClientActivity : AppCompatActivity() {
 
 
         val button = findViewById<Button>(R.id.button_save)
+        val btnCreateContact = findViewById(R.id.btnCreateContact) as Button
         button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(ClientNameView.text) && TextUtils.isEmpty(ClientAdresseView.text)){
@@ -59,6 +64,19 @@ class NewClientActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
+        }
+
+        // Listener ClientActivity
+        btnCreateContact.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@NewClientActivity,
+                    "Vous souhaitez créer un nouveau contact ?",
+                    Toast.LENGTH_SHORT
+            ).show()
+
+            val i = Intent(this@NewClientActivity, NewContactActivity::class.java)
+            startActivityForResult(i, newContactActivityRequestCode)
         }
 
 

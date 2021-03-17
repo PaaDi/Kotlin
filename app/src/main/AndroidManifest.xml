@@ -15,6 +15,7 @@
         android:theme="@style/Theme.Kotlin2">
         <activity android:name=".Controller.Client.DetailsClientActivity"></activity>
         <activity android:name=".Controller.Client.NewClientActivity" />
+        <activity android:name=".Controller.Contact.NewContactActivity" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
