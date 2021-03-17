@@ -2,6 +2,7 @@ package com.madera.kotlin.Controller.Client
 
 import android.os.Bundle
 import android.view.View
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -18,6 +19,14 @@ class DetailsClientActivity : AppCompatActivity() {
         const val EXTRA_CLIENT_ID = "clientId"
     }
 
+    private lateinit var clientName: EditText
+    private lateinit var clientActivity : EditText
+    private lateinit var clientAdress : EditText
+    private lateinit var clientCity: EditText
+    private lateinit var clientPostal: EditText
+    private lateinit var clientDescription: EditText
+    private lateinit var clientProfessionnel: TextView
+
     val clientViewModel: ClientViewModel by viewModels {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
     }
@@ -27,24 +36,29 @@ class DetailsClientActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details_client2)
 
         val clientId = intent.getIntExtra(EXTRA_CLIENT_ID, 1)
-
-
         val clientDetail = clientViewModel.getClientById(clientId)
-        val clientName = findViewById<TextView>(R.id.nameClientDetails)
-        val clientActivity = findViewById<TextView>(R.id.activityClientDetails)
-        val clientAdress = findViewById<TextView>(R.id.adressClientDetails)
-        val clientCity = findViewById<TextView>(R.id.cityClientDetails)
-        val clientPostal = findViewById<TextView>(R.id.postalClientDetails)
-        val clientDescription = findViewById<TextView>(R.id.descriptionClientDetails)
-        val clientProfessionnal = findViewById<TextView>(R.id.professionnalClientDetails)
 
-        clientName.text = clientDetail.nom
-        clientActivity.text = clientDetail.secteur
-        clientAdress.text = clientDetail.adresse
-        clientCity.text = clientDetail.ville
-        clientPostal.text = clientDetail.codePostal.toString()
-        clientDescription.text = clientDetail.description
-        clientProfessionnal.text = clientDetail.professionnel.toString()
+        clientName = findViewById(R.id.nameClientDetails)
+        clientActivity = findViewById(R.id.activityClientDetails)
+        clientAdress = findViewById(R.id.adressClientDetails)
+        clientCity = findViewById(R.id.cityClientDetails)
+        clientPostal = findViewById(R.id.postalClientDetails)
+        clientDescription = findViewById(R.id.descriptionClientDetails)
+        clientProfessionnel = findViewById(R.id.professionnelClientDetails)
+
+        clientName.setText(clientDetail.nom)
+        clientActivity.setText(clientDetail.secteur)
+        clientAdress.setText(clientDetail.adresse)
+        clientCity.setText(clientDetail.ville)
+        clientPostal.setText(clientDetail.codePostal.toString())
+        clientDescription.setText(clientDetail.description)
+
+        if (clientDetail.professionnel){
+            clientProfessionnel.text = "Client Professionnel"
+        }else{
+            clientProfessionnel.text = "Client Particulier"
+        }
+
 
     }
 }
