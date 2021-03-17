@@ -132,10 +132,10 @@
         android:textColorHighlight="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionClientDetails" />
 
     <EditText
-        android:id="@+id/txtName"
+        android:id="@+id/nameClientDetails"
         android:layout_width="790dp"
         android:layout_height="55dp"
         android:layout_marginStart="44dp"
@@ -147,6 +147,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/titleSecteur"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
@@ -154,7 +155,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleName" />
 
     <EditText
-        android:id="@+id/txtCity"
+        android:id="@+id/cityClientDetails"
         android:layout_width="356dp"
         android:layout_height="50dp"
         android:layout_marginStart="56dp"
@@ -168,7 +169,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleCity" />
 
     <EditText
-        android:id="@+id/txtPostal"
+        android:id="@+id/postalClientDetails"
         android:layout_width="364dp"
         android:layout_height="54dp"
         android:layout_marginStart="50dp"
@@ -181,11 +182,11 @@
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtCity"
+        app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
         app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
 
     <EditText
-        android:id="@+id/txtDesc"
+        android:id="@+id/descriptionClientDetails"
         android:layout_width="784dp"
         android:layout_height="115dp"
         android:layout_marginStart="46dp"
@@ -197,6 +198,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -216,10 +218,10 @@
         android:text="Code postal :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPostal"
+        app:layout_constraintBottom_toTopOf="@+id/postalClientDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/titleCity"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
+        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
         android:id="@+id/titleName"
@@ -232,12 +234,12 @@
         android:text="Nom :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtName"
+        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <EditText
-        android:id="@+id/txtAdress"
+        android:id="@+id/adressClientDetails"
         android:layout_width="785dp"
         android:layout_height="61dp"
         android:layout_marginStart="46dp"
@@ -248,13 +250,14 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
 
     <EditText
-        android:id="@+id/txtSecteur"
+        android:id="@+id/activityClientDetails"
         android:layout_width="788dp"
         android:layout_height="59dp"
         android:layout_marginStart="46dp"
@@ -281,7 +284,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
 
     <TextView
         android:id="@+id/titleAdress"
@@ -294,7 +297,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSecteur" />
+        app:layout_constraintTop_toBottomOf="@+id/activityClientDetails" />
 
     <TextView
         android:id="@+id/titleCity"
@@ -307,7 +310,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
+        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
         android:id="@+id/titleCity2"
@@ -320,81 +323,9 @@
         android:text="Description :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionClientDetails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCity" />
-
-    <TextView
-        android:id="@+id/nameClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nom Client" />
-
-    <TextView
-        android:id="@+id/activityClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="484dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Activity" />
-
-    <TextView
-        android:id="@+id/adressClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="624dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Adresse" />
-
-    <TextView
-        android:id="@+id/cityClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="764dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ville" />
-
-    <TextView
-        android:id="@+id/postalClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="768dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Postal" />
-
-    <TextView
-        android:id="@+id/descriptionClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="996dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Description" />
+        app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 
     <TextView
         android:id="@+id/professionnalClientDetails"

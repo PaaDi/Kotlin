@@ -23,12 +23,12 @@ class NewClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_client_view)
 
-        ClientNameView = findViewById(R.id.txtName)
-        ClientSecteurView = findViewById(R.id.txtSecteur)
-        ClientAdresseView = findViewById(R.id.txtAdress)
-        ClientVilleView = findViewById(R.id.txtCity)
-        ClientCodePostalView = findViewById(R.id.txtPostal)
-        ClientDescriptionView = findViewById(R.id.txtDesc)
+        ClientNameView = findViewById(R.id.nameClientDetails)
+        ClientSecteurView = findViewById(R.id.activityClientDetails)
+        ClientAdresseView = findViewById(R.id.adressClientDetails)
+        ClientVilleView = findViewById(R.id.cityClientDetails)
+        ClientCodePostalView = findViewById(R.id.postalClientDetails)
+        ClientDescriptionView = findViewById(R.id.descriptionClientDetails)
         ClientIsProView = findViewById(R.id.checkProfessionnel)
 
 

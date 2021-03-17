@@ -1,13 +1,16 @@
 package com.madera.kotlin.Controller.Client
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.ClientViewModel
 import com.madera.kotlin.ViewModel.ClientViewModelFactory
+
 
 class DetailsClientActivity : AppCompatActivity() {
 
@@ -27,7 +30,6 @@ class DetailsClientActivity : AppCompatActivity() {
 
 
         val clientDetail = clientViewModel.getClientById(clientId)
-
         val clientName = findViewById<TextView>(R.id.nameClientDetails)
         val clientActivity = findViewById<TextView>(R.id.activityClientDetails)
         val clientAdress = findViewById<TextView>(R.id.adressClientDetails)

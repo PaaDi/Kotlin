@@ -132,10 +132,10 @@
         android:textColorHighlight="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionClientDetails" />
 
     <EditText
-        android:id="@+id/txtName"
+        android:id="@+id/nameClientDetails"
         android:layout_width="790dp"
         android:layout_height="55dp"
         android:layout_marginStart="44dp"
@@ -154,7 +154,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleName" />
 
     <EditText
-        android:id="@+id/txtCity"
+        android:id="@+id/cityClientDetails"
         android:layout_width="356dp"
         android:layout_height="50dp"
         android:layout_marginStart="56dp"
@@ -167,7 +167,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleCity" />
 
     <EditText
-        android:id="@+id/txtPostal"
+        android:id="@+id/postalClientDetails"
         android:layout_width="364dp"
         android:layout_height="54dp"
         android:layout_marginStart="50dp"
@@ -179,11 +179,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtCity"
+        app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
         app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
 
     <EditText
-        android:id="@+id/txtDesc"
+        android:id="@+id/descriptionClientDetails"
         android:layout_width="784dp"
         android:layout_height="115dp"
         android:layout_marginStart="46dp"
@@ -214,10 +214,10 @@
         android:text="Code postal :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPostal"
+        app:layout_constraintBottom_toTopOf="@+id/postalClientDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/titleCity"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
+        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
         android:id="@+id/titleName"
@@ -230,12 +230,12 @@
         android:text="Nom :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtName"
+        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <EditText
-        android:id="@+id/txtAdress"
+        android:id="@+id/adressClientDetails"
         android:layout_width="785dp"
         android:layout_height="61dp"
         android:layout_marginStart="46dp"
@@ -251,7 +251,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
 
     <EditText
-        android:id="@+id/txtSecteur"
+        android:id="@+id/activityClientDetails"
         android:layout_width="788dp"
         android:layout_height="59dp"
         android:layout_marginStart="46dp"
@@ -277,7 +277,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
 
     <TextView
         android:id="@+id/titleAdress"
@@ -290,7 +290,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSecteur" />
+        app:layout_constraintTop_toBottomOf="@+id/activityClientDetails" />
 
     <TextView
         android:id="@+id/titleCity"
@@ -303,7 +303,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
+        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
         android:id="@+id/titleCity2"
@@ -316,9 +316,9 @@
         android:text="Description :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionClientDetails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCity" />
+        app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
