@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnListProject"
+        android:layout_width="430dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:text="Liste des projets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1" />
+
+    <Button
+        android:id="@+id/btnListClient"
+        android:layout_width="430dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:text="Liste des clients"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnListProject" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="1286dp"
+        android:layout_height="90dp"
+        android:background="#0C5A43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewP"
+            android:layout_width="89dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="400px"
+            android:layout_marginLeft="400px"
+            android:src="@drawable/unnamed" />
+
+        <TextView
+            android:id="@+id/txtAccueilProject"
+            android:layout_width="265dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="25px"
+            android:layout_marginLeft="25px"
+            android:layout_marginTop="30px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="PYRAMID"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="2200px"
+            android:layout_marginLeft="2200px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/business_man" />
+
+        <ImageView
+            android:id="@+id/imageHelpProject"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="2000px"
+            android:layout_marginLeft="2000px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/help" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="1281dp"
+        android:layout_height="186dp"
+        android:background="#00AD59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="1021dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="250px"
+            android:layout_marginLeft="250px"
+            android:layout_marginTop="200px"
+            android:background="#FFFFFF"
+            android:queryHint="Rechercher dans la liste" />
+
+        <TextView
+            android:id="@+id/txtAccueil"
+            android:layout_width="266dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="1000px"
+            android:layout_marginLeft="1000px"
+            android:layout_marginTop="30px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Espace Projet"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

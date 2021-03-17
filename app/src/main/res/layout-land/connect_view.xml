@@ -15,10 +15,9 @@
         app:backgroundTint="#0C8148"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintVertical_bias="0.836" />
 
     <TextView
         android:id="@+id/titleConnect"
@@ -93,9 +92,9 @@
         android:id="@+id/titlePassMiss"
         android:layout_width="215dp"
         android:layout_height="28dp"
-        android:layout_marginStart="508dp"
-        android:layout_marginLeft="508dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="708dp"
+        android:layout_marginLeft="708dp"
+        android:layout_marginTop="8dp"
         android:text=" Mot de passe oublié ?"
         android:textColor="#0C8148"
         android:textSize="18sp"
