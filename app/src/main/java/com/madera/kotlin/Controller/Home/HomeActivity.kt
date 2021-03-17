@@ -50,7 +50,7 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         //region Components
         val btnListProject = findViewById(R.id.btnListProject) as Button
         val btnListClient = findViewById(R.id.btnListClient) as Button
-        val imageHelpHome = findViewById(R.id.imageHelp         Home) as ImageView
+        val imageHelpHome = findViewById(R.id.imageHelpHome) as ImageView
 
         //region Events Listeners
         // Listener ProjectActivity

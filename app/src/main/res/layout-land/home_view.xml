@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="1281dp"
+        android:layout_height="196dp"
+        android:background="#00AD59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="1021dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="250px"
+            android:layout_marginLeft="250px"
+            android:layout_marginTop="200px"
+            android:background="#FFFFFF"
+            android:queryHint="Rechercher dans la liste" />
+
+        <TextView
+            android:id="@+id/txtAccueil"
+            android:layout_width="266dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="25px"
+            android:layout_marginLeft="25px"
+            android:layout_marginTop="20px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Bonjour"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="266dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="300px"
+            android:layout_marginLeft="300px"
+            android:layout_marginTop="20px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Username"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="1286dp"
+        android:layout_height="90dp"
+        android:background="#0C5A43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewP"
+            android:layout_width="89dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="400px"
+            android:layout_marginLeft="400px"
+            android:src="@drawable/unnamed" />
+
+        <TextView
+            android:id="@+id/txtAccueilProject"
+            android:layout_width="265dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="25px"
+            android:layout_marginLeft="25px"
+            android:layout_marginTop="30px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="PYRAMID"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="2200px"
+            android:layout_marginLeft="2200px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/business_man" />
+
+        <ImageView
+            android:id="@+id/imageHelpHome"
+            android:layout_width="110dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="2000px"
+            android:layout_marginLeft="2000px"
+            android:layout_marginTop="25px"
+            app:srcCompat="@drawable/help" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="912dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginRight="184dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/relativeLayout1">
+
+        <Button
+            android:id="@+id/btnListProject"
+            android:layout_width="445dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center|left"
+            android:text="Les Projets"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:backgroundTint="#0C8148" />
+
+        <Button
+            android:id="@+id/btnListClient"
+            android:layout_width="445dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center|right"
+            android:layout_marginStart="950px"
+            android:layout_marginLeft="950px"
+            android:text="Les Clients"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="@color/green_500"
+            android:textSize="24sp"
+            app:backgroundTint="#0C8148" />
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_projet"
+        android:layout_width="match_parent"
+        android:layout_height="916dp"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/recyclerview_projet" />
+</androidx.constraintlayout.widget.ConstraintLayout>
