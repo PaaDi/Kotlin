@@ -64,8 +64,6 @@
         android:layout_width="912dp"
         android:layout_height="82dp"
         android:background="#0C5A43"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -102,7 +100,7 @@
             app:srcCompat="@drawable/business_man" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageHelpClient"
             android:layout_width="110dp"
             android:layout_height="67dp"
             android:layout_marginStart="1300px"
