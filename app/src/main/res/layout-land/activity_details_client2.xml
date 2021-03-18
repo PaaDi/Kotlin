@@ -11,18 +11,16 @@
         android:id="@+id/titleInfo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="549dp"
-        android:layout_marginLeft="549dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
+        android:layout_marginEnd="187dp"
+        android:layout_marginRight="187dp"
+        android:layout_marginBottom="32dp"
         android:text="Contact"
         android:textColor="#222222"
         android:textSize="36sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview_contact"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/idClientDetails"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <RelativeLayout
@@ -386,17 +384,41 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_contact"
-        android:layout_width="356dp"
-        android:layout_height="620dp"
-        android:layout_marginTop="141dp"
+        android:layout_width="385dp"
+        android:layout_height="635dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/descriptionClientDetails"
+        app:layout_constraintTop_toBottomOf="@+id/titleInfo2"
         tools:listitem="@layout/recyclerview_contact" />
+
+    <ScrollView
+        android:layout_width="385dp"
+        android:layout_height="612dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/recyclerview_contact"
+        app:layout_constraintTop_toBottomOf="@+id/titleInfo2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
