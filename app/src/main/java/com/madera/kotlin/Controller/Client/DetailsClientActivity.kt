@@ -164,6 +164,13 @@ class DetailsClientActivity : AppCompatActivity() {
             btnValideUpdate.isVisible = false
             clientProfessionnel.isVisible = true
 
+            if (proCheckBox.isChecked){
+                clientProfessionnel.text = "Client Professionnel"
+            }else{
+                clientProfessionnel.text = "Client Particulier"
+            }
+
+
         }
     /*
     Button suppression treatment
