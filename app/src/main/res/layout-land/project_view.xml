@@ -11,7 +11,7 @@
         android:layout_width="430dp"
         android:layout_height="49dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:text="Liste des projets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="912dp"
-        android:layout_height="82dp"
+        android:layout_width="1286dp"
+        android:layout_height="90dp"
         android:background="#0C5A43"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,8 +65,8 @@
             android:id="@+id/imageView2"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
+            android:layout_marginStart="2200px"
+            android:layout_marginLeft="2200px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/business_man" />
 
@@ -74,8 +74,8 @@
             android:id="@+id/imageHelpProject"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1300px"
-            android:layout_marginLeft="1300px"
+            android:layout_marginStart="2000px"
+            android:layout_marginLeft="2000px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/help" />
 
@@ -83,8 +83,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="903dp"
-        android:layout_height="200dp"
+        android:layout_width="1281dp"
+        android:layout_height="186dp"
         android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
 
         <SearchView
             android:id="@+id/searchView"
-            android:layout_width="668dp"
+            android:layout_width="1021dp"
             android:layout_height="58dp"
             android:layout_gravity="center|left"
             android:layout_marginStart="250px"
@@ -105,8 +105,8 @@
             android:id="@+id/txtAccueil"
             android:layout_width="266dp"
             android:layout_height="69dp"
-            android:layout_marginStart="680px"
-            android:layout_marginLeft="680px"
+            android:layout_marginStart="1000px"
+            android:layout_marginLeft="1000px"
             android:layout_marginTop="30px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"

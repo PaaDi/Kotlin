@@ -1,6 +1,7 @@
 package com.madera.kotlin.Controller.Home
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
@@ -50,7 +52,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
 
         //region Components
         val btnCreateClient = findViewById(R.id.btnCreateClient) as Button
-
+        val imageHelpClient = findViewById(R.id.imageHelpClient) as ImageView
 
         //region Observer
             clientViewModel.AllClients.observe(this, Observer { clients ->
@@ -69,6 +71,28 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
 
             val i = Intent(this@ClientActivity, NewClientActivity::class.java)
             startActivityForResult(i, newClientActivityRequestCode)
+        }
+
+        // Bulle d'information
+        imageHelpClient.setOnClickListener {
+            // build alert dialog
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            // set message of alert dialog
+            dialogBuilder.setMessage("Vous voici sur l'espace client, vous avez la possibilité d'ajouter/éditer/supprimer un client dans la liste.")
+                    // if the dialog is cancelable
+                    .setCancelable(false)
+                    // positive button text and action
+                    .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
+                    })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle("Espace Client !")
+            // show alert dialog
+            alert.show()
         }
 
     }

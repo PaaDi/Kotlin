@@ -1,12 +1,11 @@
 package com.madera.kotlin.Controller.Client
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
@@ -40,6 +39,7 @@ class DetailsClientActivity : AppCompatActivity() {
 
         val clientId = intent.getIntExtra(EXTRA_CLIENT_ID, 1)
         val clientDetail = clientViewModel.getClientById(clientId)
+        val imageHelpDetailsClient = findViewById(R.id.imageHelpDetailsClient) as ImageView
 
         clientIdentifiant = findViewById(R.id.idClientDetails)
         clientName = findViewById(R.id.nameClientDetails)
@@ -72,6 +72,28 @@ class DetailsClientActivity : AppCompatActivity() {
         buttonDelete.setOnClickListener {
             clientViewModel.deleteClient(clientDetail)
             super.onBackPressed()
+        }
+
+        // Bulle d'information
+        imageHelpDetailsClient.setOnClickListener {
+            // build alert dialog
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            // set message of alert dialog
+            dialogBuilder.setMessage("Vous voici sur l'espace informations personnels du client, il vous est possible de mettre à jour ou supprimer les données.")
+                    // if the dialog is cancelable
+                    .setCancelable(false)
+                    // positive button text and action
+                    .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
+                    })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle("Informations du client !")
+            // show alert dialog
+            alert.show()
         }
     }
 }

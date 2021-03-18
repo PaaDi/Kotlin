@@ -9,8 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="912dp"
-        android:layout_height="82dp"
+        android:layout_width="1286dp"
+        android:layout_height="90dp"
         android:background="#0C5A43"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -44,8 +44,8 @@
             android:id="@+id/imageView2"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
+            android:layout_marginStart="2200px"
+            android:layout_marginLeft="2200px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/business_man" />
 
@@ -53,8 +53,8 @@
             android:id="@+id/imageHelpContact"
             android:layout_width="110dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1300px"
-            android:layout_marginLeft="1300px"
+            android:layout_marginStart="2000px"
+            android:layout_marginLeft="2000px"
             android:layout_marginTop="25px"
             app:srcCompat="@drawable/help" />
 
@@ -62,8 +62,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="900dp"
-        android:layout_height="53dp"
+        android:layout_width="1288dp"
+        android:layout_height="54dp"
         android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -81,8 +81,8 @@
             android:id="@+id/button_saveContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
+            android:layout_marginStart="2100px"
+            android:layout_marginLeft="2100px"
             android:text="Enregistrer"
             android:textColor="#00AD59"
             android:textColorHighlight="#FFFFFF"
@@ -95,123 +95,18 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/nameContactDetails"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
-
-    <EditText
-        android:id="@+id/phoneContactDetails"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
-
-    <EditText
-        android:id="@+id/mailContactDetails"
-        android:layout_width="778dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="689dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleMail" />
-
-    <TextView
-        android:id="@+id/titleName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="1dp"
-        android:text="Nom :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <EditText
-        android:id="@+id/fonctionContactDetails"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneContactDetails"
-        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
-
-    <EditText
         android:id="@+id/surnameContactDetails"
         android:layout_width="360dp"
         android:layout_height="62dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="204dp"
+        android:layout_marginRight="204dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titlePrenom" />
-
-    <TextView
-        android:id="@+id/titlePrenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="308dp"
-        android:layout_marginRight="308dp"
-        android:text="Prénom :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <TextView
-        android:id="@+id/titleFonction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
-        android:text="Fonction"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameContactDetails" />
 
     <TextView
         android:id="@+id/titlePhone"
@@ -228,22 +123,131 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/fonctionContactDetails"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toEndOf="@+id/titleFonction"
         app:layout_constraintTop_toBottomOf="@+id/surnameContactDetails"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/titleMail"
+        android:id="@+id/titleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="1dp"
+        android:text="Nom :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <EditText
+        android:id="@+id/mailContactDetails"
+        android:layout_width="800dp"
+        android:layout_height="70dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="689dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleMail"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <EditText
+        android:id="@+id/fonctionContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/phoneContactDetails"
+        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
+
+    <EditText
+        android:id="@+id/nameContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="24dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleName" />
+
+    <TextView
+        android:id="@+id/titleFonction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="16dp"
+        android:text="Fonction"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameContactDetails" />
+
+    <TextView
+        android:id="@+id/titleMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="24dp"
         android:text="Adresse e-mail"
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phoneContactDetails" />
+
+    <EditText
+        android:id="@+id/phoneContactDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
+
+    <TextView
+        android:id="@+id/titlePrenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="440dp"
+        android:layout_marginRight="440dp"
+        android:text="Prénom :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
