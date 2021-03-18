@@ -39,7 +39,7 @@ class NewClientActivity : AppCompatActivity() {
         ClientIsProView = findViewById(R.id.checkProfessionnel)
 
 
-        val button = findViewById<Button>(R.id.button_save)
+        val button = findViewById<Button>(R.id.btn_DoUpdate)
         val btnCreateContact = findViewById(R.id.btnCreateContact) as Button
         val imageHelpNewClient = findViewById(R.id.imageHelpNewClient) as ImageView
 

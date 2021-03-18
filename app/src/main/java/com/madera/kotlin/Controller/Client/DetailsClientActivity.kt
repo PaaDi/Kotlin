@@ -9,11 +9,13 @@ import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Contact.ContactListAdapter
 import com.madera.kotlin.Controller.Contact.NewContactActivity
+import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.Entity.Contact
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
@@ -40,6 +42,9 @@ class DetailsClientActivity : AppCompatActivity() {
     private lateinit var clientDescription: EditText
     private lateinit var clientProfessionnel: TextView
     private  lateinit var  buttonDelete: Button
+    private lateinit var proCheckBox : CheckBox
+    private lateinit var btnValideUpdate : Button
+    private lateinit var btnDoUpdate: Button
     private var clientId = 0
 
     val clientViewModel: ClientViewModel by viewModels {
@@ -97,8 +102,21 @@ class DetailsClientActivity : AppCompatActivity() {
         clientPostal = findViewById(R.id.postalClientDetails)
         clientDescription = findViewById(R.id.descriptionClientDetails)
         clientProfessionnel = findViewById(R.id.professionnelClientDetails)
+        proCheckBox = findViewById(R.id.checkProfessionnel)
+        btnValideUpdate = findViewById(R.id.btn_valideUpdate)
+        btnDoUpdate = findViewById(R.id.btn_DoUpdate)
 
-        clientIdentifiant.text = clientDetail.refClient.toString()
+        clientName.isEnabled = false
+        clientActivity.isEnabled = false
+        clientAdress.isEnabled = false
+        clientCity.isEnabled =false
+        clientPostal.isEnabled = false
+        clientDescription.isEnabled = false
+        proCheckBox.isChecked = clientDetail.professionnel
+        proCheckBox.isVisible = false
+        btnValideUpdate.isVisible = false
+
+        clientIdentifiant.text = "Client #"+ clientDetail.refClient.toString()
         clientName.setText(clientDetail.nom)
         clientActivity.setText(clientDetail.secteur)
         clientAdress.setText(clientDetail.adresse)
@@ -112,6 +130,41 @@ class DetailsClientActivity : AppCompatActivity() {
             clientProfessionnel.text = "Client Particulier"
         }
 
+        /*
+        Button update client
+         */
+        btnDoUpdate.setOnClickListener {
+            btnDoUpdate.isVisible = false
+            proCheckBox.isVisible = true
+            clientName.isEnabled = true
+            clientActivity.isEnabled = true
+            clientAdress.isEnabled = true
+            clientCity.isEnabled =true
+            clientPostal.isEnabled = true
+            clientDescription.isEnabled = true
+            btnValideUpdate.isVisible = true
+            clientProfessionnel.isVisible = false
+        }
+
+        /*
+        Button Valide Update
+         */
+        btnValideUpdate.setOnClickListener {
+            val codePostal = clientPostal.text.toString()
+            val codePostalToInt = codePostal.toInt()
+            clientViewModel.createClient(Client(clientId,clientDetail.refClient,clientName.text.toString(),clientAdress.text.toString(),codePostalToInt,clientCity.text.toString(),proCheckBox.isChecked,clientActivity.text.toString(),clientDescription.text.toString()))
+            btnDoUpdate.isVisible = true
+            proCheckBox.isVisible = false
+            clientName.isEnabled = false
+            clientActivity.isEnabled = false
+            clientAdress.isEnabled = false
+            clientCity.isEnabled =false
+            clientPostal.isEnabled = false
+            clientDescription.isEnabled = false
+            btnValideUpdate.isVisible = false
+            clientProfessionnel.isVisible = true
+
+        }
     /*
     Button suppression treatment
      */

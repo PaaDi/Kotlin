@@ -72,7 +72,7 @@
 
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/btn_DoUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
@@ -96,11 +96,11 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="29dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="186dp"
             android:layout_marginRight="29dp"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/button_save"
-            android:layout_toRightOf="@+id/button_save"
+            android:layout_marginStart="186dp"
+            android:layout_toEndOf="@+id/delete_btn"
+            android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
             android:textColor="#00AD59"
             android:textColorHighlight="#FFFFFF"
@@ -127,6 +127,17 @@
             android:layout_width="92dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/left_arrow" />
+
+        <Button
+            android:id="@+id/btn_valideUpdate"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/delete_btn"
+            android:layout_toRightOf="@+id/delete_btn"
+            android:text="Valider"
+            app:backgroundTint="#347837" />
     </RelativeLayout>
 
     <CheckBox
@@ -354,9 +365,9 @@
         android:id="@+id/professionnelClientDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="100dp"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/titleName"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
