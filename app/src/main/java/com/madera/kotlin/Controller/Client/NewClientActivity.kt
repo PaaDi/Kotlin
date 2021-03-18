@@ -23,6 +23,7 @@ class NewClientActivity : AppCompatActivity() {
     private lateinit var ClientCodePostalView: EditText
     private lateinit var ClientDescriptionView: EditText
     private lateinit var ClientIsProView: CheckBox
+    //endregion
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {

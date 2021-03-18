@@ -6,15 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import com.madera.kotlin.Entity.Projet
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Client.CellClickListener
+import com.madera.kotlin.Dao.ChantierDao
+import com.madera.kotlin.MaderaApplication
 
 
 import com.madera.kotlin.R
+import com.madera.kotlin.Repository.ClientRepository
+import com.madera.kotlin.ViewModel.ClientViewModel
+import com.madera.kotlin.ViewModel.ClientViewModelFactory
 
-class ProjetListAdapter(private val cellClickListener: CellClickListener) : ListAdapter<Projet, ProjetListAdapter.ProjetViewHolder>(ProjetsComparator()){
+class ProjetListAdapter(private val cellClickListener: CellClickListener, private val viewModel: ClientViewModel) : ListAdapter<Projet, ProjetListAdapter.ProjetViewHolder>(ProjetsComparator()){
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjetViewHolder{
         return ProjetViewHolder.create(parent)
@@ -22,7 +30,8 @@ class ProjetListAdapter(private val cellClickListener: CellClickListener) : List
 
     override fun onBindViewHolder(holder: ProjetViewHolder, position: Int){
         val current = getItem(position)
-        holder.bind(current.nomProjet, current.nomProjet)
+        val client = viewModel.getClientById(current.clientId)
+        holder.bind(current.nomProjet + " -  Réf: " + current.refProjet.toString(), "Client: " + client.nom)
 
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickListener(current.clientId)

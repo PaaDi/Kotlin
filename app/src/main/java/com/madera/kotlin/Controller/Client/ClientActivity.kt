@@ -44,10 +44,12 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
         setContentView(R.layout.client_view)
 
         //region Implement Recylcer
+            /* FOR CLIENT */
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_client)
             val adapterClient = ClientListAdapter(this)
             recyclerView.adapter = adapterClient
             recyclerView.layoutManager = LinearLayoutManager(this)
+
         //endregion
 
         //region Components
@@ -60,7 +62,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
             })
         //endregion
 
-        // Listener ClientActivity
+        // Listener NewClientActivity
         btnCreateClient.setOnClickListener {
             // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
             Toast.makeText(

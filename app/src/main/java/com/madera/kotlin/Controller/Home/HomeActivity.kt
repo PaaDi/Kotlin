@@ -16,10 +16,7 @@ import com.madera.kotlin.Entity.Projet
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.MaderaApplication.Companion.globalTest
 import com.madera.kotlin.R
-import com.madera.kotlin.ViewModel.ChantierViewModel
-import com.madera.kotlin.ViewModel.ChantierViewModelFactory
-import com.madera.kotlin.ViewModel.ProjetViewModel
-import com.madera.kotlin.ViewModel.ProjetViewModelFactory
+import com.madera.kotlin.ViewModel.*
 
 
 class HomeActivity : AppCompatActivity(), CellClickListener {
@@ -30,13 +27,17 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
     }
 
+    val clientViewModel: ClientViewModel by viewModels {
+        ClientViewModelFactory((application as MaderaApplication).repositoryClient)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_view)
-        val rnds = (0..99999999).random().toLong()
+
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_projet)
-        val adapterProjet = ProjetListAdapter(this)
+        val adapterProjet = ProjetListAdapter(this,clientViewModel)
         recyclerView.adapter = adapterProjet
         recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion

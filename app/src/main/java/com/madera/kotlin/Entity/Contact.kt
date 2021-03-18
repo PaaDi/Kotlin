@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
         onDelete = ForeignKey.CASCADE)))
 
 data class Contact(
-    @PrimaryKey(autoGenerate = true) val idContact: Int,
+    @PrimaryKey(autoGenerate = true) val idContact: Int?,
     @ColumnInfo(name = "refContact") val refContact: Long,
     @ColumnInfo(name = "clientId") val clientId: Int,
     @ColumnInfo(name = "nomContact") val nomContact: String,
