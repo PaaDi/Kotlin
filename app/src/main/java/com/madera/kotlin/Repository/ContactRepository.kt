@@ -3,6 +3,7 @@ package com.madera.kotlin.Repository
 import androidx.annotation.WorkerThread
 import com.madera.kotlin.Dao.ContactDao
 import com.madera.kotlin.Entity.Contact
+import kotlinx.coroutines.flow.Flow
 
 class ContactRepository(private val contactDao: ContactDao) {
 
@@ -12,5 +13,7 @@ class ContactRepository(private val contactDao: ContactDao) {
         contactDao.createContact(contact)
     }
 
-    //TODO : Ajouter les appels aux requêtes manquantes
+    fun getAllContactsByClient(id: Int) : Flow<List<Contact>>{
+        return contactDao.getAllContactsByClient(id)
+    }
 }

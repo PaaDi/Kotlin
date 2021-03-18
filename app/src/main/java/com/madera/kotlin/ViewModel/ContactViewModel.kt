@@ -12,7 +12,9 @@ class ContactViewModel(private val repository: ContactRepository) : ViewModel() 
         repository.createContact(contact)
     }
 
-    // TODO : Ajouter les appels au repo manquants
+    fun getAllContactsByClient(id : Int) : LiveData<List<Contact>>{
+        return repository.getAllContactsByClient(id).asLiveData()
+    }
 }
 
 class ContactViewModelFactory(private val repository: ContactRepository) : ViewModelProvider.Factory{
