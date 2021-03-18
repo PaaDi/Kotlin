@@ -238,12 +238,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:text="Adresse e-mail"
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneContactDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/fonctionContactDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
