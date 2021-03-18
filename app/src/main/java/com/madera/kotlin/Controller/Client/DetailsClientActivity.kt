@@ -54,9 +54,11 @@ class DetailsClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_client2)
 
+        val btnSupressContact = findViewById<Button>(R.id.btn_deleteContact)
+
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_contact)
-        val adapterContact = ContactListAdapter()
+        val adapterContact = ContactListAdapter(contactViewModel)
         recyclerView.adapter = adapterContact
         recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
@@ -83,6 +85,9 @@ class DetailsClientActivity : AppCompatActivity() {
             i.putExtra(NewContactActivity.EXTRA_CLIENT_ID_FORNEWCONTACT, clientId)
             startActivityForResult(i, newContactActivityRequestCode)
         }
+
+
+
 
         clientIdentifiant = findViewById(R.id.idClientDetails)
         clientName = findViewById(R.id.nameClientDetails)
@@ -167,6 +172,7 @@ class DetailsClientActivity : AppCompatActivity() {
             }
             val rnds = (0..99999999).random().toLong()
             contactViewModel.createContact(Contact(null,rnds,clientId,nomContact,prenomContact,fonctionContact,phoneContact,mailContact))
+
         }else{
             Toast.makeText(
                     applicationContext,

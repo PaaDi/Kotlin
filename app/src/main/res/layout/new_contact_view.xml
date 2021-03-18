@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleName" />
 
     <EditText
-        android:id="@+id/phoneContactDetails"
+        android:id="@+id/fonctionContactDetails"
         android:layout_width="360dp"
         android:layout_height="62dp"
         android:layout_marginStart="56dp"
@@ -157,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <EditText
-        android:id="@+id/fonctionContactDetails"
+        android:id="@+id/phoneContactDetails"
         android:layout_width="360dp"
         android:layout_height="62dp"
         android:layout_marginStart="56dp"
@@ -170,7 +170,7 @@
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneContactDetails"
+        app:layout_constraintStart_toEndOf="@+id/fonctionContactDetails"
         app:layout_constraintTop_toBottomOf="@+id/titlePhone" />
 
     <EditText

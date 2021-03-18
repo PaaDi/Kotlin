@@ -3,14 +3,16 @@ package com.madera.kotlin.Controller.Contact
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Entity.Contact
 import com.madera.kotlin.R
+import com.madera.kotlin.ViewModel.ContactViewModel
 
-class ContactListAdapter() : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
+class ContactListAdapter(private val contactViewModel: ContactViewModel) : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         return ContactViewHolder.create(parent)
@@ -18,16 +20,24 @@ class ContactListAdapter() : ListAdapter<Contact, ContactListAdapter.ContactView
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.nomContact, current.prenomContact)
+        val viewModel = contactViewModel
+        holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, viewModel )
+
     }
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val contactItemView: TextView = itemView.findViewById(R.id.textView)
         private val contactItemView2: TextView = itemView.findViewById(R.id.textView2)
+        private val contactItemView3: TextView = itemView.findViewById(R.id.textView3)
+        private val buttonSuppressContact: Button = itemView.findViewById(R.id.btn_deleteContact)
 
-        fun bind(text: String?, text2: String?){
+        fun bind(text: String?, text2: String?, text3: String?, contact: Contact, viewModel: ContactViewModel){
             contactItemView.text = text
             contactItemView2.text = text2
+            contactItemView3.text = text3
+            buttonSuppressContact.setOnClickListener {
+                viewModel.deleteContact(contact)
+            }
         }
 
         companion object{

@@ -16,4 +16,8 @@ class ContactRepository(private val contactDao: ContactDao) {
     fun getAllContactsByClient(id: Int) : Flow<List<Contact>>{
         return contactDao.getAllContactsByClient(id)
     }
+
+   fun deleteContact(contact: Contact){
+       contactDao.delete(contact)
+   }
 }

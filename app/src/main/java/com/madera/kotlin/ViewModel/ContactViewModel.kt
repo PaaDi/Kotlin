@@ -15,6 +15,10 @@ class ContactViewModel(private val repository: ContactRepository) : ViewModel() 
     fun getAllContactsByClient(id : Int) : LiveData<List<Contact>>{
         return repository.getAllContactsByClient(id).asLiveData()
     }
+
+    fun deleteContact(contact: Contact){
+        repository.deleteContact(contact)
+    }
 }
 
 class ContactViewModelFactory(private val repository: ContactRepository) : ViewModelProvider.Factory{
