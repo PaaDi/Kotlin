@@ -31,6 +31,9 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
     }
 
+
+    private lateinit var userIdentifiant: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_view)
@@ -100,7 +103,8 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
             alert.show()
         }
 
-
+        userIdentifiant = findViewById(R.id.nameUserHome) as TextView
+        userIdentifiant.text = globalTest.pseudoUser
     }
 
     override fun onCellClickListener(id: Int?) {

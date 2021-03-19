@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.madera.kotlin.Controller.Client.NewClientActivity
+import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
 class NewContactActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class NewContactActivity : AppCompatActivity() {
     }
 
     //region Global Component
+    private lateinit var userIdentifiant: TextView
     private lateinit var ContactNameView: EditText
     private lateinit var ContactPrenomView: EditText
     private lateinit var ContactFonctionView: EditText
@@ -91,6 +93,9 @@ class NewContactActivity : AppCompatActivity() {
             // show alert dialog
             alert.show()
         }
+
+        userIdentifiant = findViewById(R.id.nameUserContact) as TextView
+        userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
 
 

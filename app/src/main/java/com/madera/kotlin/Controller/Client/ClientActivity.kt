@@ -31,6 +31,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
 
     //region Global Component
     private val newClientActivityRequestCode = 1
+    private lateinit var userIdentifiant: TextView
     //endregion
     //region viewModel Implement
     val clientViewModel: ClientViewModel by viewModels {
@@ -96,6 +97,9 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
             // show alert dialog
             alert.show()
         }
+
+        userIdentifiant = findViewById(R.id.nameUserClient) as TextView
+        userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
     }
 

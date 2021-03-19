@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
 
 class ProjectActivity : AppCompatActivity() {
 
+    private lateinit var userIdentifiant: TextView
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,9 @@ class ProjectActivity : AppCompatActivity() {
             // show alert dialog
             alert.show()
         }
+
+        userIdentifiant = findViewById(R.id.nameUserProject) as TextView
+        userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
 
     }
