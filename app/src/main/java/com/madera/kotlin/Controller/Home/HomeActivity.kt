@@ -35,6 +35,32 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_view)
 
+        //region HEADER IMPLEMENTATION
+        // Bulle d'information
+        val imageHelpHome = findViewById(R.id.imageHelpHome) as ImageView
+        imageHelpHome.setOnClickListener {
+            // build alert dialog
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            // set message of alert dialog
+            dialogBuilder.setMessage("Pour afficher la liste des projets/clients, veuillez cliquer sur un des boutons.")
+                    // if the dialog is cancelable
+                    .setCancelable(false)
+                    // positive button text and action
+                    .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
+                    })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle("Page d'Accueil !")
+            // show alert dialog
+            alert.show()
+        }
+
+        //endregion
+
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_projet)
         val adapterProjet = ProjetListAdapter(this,clientViewModel)
@@ -51,7 +77,7 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         //region Components
         val btnListProject = findViewById(R.id.btnListProject) as Button
         val btnListClient = findViewById(R.id.btnListClient) as Button
-        val imageHelpHome = findViewById(R.id.imageHelpHome) as ImageView
+
 
         //region Events Listeners
         // Listener ProjectActivity
@@ -77,28 +103,9 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
             val i = Intent(this, ClientActivity::class.java)
             startActivity(i)
         }
+        //endregion
 
-        // Bulle d'information
-        imageHelpHome.setOnClickListener {
-            // build alert dialog
-            val dialogBuilder = AlertDialog.Builder(this)
 
-            // set message of alert dialog
-            dialogBuilder.setMessage("Pour afficher la liste des projets/clients, veuillez cliquer sur un des boutons.")
-                    // if the dialog is cancelable
-                    .setCancelable(false)
-                    // positive button text and action
-                    .setPositiveButton("Retour", DialogInterface.OnClickListener { dialog, id ->
-                        dialog.cancel()
-                    })
-
-            // create dialog box
-            val alert = dialogBuilder.create()
-            // set title for alert dialog box
-            alert.setTitle("Page d'Accueil !")
-            // show alert dialog
-            alert.show()
-        }
 
 
     }
