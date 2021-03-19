@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewProjet"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/white"
+        android:layout_height="98dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#FFFF"
         android:foreground="?android:attr/selectableItemBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -35,11 +40,12 @@
                 android:id="@+id/iconClient"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.482"
                 tools:srcCompat="@drawable/ic_launcher_foreground" />
 
             <TextView

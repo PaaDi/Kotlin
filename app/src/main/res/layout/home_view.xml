@@ -4,24 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray_500">
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="900dp"
         android:layout_height="164dp"
         android:background="#00AD59"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="1.0">
 
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="668dp"
             android:layout_height="58dp"
             android:layout_gravity="center|left"
-            android:layout_marginStart="250px"
             android:layout_marginLeft="250px"
+            android:layout_marginStart="250px"
             android:layout_marginTop="120px"
             android:background="#FFFFFF"
             android:queryHint="Rechercher dans la liste" />
@@ -35,27 +39,46 @@
         android:background="#0C5A43"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageViewP"
             android:layout_width="89dp"
             android:layout_height="match_parent"
             android:layout_gravity="center|left"
-            android:layout_marginStart="20px"
             android:layout_marginLeft="20px"
+            android:layout_marginStart="20px"
             android:src="@drawable/unnamed" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="1300px"
+            android:layout_marginStart="1300px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/profil" />
+
+        <ImageView
+            android:id="@+id/imageHelpHome"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="1500px"
+            android:layout_marginStart="1500px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/image" />
 
         <TextView
             android:id="@+id/txtAccueilProject"
             android:layout_width="265dp"
             android:layout_height="68dp"
-            android:layout_marginStart="250px"
-            android:layout_marginLeft="250px"
-            android:layout_marginTop="30px"
-            android:layout_marginEnd="10px"
-            android:layout_marginRight="10px"
             android:layout_marginBottom="10px"
+            android:layout_marginEnd="10px"
+            android:layout_marginLeft="250px"
+            android:layout_marginRight="10px"
+            android:layout_marginStart="250px"
+            android:layout_marginTop="30px"
             android:text="PYRAMID"
             android:textColor="#FFFFFF"
             android:textSize="36sp" />
@@ -64,85 +87,82 @@
             android:id="@+id/nameUserHome"
             android:layout_width="167dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1100px"
-            android:layout_marginLeft="1100px"
-            android:layout_marginTop="60px"
-            android:layout_marginEnd="10px"
-            android:layout_marginRight="10px"
             android:layout_marginBottom="10px"
+            android:layout_marginEnd="10px"
+            android:layout_marginLeft="1100px"
+            android:layout_marginRight="10px"
+            android:layout_marginStart="1100px"
+            android:layout_marginTop="60px"
             android:text="Username"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="1300px"
-            android:layout_marginLeft="1300px"
-            android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
-
-        <ImageView
-            android:id="@+id/imageHelpHome"
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
-            android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
-
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="912dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="250dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+
+    <Button
+        android:id="@+id/btnListProject"
+        android:layout_width="358dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:text="Les Projets"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:backgroundTint="#0C8148"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/relativeLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1"
+        tools:layout_marginLeft="0" />
 
-        <Button
-            android:id="@+id/btnListProject"
-            android:layout_width="445dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center|left"
-            android:text="Les Projets"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            app:backgroundTint="#0C8148" />
-
-        <Button
-            android:id="@+id/btnListClient"
-            android:layout_width="445dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center|right"
-            android:layout_marginStart="950px"
-            android:layout_marginLeft="950px"
-            android:text="Les Clients"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="@color/green_500"
-            android:textSize="24sp"
-            app:backgroundTint="#0C8148" />
-
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/btnListClient"
+        android:layout_width="358dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center|right"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:text="Les Clients"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="@color/green_500"
+        android:textSize="24sp"
+        app:backgroundTint="#0C8148"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toEndOf="@+id/btnListProject"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_projet"
-        android:layout_width="match_parent"
-        android:layout_height="916dp"
+        android:layout_width="900dp"
+        android:layout_height="879dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
+
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.14"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/recyclerview_projet" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Projets Récents"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnListProject" />
 </androidx.constraintlayout.widget.ConstraintLayout>
