@@ -43,18 +43,22 @@ class ProjetListAdapter(private val cellClickListener: CellClickListener, privat
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
         private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
         val clientImage: ImageView = itemView.findViewById(R.id.iconClient)
+        val arrowImage : ImageView = itemView.findViewById(R.id.arrowIcon)
 
 
         fun bind(text: String?, text2: String?) {
+            arrowImage.setImageResource(R.drawable.ic_play)
+            clientImage.setImageResource(R.drawable.ic_particulier)
             clientItemView.text = text
             clientItemView2.text = text2
+
 
         }
 
         companion object{
             fun create(parent: ViewGroup): ProjetListAdapter.ProjetViewHolder {
                 val view: View = LayoutInflater.from(parent.context)
-                        .inflate(R.layout.recyclerview_client, parent, false)
+                        .inflate(R.layout.recyclerview_projet, parent, false)
                 return ProjetListAdapter.ProjetViewHolder(view)
             }
         }

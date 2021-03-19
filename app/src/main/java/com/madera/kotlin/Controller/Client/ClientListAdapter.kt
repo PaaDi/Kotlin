@@ -1,6 +1,7 @@
 package com.madera.kotlin.Controller.Client
 
 import android.content.Intent
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,15 +33,17 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
         private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
         val clientImage: ImageView = itemView.findViewById(R.id.iconClient)
+        val arrowImage : ImageView = itemView.findViewById(R.id.arrowIcon)
 
 
         fun bind(text: String?, text2: String?, isPro: Boolean){
             clientItemView.text = text
             clientItemView2.text = text2
+            arrowImage.setImageResource(R.drawable.ic_play)
             if (isPro){
-                clientImage.setImageResource(R.drawable.professionnal_icon)
+                clientImage.setImageResource(R.drawable.ic_pro)
             }else{
-                clientImage.setImageResource(R.drawable.particulier_icon)
+                clientImage.setImageResource(R.drawable.ic_particulier)
             }
 
 
