@@ -24,7 +24,7 @@
             android:layout_marginStart="250px"
             android:layout_marginLeft="250px"
             android:layout_marginTop="200px"
-            android:background="#FFFFFF"
+            android:background="@drawable/edittext_corner"
             android:queryHint="Rechercher dans la liste" />
 
         <TextView
@@ -33,21 +33,22 @@
             android:layout_height="69dp"
             android:layout_marginStart="680px"
             android:layout_marginLeft="680px"
-            android:layout_marginTop="30px"
+            android:layout_marginTop="50px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
             android:layout_marginBottom="10px"
             android:text="Liste des clients"
             android:textColor="#FFFFFF"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnCreateClient"
             android:layout_width="68dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="800dp"
-            android:layout_marginLeft="800dp"
+            android:layout_marginStart="727dp"
+            android:layout_marginLeft="727dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"

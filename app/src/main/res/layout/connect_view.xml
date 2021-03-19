@@ -217,18 +217,19 @@
             android:id="@+id/textViewPropulsed"
             android:layout_width="205dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/btnConnect"
-            android:layout_marginEnd="469dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginRight="469dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
             android:layout_marginTop="161dp"
+            android:layout_marginEnd="469dp"
+            android:layout_marginRight="469dp"
             android:text="Propulsé par MADERA"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
     </RelativeLayout>
 

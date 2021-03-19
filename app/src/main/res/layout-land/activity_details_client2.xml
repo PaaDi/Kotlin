@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEEEEE"
+    android:background="@drawable/edittext_corner"
     tools:context=".Controller.Client.DetailsClientActivity">
 
     <TextView
@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="187dp"
-        android:layout_marginRight="187dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginRight="152dp"
         android:layout_marginBottom="32dp"
         android:text="Contact"
         android:textColor="#222222"
@@ -64,6 +64,7 @@
             android:layout_marginLeft="2000px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/profil" />
+
 
         <ImageView
             android:id="@+id/imageHelpDetailsClient"
@@ -156,25 +157,141 @@
             app:backgroundTint="#347837" />
     </RelativeLayout>
 
-    <CheckBox
-        android:id="@+id/checkProfessionnel"
-        android:layout_width="239dp"
-        android:layout_height="73dp"
-        android:text="Professionnel"
+    <EditText
+        android:id="@+id/descriptionClientDetails"
+        android:layout_width="799dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerview_contact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleCity2" />
+
+    <EditText
+        android:id="@+id/postalClientDetails"
+        android:layout_width="360dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
+        app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
+
+    <EditText
+        android:id="@+id/activityClientDetails"
+        android:layout_width="360dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toEndOf="@+id/nameClientDetails"
+        app:layout_constraintTop_toBottomOf="@+id/titleSecteur" />
+
+    <TextView
+        android:id="@+id/titleCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="4dp"
+        android:text="Ville :"
         android:textColor="#222222"
-        android:textColorHighlight="#FFFFFF"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="198dp"
-        tools:layout_editor_absoluteY="215dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
+
+    <TextView
+        android:id="@+id/titleAdress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:text="Adresse :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
+
+    <EditText
+        android:id="@+id/adressClientDetails"
+        android:layout_width="783dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
+
+    <TextView
+        android:id="@+id/titleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="1dp"
+        android:text="Nom :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <TextView
+        android:id="@+id/titleCity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Description :"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 
     <EditText
         android:id="@+id/nameClientDetails"
         android:layout_width="360dp"
         android:layout_height="67dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="24sp"
@@ -185,54 +302,51 @@
         android:id="@+id/cityClientDetails"
         android:layout_width="360dp"
         android:layout_height="62dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleCity" />
 
-    <EditText
-        android:id="@+id/postalClientDetails"
-        android:layout_width="360dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/professionnelClientDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="100dp"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
-        app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
+        app:layout_constraintStart_toEndOf="@+id/titleName"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        tools:text="Professionnal" />
 
-    <EditText
-        android:id="@+id/descriptionClientDetails"
-        android:layout_width="784dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginLeft="46dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="420dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/titleSecteur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="572dp"
+        android:layout_marginRight="572dp"
+        android:text="Secteur d'activité :"
+        android:textColor="#222222"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleCity2"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <CheckBox
+        android:id="@+id/checkProfessionnel"
+        android:layout_width="239dp"
+        android:layout_height="73dp"
+        android:text="Professionnel"
+        android:textColor="#222222"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="221dp" />
 
     <TextView
         android:id="@+id/titlePostal"
@@ -249,73 +363,9 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/postalClientDetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toEndOf="@+id/titleCity"
         app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
-
-    <TextView
-        android:id="@+id/titleName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginBottom="1dp"
-        android:text="Nom :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <EditText
-        android:id="@+id/adressClientDetails"
-        android:layout_width="783dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
-
-    <EditText
-        android:id="@+id/activityClientDetails"
-        android:layout_width="360dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/nameClientDetails"
-        app:layout_constraintTop_toBottomOf="@+id/titleSecteur" />
-
-    <TextView
-        android:id="@+id/titleSecteur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="552dp"
-        android:layout_marginRight="552dp"
-        android:text="Secteur d'activité :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <TextView
         android:id="@+id/idClientDetails"
@@ -330,57 +380,6 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <TextView
-        android:id="@+id/titleAdress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="20dp"
-        android:text="Adresse :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
-
-    <TextView
-        android:id="@+id/titleCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="20dp"
-        android:text="Ville :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
-
-    <TextView
-        android:id="@+id/titleCity2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="20dp"
-        android:text="Description :"
-        android:textColor="#222222"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
-
-    <TextView
-        android:id="@+id/professionnelClientDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="96dp"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/titleName"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        tools:text="Professionnal" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_contact"
@@ -401,8 +400,8 @@
         tools:listitem="@layout/recyclerview_contact" />
 
     <ScrollView
-        android:layout_width="385dp"
-        android:layout_height="612dp"
+        android:layout_width="376dp"
+        android:layout_height="702dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="63dp"
@@ -410,7 +409,7 @@
         android:layout_marginRight="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.992"
         app:layout_constraintStart_toEndOf="@+id/recyclerview_contact"
         app:layout_constraintTop_toBottomOf="@+id/titleInfo2"
         app:layout_constraintVertical_bias="0.0">

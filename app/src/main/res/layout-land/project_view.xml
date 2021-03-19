@@ -112,7 +112,7 @@
             android:layout_marginStart="250px"
             android:layout_marginLeft="250px"
             android:layout_marginTop="200px"
-            android:background="#FFFFFF"
+            android:background="@drawable/edittext_corner"
             android:queryHint="Rechercher dans la liste" />
 
         <TextView

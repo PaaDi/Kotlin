@@ -42,7 +42,6 @@ class NewClientActivity : AppCompatActivity() {
 
 
         val button = findViewById<Button>(R.id.btn_DoUpdate)
-        val btnCreateContact = findViewById(R.id.btnCreateContact) as Button
         val imageHelpNewClient = findViewById(R.id.imageHelpNewClient) as ImageView
 
         button.setOnClickListener {
@@ -73,18 +72,6 @@ class NewClientActivity : AppCompatActivity() {
             finish()
         }
 
-        // Listener ClientActivity
-        btnCreateContact.setOnClickListener {
-            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
-            Toast.makeText(
-                    this@NewClientActivity,
-                    "Vous souhaitez créer un nouveau contact ?",
-                    Toast.LENGTH_SHORT
-            ).show()
-
-            val i = Intent(this@NewClientActivity, NewContactActivity::class.java)
-            startActivityForResult(i, newContactActivityRequestCode)
-        }
 
         // Bulle d'information
         imageHelpNewClient.setOnClickListener {
