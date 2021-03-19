@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.madera.kotlin.Controller.Contact.NewContactActivity
+import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
 class NewClientActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class NewClientActivity : AppCompatActivity() {
     private lateinit var ClientCodePostalView: EditText
     private lateinit var ClientDescriptionView: EditText
     private lateinit var ClientIsProView: CheckBox
+    private lateinit var userIdentifiant: TextView
     //endregion
 
     @Override
@@ -105,6 +107,9 @@ class NewClientActivity : AppCompatActivity() {
             // show alert dialog
             alert.show()
         }
+
+        userIdentifiant = findViewById(R.id.nameUserNewClient) as TextView
+        userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
 
     }
