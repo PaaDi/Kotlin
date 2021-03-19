@@ -102,7 +102,7 @@
         android:layout_height="82dp"
         android:layout_marginStart="184dp"
         android:layout_marginLeft="184dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="184dp"
         android:layout_marginRight="184dp"
         android:background="#FFFFFF"
@@ -112,8 +112,8 @@
 
         <Button
             android:id="@+id/btnListProject"
-            android:layout_width="445dp"
-            android:layout_height="170dp"
+            android:layout_width="451dp"
+            android:layout_height="80dp"
             android:layout_gravity="center|left"
             android:text="Les Projets"
             android:textColor="#FFFFFF"
