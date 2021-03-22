@@ -54,8 +54,12 @@ class MainActivity : AppCompatActivity() {
                  val connectUser = userViewModel.connectUser(userToConnect.text.toString(),passToConnect.text.toString())
 
                  if (connectUser){
-                     API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
+
+                     API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+
+
                      val i = Intent(this, HomeActivity::class.java)
                      globalTest = userViewModel.getUserByName(userToConnect.text.toString())
                      startActivity(i)

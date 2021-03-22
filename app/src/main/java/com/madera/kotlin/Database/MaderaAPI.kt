@@ -39,7 +39,10 @@ class MaderaAPI(context: Context)
                 .build()
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject ) {
-                        var test = response.toString()
+                       var test = response.toString()
+
+
+
                     }
 
                     override fun onError(error: ANError) {
