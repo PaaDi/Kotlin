@@ -22,16 +22,16 @@
             android:layout_width="89dp"
             android:layout_height="match_parent"
             android:layout_gravity="center|left"
-            android:layout_marginStart="20px"
-            android:layout_marginLeft="20px"
+            android:layout_marginStart="100px"
+            android:layout_marginLeft="100px"
             android:src="@drawable/unnamed" />
 
         <TextView
             android:id="@+id/txtAccueilProject"
             android:layout_width="265dp"
             android:layout_height="68dp"
-            android:layout_marginStart="250px"
-            android:layout_marginLeft="250px"
+            android:layout_marginStart="280px"
+            android:layout_marginLeft="280px"
             android:layout_marginTop="30px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
@@ -75,8 +75,8 @@
             android:id="@+id/btn_DoUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Mettre à jour"
@@ -91,20 +91,22 @@
 
         <Button
             android:id="@+id/button_addContact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="213dp"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginEnd="29dp"
-            android:layout_marginLeft="186dp"
-            android:layout_marginRight="29dp"
             android:layout_marginStart="186dp"
+            android:layout_marginLeft="186dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginRight="29dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
             android:textColor="#00AD59"
             android:textColorHighlight="#FFFFFF"
             android:textColorLink="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:backgroundTint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
@@ -120,23 +122,41 @@
             android:layout_toEndOf="@+id/btnRetourClient"
             android:layout_toRightOf="@+id/btnRetourClient"
             android:text="Supprimer Client"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:backgroundTint="#D11717" />
 
         <ImageView
             android:id="@+id/btnRetourClient"
-            android:layout_width="92dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/left_arrow" />
+            android:layout_marginStart="50px"
+            android:layout_marginLeft="50px"
+            app:srcCompat="@drawable/previous" />
+
+        <TextView
+            android:id="@+id/txtRetour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150px"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="12px"
+            android:text="Retour"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_valideUpdate"
-            android:layout_width="159dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Valider"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:backgroundTint="#347837" />
     </RelativeLayout>
 
@@ -148,13 +168,14 @@
         android:layout_marginLeft="62dp"
         android:layout_marginEnd="51dp"
         android:layout_marginRight="51dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="12dp"
         android:text="Professionnel"
         android:textColor="#222222"
         android:textColorHighlight="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
         app:layout_constraintEnd_toStartOf="@+id/titleSecteur"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/titleName" />
 
     <EditText
@@ -167,7 +188,7 @@
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName" />
 
@@ -181,7 +202,7 @@
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleCity" />
 
@@ -197,7 +218,7 @@
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
@@ -216,7 +237,7 @@
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -236,7 +257,7 @@
         android:layout_marginBottom="19dp"
         android:text="Code postal :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/postalClientDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.222"
@@ -253,26 +274,26 @@
         android:layout_marginBottom="1dp"
         android:text="Nom :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <EditText
         android:id="@+id/adressClientDetails"
-        android:layout_width="783dp"
-        android:layout_height="67dp"
+        android:layout_width="781dp"
+        android:layout_height="69dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
 
@@ -282,13 +303,13 @@
         android:layout_height="65dp"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/nameClientDetails"
@@ -298,12 +319,12 @@
         android:id="@+id/titleSecteur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginRight="172dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginRight="220dp"
         android:text="Secteur d'activité :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
@@ -333,7 +354,7 @@
         android:layout_marginTop="20dp"
         android:text="Adresse :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
 
@@ -346,7 +367,7 @@
         android:layout_marginTop="20dp"
         android:text="Ville :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
@@ -359,7 +380,7 @@
         android:layout_marginTop="20dp"
         android:text="Description :"
         android:textColor="#222222"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 

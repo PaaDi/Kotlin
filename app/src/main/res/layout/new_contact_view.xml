@@ -100,10 +100,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="150px"
             android:layout_marginLeft="150px"
-            android:layout_marginTop="25px"
+            android:layout_marginTop="20px"
             android:text="Retour"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button

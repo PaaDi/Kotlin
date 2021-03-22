@@ -77,7 +77,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="908dp"
-        android:layout_height="63dp"
+        android:layout_height="65dp"
         android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -105,21 +105,20 @@
 
         <Button
             android:id="@+id/button_addContact"
-            android:layout_width="214dp"
+            android:layout_width="245dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginStart="181dp"
             android:layout_marginLeft="181dp"
-            android:layout_marginEnd="29dp"
-            android:layout_marginRight="29dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
             android:textColor="#00AD59"
             android:textColorHighlight="#FFFFFF"
             android:textColorLink="#FFFFFF"
-            android:textStyle="bold"
             app:backgroundTint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
@@ -163,10 +162,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="150px"
             android:layout_marginLeft="150px"
-            android:layout_marginTop="25px"
+            android:layout_marginTop="30px"
             android:text="Retour"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
