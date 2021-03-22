@@ -86,10 +86,25 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="92dp"
+            android:id="@+id/btnRetourClient"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/left_arrow" />
+            android:layout_marginStart="50px"
+            android:layout_marginLeft="50px"
+
+            app:srcCompat="@drawable/previous" />
+
+        <TextView
+            android:id="@+id/txtRetour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150px"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="25px"
+            android:text="Retour"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_saveContact"

@@ -76,8 +76,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="917dp"
-        android:layout_height="50dp"
+        android:layout_width="908dp"
+        android:layout_height="63dp"
         android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -89,8 +89,8 @@
             android:id="@+id/btn_DoUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Mettre à jour"
@@ -132,27 +132,42 @@
             android:layout_height="match_parent"
             android:layout_marginStart="196dp"
             android:layout_marginLeft="196dp"
-            android:layout_toEndOf="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageView4"
+            android:layout_toEndOf="@+id/btnRetourClient"
+            android:layout_toRightOf="@+id/btnRetourClient"
             android:text="Supprimer Client"
             app:backgroundTint="#D11717" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="92dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/left_arrow" />
-
         <Button
             android:id="@+id/btn_valideUpdate"
-            android:layout_width="159dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
+            android:layout_width="157dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Valider"
             app:backgroundTint="#347837" />
+
+        <ImageView
+            android:id="@+id/btnRetourClient"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50px"
+            android:layout_marginLeft="50px"
+
+            app:srcCompat="@drawable/previous" />
+
+        <TextView
+            android:id="@+id/txtRetour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150px"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="25px"
+            android:text="Retour"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <CheckBox
@@ -279,9 +294,8 @@
 
     <EditText
         android:id="@+id/adressClientDetails"
-        android:layout_width="753dp"
-        android:layout_height="51dp"
-        android:paddingLeft="30dip"
+        android:layout_width="741dp"
+        android:layout_height="53dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="15dp"
@@ -290,6 +304,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:paddingLeft="30dip"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.228"

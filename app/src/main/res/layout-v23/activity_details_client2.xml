@@ -117,13 +117,13 @@
             android:layout_height="match_parent"
             android:layout_marginStart="237dp"
             android:layout_marginLeft="237dp"
-            android:layout_toEndOf="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageView4"
+            android:layout_toEndOf="@+id/btnRetourClient"
+            android:layout_toRightOf="@+id/btnRetourClient"
             android:text="Supprimer Client"
             app:backgroundTint="#D11717" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/btnRetourClient"
             android:layout_width="92dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/left_arrow" />
