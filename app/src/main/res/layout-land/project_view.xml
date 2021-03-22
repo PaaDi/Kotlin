@@ -43,8 +43,8 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="center|left"
-            android:layout_marginStart="20px"
-            android:layout_marginLeft="20px"
+            android:layout_marginStart="100px"
+            android:layout_marginLeft="100px"
             android:src="@drawable/unnamed" />
 
         <TextView
@@ -127,7 +127,8 @@
             android:layout_marginBottom="10px"
             android:text="Espace Projet"
             android:textColor="#FFFFFF"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
