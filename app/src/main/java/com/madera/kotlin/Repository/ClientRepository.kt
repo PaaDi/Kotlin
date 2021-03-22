@@ -15,6 +15,16 @@ class ClientRepository(private val clientDao: ClientDao) {
        return clientDao.getClientById(id)
     }
 
+    // Vérifie si le client existe via sa référence
+    fun isClientExist(ref : Long) : Boolean{
+        return clientDao.isClientExist(ref)
+    }
+
+    // Mise à jour du client
+    fun updateClient(ref: Long, nomUP : String, adresseUP : String, codePostalUP: Int, villeUP: String,proUP: Boolean, secteurUP : String, description: String){
+        clientDao.updateClient(ref, nomUP, adresseUP, codePostalUP, villeUP, proUP, secteurUP, description)
+    }
+
     // Room lance par défaut des querys suspends permettant de la lancer hors du thrad principal
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

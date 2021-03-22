@@ -14,6 +14,16 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
         return repository.getClientById(id)
     }
 
+    // Vérifier que le client existe via sa réf
+    fun isClientExist(ref : Long) : Boolean{
+        return repository.isClientExist(ref)
+    }
+
+    // Mise à jour du client
+    fun updateClient(ref: Long, nomUP : String, adresseUP : String, codePostalUP: Int, villeUP: String,proUP: Boolean, secteurUP : String, description: String){
+        repository.updateClient(ref, nomUP, adresseUP, codePostalUP, villeUP, proUP, secteurUP, description)
+    }
+
 
     // ViewModelScope permet de lancer un nouvelle coroutine pour insérer la data de manière non bloquante
     fun createClient(client: Client) = viewModelScope.launch {

@@ -20,6 +20,8 @@ import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.UserViewModel
 import com.madera.kotlin.ViewModel.UserViewModelFactory
 import com.madera.kotlin.MaderaApplication.Companion.globalTest
+import com.madera.kotlin.ViewModel.ClientViewModel
+import com.madera.kotlin.ViewModel.ClientViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +45,10 @@ class MainActivity : AppCompatActivity() {
             val userViewModel: UserViewModel by viewModels{
                 UserViewModelFactory((application as MaderaApplication).repositoryUser)
             }
+
+            val clientViewModel : ClientViewModel by viewModels {
+                ClientViewModelFactory((application as MaderaApplication).repositoryClient)
+            }
         //endregion
 
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
@@ -57,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
 
-                     API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString())
+                    val test = API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString(), clientViewModel)
 
 
                      val i = Intent(this, HomeActivity::class.java)
