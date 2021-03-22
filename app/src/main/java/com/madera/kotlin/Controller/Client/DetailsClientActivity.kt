@@ -152,7 +152,7 @@ class DetailsClientActivity : AppCompatActivity() {
         btnValideUpdate.setOnClickListener {
             val codePostal = clientPostal.text.toString()
             val codePostalToInt = codePostal.toInt()
-            clientViewModel.createClient(Client(clientId,clientDetail.refClient,clientName.text.toString(),clientAdress.text.toString(),codePostalToInt,clientCity.text.toString(),proCheckBox.isChecked,clientActivity.text.toString(),clientDescription.text.toString()))
+            clientViewModel.updateClient(clientDetail.refClient,clientName.text.toString(),clientAdress.text.toString(),codePostalToInt,clientCity.text.toString(),proCheckBox.isChecked,clientActivity.text.toString(),clientDescription.text.toString())
             btnDoUpdate.isVisible = true
             proCheckBox.isVisible = false
             clientName.isEnabled = false
