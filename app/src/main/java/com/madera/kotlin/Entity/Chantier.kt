@@ -26,5 +26,10 @@ data class Chantier(
     @ColumnInfo(name = "projetId") val projetId: Int,
     @ColumnInfo(name = "userId") val userId: Int,
     @ColumnInfo(name = "nomChantier") val nomChantier: String,
+    @ColumnInfo(name = "adresseChantier") val adresseChantier: String,
+    @ColumnInfo(name = "codePostalChantier") val codePostalChantier: Int,
+    @ColumnInfo(name = "villeChantier") val villeChantier: String,
     @ColumnInfo(name = "notesChantier") val notesChantier: String,
+    @ColumnInfo(name = "datecreationChantier") val datecreationChantier: String,
+    @ColumnInfo(name = "datelancementChantier") val datelancementChantier: String,
 )
