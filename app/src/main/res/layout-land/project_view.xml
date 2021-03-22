@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
 
     <Button
         android:id="@+id/btnListProject"
@@ -40,19 +40,19 @@
 
         <ImageView
             android:id="@+id/imageViewP"
-            android:layout_width="89dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="center|left"
-            android:layout_marginStart="20px"
-            android:layout_marginLeft="20px"
+            android:layout_marginStart="100px"
+            android:layout_marginLeft="100px"
             android:src="@drawable/unnamed" />
 
         <TextView
             android:id="@+id/txtAccueilProject"
             android:layout_width="265dp"
             android:layout_height="68dp"
-            android:layout_marginStart="250px"
-            android:layout_marginLeft="250px"
+            android:layout_marginStart="180px"
+            android:layout_marginLeft="180px"
             android:layout_marginTop="30px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
@@ -112,7 +112,7 @@
             android:layout_marginStart="250px"
             android:layout_marginLeft="250px"
             android:layout_marginTop="200px"
-            android:background="#FFFFFF"
+            android:background="@drawable/edittext_corner"
             android:queryHint="Rechercher dans la liste" />
 
         <TextView
@@ -127,7 +127,8 @@
             android:layout_marginBottom="10px"
             android:text="Espace Projet"
             android:textColor="#FFFFFF"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

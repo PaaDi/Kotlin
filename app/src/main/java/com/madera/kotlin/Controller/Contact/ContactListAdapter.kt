@@ -22,7 +22,6 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel) : ListA
         val current = getItem(position)
         val viewModel = contactViewModel
         holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, viewModel )
-
     }
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
