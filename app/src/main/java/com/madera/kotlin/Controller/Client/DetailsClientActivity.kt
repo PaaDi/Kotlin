@@ -34,6 +34,7 @@ class DetailsClientActivity : AppCompatActivity() {
     }
 
     private val newContactActivityRequestCode = 1
+    private lateinit var userIdentifiant: TextView
     private lateinit var clientIdentifiant: TextView
     private lateinit var clientName: EditText
     private lateinit var clientActivity : EditText
@@ -103,7 +104,6 @@ class DetailsClientActivity : AppCompatActivity() {
         clientCity = findViewById(R.id.cityClientDetails)
         clientPostal = findViewById(R.id.postalClientDetails)
         clientDescription = findViewById(R.id.descriptionClientDetails)
-        clientProfessionnel = findViewById(R.id.professionnelClientDetails)
         proCheckBox = findViewById(R.id.checkProfessionnel)
         btnValideUpdate = findViewById(R.id.btn_valideUpdate)
         btnDoUpdate = findViewById(R.id.btn_DoUpdate)
@@ -118,7 +118,6 @@ class DetailsClientActivity : AppCompatActivity() {
         proCheckBox.isVisible = false
         btnValideUpdate.isVisible = false
 
-        clientIdentifiant.text = "Client #"+ clientDetail.refClient.toString()
         clientName.setText(clientDetail.nom)
         clientActivity.setText(clientDetail.secteur)
         clientAdress.setText(clientDetail.adresse)
@@ -127,9 +126,10 @@ class DetailsClientActivity : AppCompatActivity() {
         clientDescription.setText(clientDetail.description)
 
         if (clientDetail.professionnel){
-            clientProfessionnel.text = "Client Professionnel"
+            clientIdentifiant.text =  "Client Professionnel #" + clientDetail.refClient.toString()
+
         }else{
-            clientProfessionnel.text = "Client Particulier"
+            clientIdentifiant.text =  "Client Particulier  #" + clientDetail.refClient.toString()
         }
 
         /*
@@ -147,6 +147,9 @@ class DetailsClientActivity : AppCompatActivity() {
             btnValideUpdate.isVisible = true
             clientProfessionnel.isVisible = false
         }
+
+        userIdentifiant = findViewById(R.id.nameUserDetailClient) as TextView
+        userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
         /*
         Button Valide Update

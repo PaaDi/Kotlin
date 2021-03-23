@@ -47,7 +47,7 @@
             android:layout_marginStart="2090px"
             android:layout_marginLeft="2090px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/nameUserDetailClient"
@@ -92,7 +92,7 @@
             android:layout_marginStart="50px"
             android:layout_marginLeft="50px"
 
-            app:srcCompat="@drawable/previous" />
+            app:srcCompat="@drawable/ic_previous" />
 
         <TextView
             android:id="@+id/txtRetour"

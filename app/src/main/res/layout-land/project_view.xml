@@ -68,7 +68,7 @@
             android:layout_marginStart="2090px"
             android:layout_marginLeft="2090px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/nameUserDetailClient"
@@ -87,10 +87,10 @@
         <ImageView
             android:id="@+id/imageHelpProject"
             android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="2290px"
             android:layout_marginLeft="2290px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
     </RelativeLayout>
@@ -111,7 +111,7 @@
             android:layout_gravity="center|left"
             android:layout_marginStart="250px"
             android:layout_marginLeft="250px"
-            android:layout_marginTop="200px"
+            android:layout_marginTop="180px"
             android:background="@drawable/edittext_corner"
             android:queryHint="Rechercher dans la liste" />
 

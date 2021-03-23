@@ -22,7 +22,7 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
 
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int){
         val current = getItem(position)
-        holder.bind(current.nom + " - Réf. : " + current.refClient,current.adresse + " - " + current.codePostal + " " + current.ville, current.professionnel)
+        holder.bind(current.nom + " - Réf. : " + current.refClient,current.adresse  + current.codePostal + " " + current.ville, current.professionnel)
 
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickListener(current.idClient)

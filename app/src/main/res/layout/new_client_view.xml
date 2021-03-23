@@ -47,15 +47,15 @@
             android:layout_marginStart="1370px"
             android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <ImageView
             android:id="@+id/imageHelpNewClient"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
         <TextView
@@ -109,7 +109,7 @@
             android:layout_marginStart="50px"
             android:layout_marginLeft="50px"
 
-            app:srcCompat="@drawable/previous" />
+            app:srcCompat="@drawable/ic_previous" />
 
         <TextView
             android:id="@+id/txtRetour"
@@ -145,9 +145,9 @@
         android:id="@+id/checkProfessionnel"
         android:layout_width="239dp"
         android:layout_height="73dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="Professionnel"
         android:textColor="#222222"
         android:textColorHighlight="#FFFFFF"
@@ -179,7 +179,7 @@
     <EditText
         android:id="@+id/cityClientDetails"
         android:layout_width="364dp"
-        android:layout_height="54dp"
+        android:layout_height="55dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="15dp"
@@ -194,7 +194,7 @@
     <EditText
         android:id="@+id/postalClientDetails"
         android:layout_width="364dp"
-        android:layout_height="54dp"
+        android:layout_height="55dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="15dp"
@@ -203,8 +203,8 @@
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="18sp"
         android:padding="5dip"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cityClientDetails"
         app:layout_constraintTop_toBottomOf="@+id/titlePostal" />

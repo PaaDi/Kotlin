@@ -68,15 +68,15 @@
             android:layout_marginStart="1370px"
             android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <ImageView
             android:id="@+id/imageHelpProject"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
         <TextView

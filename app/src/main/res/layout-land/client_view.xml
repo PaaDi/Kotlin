@@ -48,8 +48,8 @@
             android:layout_width="68dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="1070dp"
-            android:layout_marginLeft="1070dp"
+            android:layout_marginStart="1077dp"
+            android:layout_marginLeft="1077dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
@@ -101,7 +101,7 @@
             android:layout_marginStart="2090px"
             android:layout_marginLeft="2090px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/nameUserDetailClient"

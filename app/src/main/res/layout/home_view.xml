@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="900dp"
-        android:layout_height="209dp"
+        android:layout_height="193dp"
         android:background="#00AD59"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,15 +87,15 @@
             android:layout_marginStart="1370px"
             android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <ImageView
             android:id="@+id/imageHelpHome"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
         <TextView
@@ -154,7 +154,7 @@
         android:id="@+id/recyclerview_projet"
         android:layout_width="900dp"
         android:layout_height="879dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="120dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"

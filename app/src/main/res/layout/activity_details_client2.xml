@@ -47,7 +47,7 @@
             android:layout_marginStart="1370px"
             android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/nameUserDetailClient"
@@ -66,18 +66,18 @@
         <ImageView
             android:id="@+id/imageHelpDetailsClient"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="908dp"
-        android:layout_height="65dp"
+        android:layout_width="956dp"
+        android:layout_height="50dp"
         android:background="#00AD59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -89,8 +89,8 @@
             android:id="@+id/btn_DoUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginLeft="13dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="31dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Mettre à jour"
@@ -105,14 +105,14 @@
 
         <Button
             android:id="@+id/button_addContact"
-            android:layout_width="245dp"
+            android:layout_width="217dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="181dp"
-            android:layout_marginLeft="181dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="211dp"
+            android:layout_marginLeft="211dp"
+            android:layout_marginEnd="82dp"
+            android:layout_marginRight="82dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
@@ -127,8 +127,8 @@
 
         <Button
             android:id="@+id/delete_btn"
-            android:layout_width="205dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="196dp"
             android:layout_marginLeft="196dp"
             android:layout_toEndOf="@+id/btnRetourClient"
@@ -138,10 +138,10 @@
 
         <Button
             android:id="@+id/btn_valideUpdate"
-            android:layout_width="157dp"
+            android:layout_width="162dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="13dp"
-            android:layout_marginLeft="13dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Valider"
@@ -154,7 +154,7 @@
             android:layout_marginStart="50px"
             android:layout_marginLeft="50px"
 
-            app:srcCompat="@drawable/previous" />
+            app:srcCompat="@drawable/ic_previous" />
 
         <TextView
             android:id="@+id/txtRetour"

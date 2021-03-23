@@ -69,7 +69,7 @@
             android:layout_marginStart="2090px"
             android:layout_marginLeft="2090px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
             android:id="@+id/nameUserDetailClient"
