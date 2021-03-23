@@ -65,12 +65,12 @@
 
         <ImageView
             android:id="@+id/imageHelpNewClient"
-            android:layout_width="110dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginStart="2290px"
             android:layout_marginLeft="2290px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
+            app:srcCompat="@drawable/ic_information" />
 
     </RelativeLayout>
 

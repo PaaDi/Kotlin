@@ -47,7 +47,7 @@
             android:layout_marginStart="1370px"
             android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/profil" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <ImageView
             android:id="@+id/imageHelpDetailsClient"
@@ -56,7 +56,7 @@
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
+            app:srcCompat="@drawable/ic_information" />
 
     </RelativeLayout>
 
@@ -148,10 +148,10 @@
 
         <Button
             android:id="@+id/btn_valideUpdate"
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Valider"
@@ -166,8 +166,9 @@
         android:layout_height="73dp"
         android:layout_marginStart="62dp"
         android:layout_marginLeft="62dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginRight="51dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginRight="58dp"
         android:layout_marginBottom="12dp"
         android:text="Professionnel"
         android:textColor="#222222"
@@ -175,8 +176,8 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
         app:layout_constraintEnd_toStartOf="@+id/titleSecteur"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/titleName" />
+        app:layout_constraintStart_toEndOf="@+id/titleName"
+        app:layout_constraintTop_toBottomOf="@+id/idClientDetails" />
 
     <EditText
         android:id="@+id/nameClientDetails"
@@ -400,11 +401,11 @@
         android:id="@+id/professionnelClientDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="20dp"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/titleName"
+        app:layout_constraintStart_toEndOf="@+id/idClientDetails"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         tools:text="Professionnal" />
 

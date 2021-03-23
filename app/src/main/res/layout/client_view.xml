@@ -107,7 +107,7 @@
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
             android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
+            app:srcCompat="@drawable/ic_information" />
 
         <TextView
             android:id="@+id/nameUserClient"

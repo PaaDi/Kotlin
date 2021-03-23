@@ -92,11 +92,11 @@
         <ImageView
             android:id="@+id/imageHelpHome"
             android:layout_width="110dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
+            android:layout_marginTop="20px"
+            app:srcCompat="@drawable/ic_information" />
 
         <TextView
             android:id="@+id/nameUserHome"

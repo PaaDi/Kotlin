@@ -66,11 +66,11 @@
         <ImageView
             android:id="@+id/imageHelpDetailsClient"
             android:layout_width="110dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="1570px"
             android:layout_marginLeft="1570px"
-            android:layout_marginTop="30px"
-            app:srcCompat="@drawable/image" />
+            android:layout_marginTop="20px"
+            app:srcCompat="@drawable/ic_information" />
 
     </RelativeLayout>
 
@@ -353,7 +353,6 @@
         android:text="ID"
         android:textColor="#222222"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
