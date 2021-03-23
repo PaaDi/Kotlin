@@ -13,6 +13,9 @@ interface ContactDao {
     @Query("SELECT * FROM Contact WHERE clientId = :id")
     fun getAllContactsByClient(id: Int) : Flow<List<Contact>>
 
+    @Query("SELECT * FROM Contact WHERE refContact=:ref")
+    fun isContactExist(ref: Long): Boolean
+
     @Delete
     fun delete(contact: Contact)
 }

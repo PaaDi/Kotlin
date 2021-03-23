@@ -11,8 +11,12 @@ class ClientRepository(private val clientDao: ClientDao) {
     val allClients: Flow<List<Client>> = clientDao.getAllClients()
 
     // Récupère un client pour afficher ses détails
-    fun getClientById(id: Int) : Client{
+    fun getClientById(id: Int?) : Client{
        return clientDao.getClientById(id)
+    }
+
+    fun getClientByRef(refCli: Long) : Client{
+        return clientDao.getClientByRef(refCli)
     }
 
     // Vérifie si le client existe via sa référence

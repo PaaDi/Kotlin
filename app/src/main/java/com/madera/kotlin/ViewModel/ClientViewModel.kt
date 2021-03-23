@@ -10,8 +10,12 @@ class ClientViewModel(private val repository: ClientRepository) : ViewModel() {
     // LiveData permet d'ajouter un observer aux données et fiare un update de l'interface uniquement quand les données sont modifiéres
     val AllClients: LiveData<List<Client>> = repository.allClients.asLiveData()
 
-    fun getClientById(id: Int) : Client {
+    fun getClientById(id: Int?) : Client {
         return repository.getClientById(id)
+    }
+
+    fun getClientByRef(refCli: Long) : Client{
+        return repository.getClientByRef(refCli)
     }
 
     // Vérifier que le client existe via sa réf

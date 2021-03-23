@@ -13,7 +13,10 @@ interface ClientDao {
     fun getAllClients(): Flow<List<Client>>
 
     @Query("SELECT * FROM client WHERE idClient=:id")
-    fun getClientById(id: Int): Client
+    fun getClientById(id: Int?): Client
+
+    @Query("SELECT * FROM client WHERE refClient=:refCli")
+    fun getClientByRef(refCli: Long) : Client
 
     @Query("SELECT * FROM client WHERE refClient=:ref")
     fun isClientExist(ref : Long): Boolean

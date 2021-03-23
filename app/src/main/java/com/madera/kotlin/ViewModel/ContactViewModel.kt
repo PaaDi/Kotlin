@@ -16,6 +16,10 @@ class ContactViewModel(private val repository: ContactRepository) : ViewModel() 
         return repository.getAllContactsByClient(id).asLiveData()
     }
 
+    fun isContactExist(ref: Long): Boolean{
+        return repository.isContactExist(ref)
+    }
+
     fun deleteContact(contact: Contact){
         repository.deleteContact(contact)
     }

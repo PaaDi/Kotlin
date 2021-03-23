@@ -19,4 +19,9 @@ interface ChantierDao {
     """)
     fun getAllChantiersByUser(ref : Int) : Flow<List<Chantier>>
 
+    @Query("SELECT * FROM Chantier WHERE refChantier=:ref")
+    fun isChantierExist(ref:Long) : Boolean
+
+    @Query("UPDATE Chantier SET projetId=:projetId,userId=:userId,nomChantier=:nom,adresseChantier=:adresse,codePostalChantier=:codePostal,villeChantier=:ville,notesChantier=:notes,datecreationChantier=:datecreation,datelancementChantier=:datelancement WHERE refChantier=:refChantier")
+    fun updateChantier(projetId : Int?, userId : Int, nom:String,adresse:String,codePostal:Int,ville:String,notes:String,datecreation:String,datelancement:String, refChantier: Long)
 }

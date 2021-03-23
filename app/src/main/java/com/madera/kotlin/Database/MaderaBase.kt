@@ -64,13 +64,15 @@ abstract class MaderaBase : RoomDatabase() {
             }
 
             suspend fun populateDatabase(userDao: UserDao){
-                userDao.deleteAll()
+               /* userDao.deleteAll()*/
                 val rnds = (0..99999999).random().toLong()
 
                 // Ajout d'un utilisateur dans la base
-                var admin = User(0, rnds, "Administrateur", "admin", "Max", "Paletou", 1)
+               /* var admin = User(0, rnds, "Administrateur", "admin", "Max", "Paletou", 1)
 
-                userDao.createUser(admin)
+                userDao.createUser(admin)*/
+
+
             }
         }
     }

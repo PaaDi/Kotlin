@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
 data class Contact(
     @PrimaryKey(autoGenerate = true) val idContact: Int?,
     @ColumnInfo(name = "refContact") val refContact: Long,
-    @ColumnInfo(name = "clientId") val clientId: Int,
+    @ColumnInfo(name = "clientId") val clientId: Int?,
     @ColumnInfo(name = "nomContact") val nomContact: String,
     @ColumnInfo(name = "prenomContact") val prenomContact: String,
     @ColumnInfo(name = "fonctionContact") val fonctionContact: String,

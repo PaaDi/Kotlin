@@ -16,6 +16,14 @@ class ProjetRepository(private val projetDao: ProjetDao) {
         return projetDao.getProjectByUser(id)
     }
 
+    fun isProjetExist(refProj: Long) : Boolean{
+        return projetDao.isProjetExist(refProj)
+    }
+
+    fun updateProjet(clientId: Int?,nomProjet :String,notes:String,refProj: Long){
+        projetDao.updateProjet(clientId, nomProjet, notes, refProj)
+    }
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun createProject(projet: Projet){

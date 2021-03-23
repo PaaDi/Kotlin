@@ -14,9 +14,16 @@ class ProjetViewModel(private val repository: ProjetRepository) : ViewModel() {
     fun getAllProjetsByUser(id: Int) : LiveData<List<Projet>>{
         return repository.getAllProjetsByUser(id).asLiveData()
     }
+    fun isProjetExist(refProj: Long) : Boolean{
+        return repository.isProjetExist(refProj)
+    }
 
     fun createProject(projet: Projet) = viewModelScope.launch {
         repository.createProject(projet)
+    }
+
+    fun updateProjet(clientId: Int?,nomProjet :String,notes:String,refProj: Long){
+        repository.updateProjet(clientId, nomProjet, notes, refProj)
     }
 }
 

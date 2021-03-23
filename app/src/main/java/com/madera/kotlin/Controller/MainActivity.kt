@@ -17,11 +17,8 @@ import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.User
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
-import com.madera.kotlin.ViewModel.UserViewModel
-import com.madera.kotlin.ViewModel.UserViewModelFactory
 import com.madera.kotlin.MaderaApplication.Companion.globalTest
-import com.madera.kotlin.ViewModel.ClientViewModel
-import com.madera.kotlin.ViewModel.ClientViewModelFactory
+import com.madera.kotlin.ViewModel.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connect_view)
 
-        val API = MaderaAPI(this)
+
         val MAPP = MaderaApplication()
 
         //region Components
@@ -49,8 +46,26 @@ class MainActivity : AppCompatActivity() {
             val clientViewModel : ClientViewModel by viewModels {
                 ClientViewModelFactory((application as MaderaApplication).repositoryClient)
             }
-        //endregion
 
+            val contactViewModel : ContactViewModel by viewModels {
+                ContactViewModelFactory((application as MaderaApplication).repositoryContact)
+            }
+
+            val projetViewModel : ProjetViewModel by viewModels {
+                ProjetViewModelFactory((application as MaderaApplication).repositoryProjet)
+            }
+
+            val chantierViewModel : ChantierViewModel by viewModels {
+                ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
+            }
+        //endregion
+        //region API
+            val API = MaderaAPI(this)
+
+            /*Création des utilisateurs*/
+            API.getAllUsersAPI(userViewModel)
+
+        //endregion
         titlePassMiss.setMovementMethod(LinkMovementMethod.getInstance());
         //region Events Listeners
             // Bouton de connexion
@@ -63,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
 
-                    val test = API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString(), clientViewModel)
+                    val test = API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString(), clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
 
 
                      val i = Intent(this, HomeActivity::class.java)

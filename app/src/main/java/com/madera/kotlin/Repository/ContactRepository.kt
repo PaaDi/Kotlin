@@ -17,6 +17,10 @@ class ContactRepository(private val contactDao: ContactDao) {
         return contactDao.getAllContactsByClient(id)
     }
 
+    fun isContactExist(ref: Long): Boolean{
+        return contactDao.isContactExist(ref)
+    }
+
    fun deleteContact(contact: Contact){
        contactDao.delete(contact)
    }

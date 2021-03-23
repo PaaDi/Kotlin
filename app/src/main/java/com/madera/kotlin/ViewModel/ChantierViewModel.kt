@@ -15,6 +15,14 @@ class ChantierViewModel(private val repository: ChantierRepository) : ViewModel(
     fun createChantier(chantier: Chantier) = viewModelScope.launch {
         repository.createChantier(chantier)
     }
+
+    fun isChantierExist(ref:Long) : Boolean{
+        return repository.isChantierExist(ref)
+    }
+
+    fun updateChantier(projetId : Int?, userId : Int, nom:String,adresse:String,codePostal:Int,ville:String,notes:String,datecreation:String,datelancement:String, refChantier : Long){
+        repository.updateChantier(projetId, userId, nom, adresse, codePostal, ville, notes, datecreation, datelancement, refChantier)
+    }
 }
 
 class ChantierViewModelFactory(private val repository: ChantierRepository) : ViewModelProvider.Factory{
