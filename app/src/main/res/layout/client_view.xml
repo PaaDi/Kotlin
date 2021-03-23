@@ -31,8 +31,8 @@
             android:id="@+id/txtAccueil"
             android:layout_width="265dp"
             android:layout_height="69dp"
-            android:layout_marginStart="255px"
-            android:layout_marginLeft="255px"
+            android:layout_marginStart="620px"
+            android:layout_marginLeft="620px"
             android:layout_marginTop="40px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
@@ -73,16 +73,16 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="center|left"
-            android:layout_marginStart="100px"
-            android:layout_marginLeft="100px"
+            android:layout_marginStart="40px"
+            android:layout_marginLeft="40px"
             android:src="@drawable/unnamed" />
 
         <TextView
             android:id="@+id/txtAccueilProject"
             android:layout_width="265dp"
             android:layout_height="68dp"
-            android:layout_marginStart="240px"
-            android:layout_marginLeft="240px"
+            android:layout_marginStart="180px"
+            android:layout_marginLeft="180px"
             android:layout_marginTop="30px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
@@ -92,20 +92,20 @@
             android:textSize="36sp" />
 
         <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="1300px"
-        android:layout_marginLeft="1300px"
-        android:layout_marginTop="30px"
-        app:srcCompat="@drawable/profil" />
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="1370px"
+            android:layout_marginLeft="1370px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/profil" />
 
         <ImageView
             android:id="@+id/imageHelpClient"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1500px"
-            android:layout_marginLeft="1500px"
+            android:layout_marginStart="1570px"
+            android:layout_marginLeft="1570px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/image" />
 
@@ -113,8 +113,8 @@
             android:id="@+id/nameUserClient"
             android:layout_width="167dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1100px"
-            android:layout_marginLeft="1100px"
+            android:layout_marginStart="1150px"
+            android:layout_marginLeft="1150px"
             android:layout_marginTop="60px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
