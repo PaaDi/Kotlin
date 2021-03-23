@@ -187,6 +187,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
+        android:padding="5dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -210,6 +211,7 @@
         android:id="@+id/postalClientDetails"
         android:layout_width="360dp"
         android:layout_height="62dp"
+        android:padding="5dip"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="24dp"
@@ -233,6 +235,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
+        android:padding="5dip"
         android:layout_marginBottom="420dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
@@ -243,7 +246,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleCity2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:lines="8"
+    android:minLines="6"
+    android:gravity="top|left"
+    android:maxLines="10"
+
+    android:scrollbars="vertical"/>
 
     <TextView
         android:id="@+id/titlePostal"
@@ -290,6 +299,7 @@
         android:layout_marginRight="56dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
+        android:padding="5dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -306,6 +316,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
+        android:padding="5dip"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
