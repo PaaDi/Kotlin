@@ -1,5 +1,6 @@
 package com.madera.kotlin.Controller.Contact
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Contact
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.ContactViewModel
 
-class ContactListAdapter(private val contactViewModel: ContactViewModel) : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
+class ContactListAdapter(private val contactViewModel: ContactViewModel, context: Context) : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
+
+    val API = MaderaAPI(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         return ContactViewHolder.create(parent)
@@ -21,7 +25,7 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel) : ListA
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         val current = getItem(position)
         val viewModel = contactViewModel
-        holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, viewModel )
+        holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, viewModel,API )
     }
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,12 +34,13 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel) : ListA
         private val contactItemView3: TextView = itemView.findViewById(R.id.textView3)
         private val buttonSuppressContact: Button = itemView.findViewById(R.id.btn_deleteContact)
 
-        fun bind(text: String?, text2: String?, text3: String?, contact: Contact, viewModel: ContactViewModel){
+        fun bind(text: String?, text2: String?, text3: String?, contact: Contact, viewModel: ContactViewModel, API : MaderaAPI){
             contactItemView.text = text
             contactItemView2.text = text2
             contactItemView3.text = text3
             buttonSuppressContact.setOnClickListener {
                 viewModel.deleteContact(contact)
+                API.suppressionContactAPI(contact.refContact.toString())
             }
         }
 

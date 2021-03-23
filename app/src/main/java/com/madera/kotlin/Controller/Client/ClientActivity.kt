@@ -20,6 +20,7 @@ import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.ClientListAdapter
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
 import com.madera.kotlin.Controller.Client.NewClientActivity
+import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
@@ -149,6 +150,10 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
             }
             val rnds = (0..99999999).random().toLong()
             clientViewModel.createClient(Client(null, rnds,nomClient,adresse,codePostal.toInt(),ville,checkPro,secteurActivite,description))
+
+            val API = MaderaAPI(this)
+
+            API.insertionClientAPI("create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString())
 
 
         }else{

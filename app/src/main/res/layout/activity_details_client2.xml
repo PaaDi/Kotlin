@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     tools:context=".Controller.Client.DetailsClientActivity">
-
+    
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="921dp"

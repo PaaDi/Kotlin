@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Contact.ContactListAdapter
 import com.madera.kotlin.Controller.Contact.NewContactActivity
+import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.Entity.Contact
 import com.madera.kotlin.MaderaApplication
@@ -46,6 +47,7 @@ class DetailsClientActivity : AppCompatActivity() {
     private lateinit var btnValideUpdate : Button
     private lateinit var btnDoUpdate: Button
     private var clientId = 0
+    val API = MaderaAPI(this)
 
     val clientViewModel: ClientViewModel by viewModels {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
@@ -63,7 +65,7 @@ class DetailsClientActivity : AppCompatActivity() {
 
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_contact)
-        val adapterContact = ContactListAdapter(contactViewModel)
+        val adapterContact = ContactListAdapter(contactViewModel, this)
         recyclerView.adapter = adapterContact
         recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
@@ -153,6 +155,9 @@ class DetailsClientActivity : AppCompatActivity() {
             val codePostal = clientPostal.text.toString()
             val codePostalToInt = codePostal.toInt()
             clientViewModel.updateClient(clientDetail.refClient,clientName.text.toString(),clientAdress.text.toString(),codePostalToInt,clientCity.text.toString(),proCheckBox.isChecked,clientActivity.text.toString(),clientDescription.text.toString())
+
+
+            API.insertionClientAPI("update",clientName.text.toString(),clientAdress.text.toString(),proCheckBox.isChecked.toString(),clientActivity.text.toString(),clientCity.text.toString(),codePostal,clientDescription.text.toString(),clientDetail.refClient.toString())
             btnDoUpdate.isVisible = true
             proCheckBox.isVisible = false
             clientName.isEnabled = false
@@ -179,6 +184,7 @@ class DetailsClientActivity : AppCompatActivity() {
 
         buttonDelete.setOnClickListener {
             clientViewModel.deleteClient(clientDetail)
+            API.suppressionClientAPI(clientDetail.refClient.toString())
             super.onBackPressed()
         }
 
@@ -232,6 +238,8 @@ class DetailsClientActivity : AppCompatActivity() {
             }
             val rnds = (0..99999999).random().toLong()
             contactViewModel.createContact(Contact(null,rnds,clientId,nomContact,prenomContact,fonctionContact,phoneContact,mailContact))
+            val client = clientViewModel.getClientById(clientId)
+            API.insertionContactAPI(nomContact,prenomContact,fonctionContact,phoneContact,mailContact,client.refClient.toString(),rnds.toString())
 
         }else{
             Toast.makeText(

@@ -362,6 +362,191 @@ class MaderaAPI(context: Context)
                 })
     }
 
+
+    /**
+     * Ajoute et mets à jours le client en base en ligne
+     */
+    fun insertionClientAPI(create: String, nom: String, adresse: String, ispro: String, secteur: String, ville:String, codepostal: String, description: String,refClient:String) {
+
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("create", create)
+            jsonObject.put("nom", nom)
+            jsonObject.put("adresse", adresse)
+            jsonObject.put("ispro", ispro)
+            jsonObject.put("secteur", secteur)
+            jsonObject.put("ville", ville)
+            jsonObject.put("codepostal", codepostal)
+            jsonObject.put("description", description)
+            jsonObject.put("refclient", refClient)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        AndroidNetworking.post("http://maderaprod.mconan.ovh/API/clientinsertion")
+                .addBodyParameter("create", create)
+                .addBodyParameter("nom", nom)
+                .addBodyParameter("adresse", adresse)
+                .addBodyParameter("ispro", ispro)
+                .addBodyParameter("secteur", secteur)
+                .addBodyParameter("ville", ville)
+                .addBodyParameter("codepostal", codepostal)
+                .addBodyParameter("description", description)
+                .addBodyParameter("refclient", refClient)
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject) {
+                        var isOk = response.toString()
+
+
+                    }
+
+                    override fun onError(error: ANError) {
+                        if (error.getErrorCode() != 0) {
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                        } else {
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                        }
+                    }
+                })
+
+    }
+
+    /**
+     * Supprime le client en base en ligne
+     */
+    fun suppressionClientAPI(refClient:String) {
+
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("refclient", refClient)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        AndroidNetworking.post("http://maderaprod.mconan.ovh/API/clientsuppression")
+                .addBodyParameter("refclient", refClient)
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject) {
+                        var isOk = response.toString()
+
+
+                    }
+
+                    override fun onError(error: ANError) {
+                        if (error.getErrorCode() != 0) {
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                        } else {
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                        }
+                    }
+                })
+
+    }
+
+    /**
+     * Ajoute le contact en base en ligne
+     */
+    fun insertionContactAPI(nom: String, prenom: String, fonction: String, telephone: String, mail:String, refclient: String, refcontact: String) {
+
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("nom", nom)
+            jsonObject.put("prenom", prenom)
+            jsonObject.put("fonction", fonction)
+            jsonObject.put("telephone", telephone)
+            jsonObject.put("mail", mail)
+            jsonObject.put("refclient", refclient)
+            jsonObject.put("refcontact", refcontact)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        AndroidNetworking.post("http://maderaprod.mconan.ovh/API/contactinsertion")
+                .addBodyParameter("nom", nom)
+                .addBodyParameter("prenom", prenom)
+                .addBodyParameter("fonction", fonction)
+                .addBodyParameter("telephone", telephone)
+                .addBodyParameter("mail", mail)
+                .addBodyParameter("refclient", refclient)
+                .addBodyParameter("refcontact", refcontact)
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject) {
+                        var isOk = response.toString()
+
+
+                    }
+
+                    override fun onError(error: ANError) {
+                        if (error.getErrorCode() != 0) {
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                        } else {
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                        }
+                    }
+                })
+
+    }
+
+    /**
+     * Supprime le contact en base en ligne
+     */
+    fun suppressionContactAPI(refContact:String) {
+
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("refcontact", refContact)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        AndroidNetworking.post("http://maderaprod.mconan.ovh/API/contactsuppression")
+                .addBodyParameter("refcontact", refContact)
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(object : JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject) {
+                        var isOk = response.toString()
+
+
+                    }
+
+                    override fun onError(error: ANError) {
+                        if (error.getErrorCode() != 0) {
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                        } else {
+                            Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+                            Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+                        }
+                    }
+                })
+
+    }
+
     // endregion
 
 
