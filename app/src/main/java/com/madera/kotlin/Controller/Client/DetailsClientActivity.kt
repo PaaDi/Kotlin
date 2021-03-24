@@ -113,7 +113,10 @@ class DetailsClientActivity : AppCompatActivity() {
             startActivityForResult(i, newContactActivityRequestCode)
         }
 
-
+        val btnBack = findViewById<Button>(R.id.btn_back)
+        btnBack.setOnClickListener {
+            super.onBackPressed()
+        }
 
 
         clientIdentifiant = findViewById(R.id.idClientDetails)

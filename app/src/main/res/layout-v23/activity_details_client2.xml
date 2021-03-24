@@ -111,10 +111,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="169dp"
-            android:layout_marginLeft="169dp"
-            android:layout_marginEnd="78dp"
-            android:layout_marginRight="78dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginStart="200dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
@@ -143,26 +143,6 @@
             android:textStyle="bold"
             app:backgroundTint="#e8635a" />
 
-        <ImageView
-            android:id="@+id/btnRetourClient"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="50px"
-            android:layout_marginLeft="50px"
-            app:srcCompat="@drawable/ic_previous" />
-
-        <TextView
-            android:id="@+id/txtRetour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150px"
-            android:layout_marginLeft="150px"
-            android:layout_marginTop="12px"
-            android:text="Retour"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/btn_valideUpdate"
             android:layout_width="163dp"
@@ -175,6 +155,16 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:backgroundTint="#347837" />
+
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_previous"
+            android:text="Retour"
+            android:textColor="#FFFFFF" />
+
     </RelativeLayout>
 
     <CheckBox
