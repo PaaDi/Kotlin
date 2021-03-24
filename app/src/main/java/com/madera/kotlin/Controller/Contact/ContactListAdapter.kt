@@ -41,6 +41,7 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel, context
         private val buttonSuppressContact: Button = itemView.findViewById(R.id.btn_deleteContact)
         val phoneTextView: ImageView = itemView.findViewById(R.id.iconPhone)
         val mailTextView: ImageView = itemView.findViewById(R.id.iconEmail)
+        val userTextView: ImageView = itemView.findViewById(R.id.iconUser)
 
 
         fun bind(text: String?, text2: String?, text3: String?, contact: Contact, contactViewModel: ContactViewModel, API : MaderaAPI,requestViewModel: RequestViewModel, clientViewModel: ClientViewModel, projetViewModel: ProjetViewModel, chantierViewModel: ChantierViewModel){
@@ -49,6 +50,7 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel, context
             contactItemView3.text = text3
             phoneTextView.setImageResource(R.drawable.ic_phone)
             mailTextView.setImageResource(R.drawable.ic_email)
+            userTextView.setImageResource(R.drawable.ic_user)
             buttonSuppressContact.setOnClickListener {
                 contactViewModel.deleteContact(contact)
 
