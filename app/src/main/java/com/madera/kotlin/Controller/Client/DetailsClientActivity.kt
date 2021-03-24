@@ -13,17 +13,19 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.madera.kotlin.Controller.Contact.ContactListAdapter
 import com.madera.kotlin.Controller.Contact.NewContactActivity
+import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.Entity.Contact
+import com.madera.kotlin.Entity.Request
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
-import com.madera.kotlin.ViewModel.ClientViewModel
-import com.madera.kotlin.ViewModel.ClientViewModelFactory
-import com.madera.kotlin.ViewModel.ContactViewModel
-import com.madera.kotlin.ViewModel.ContactViewModelFactory
+import com.madera.kotlin.ViewModel.*
+import org.json.JSONObject
 import kotlin.properties.Delegates
 
 
@@ -42,7 +44,7 @@ class DetailsClientActivity : AppCompatActivity() {
     private lateinit var clientCity: EditText
     private lateinit var clientPostal: EditText
     private lateinit var clientDescription: EditText
-    private lateinit var clientProfessionnel: TextView
+
     private  lateinit var  buttonDelete: Button
     private lateinit var proCheckBox : CheckBox
     private lateinit var btnValideUpdate : Button
@@ -50,13 +52,31 @@ class DetailsClientActivity : AppCompatActivity() {
     private var clientId = 0
     val API = MaderaAPI(this)
 
-    val clientViewModel: ClientViewModel by viewModels {
+    //region viewModel Implement
+    val userViewModel: UserViewModel by viewModels{
+        UserViewModelFactory((application as MaderaApplication).repositoryUser)
+    }
+
+    val clientViewModel : ClientViewModel by viewModels {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
     }
 
     val contactViewModel : ContactViewModel by viewModels {
         ContactViewModelFactory((application as MaderaApplication).repositoryContact)
     }
+
+    val projetViewModel : ProjetViewModel by viewModels {
+        ProjetViewModelFactory((application as MaderaApplication).repositoryProjet)
+    }
+
+    val chantierViewModel : ChantierViewModel by viewModels {
+        ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
+    }
+
+    val requestViewModel : RequestViewModel by viewModels {
+        RequestViewModelFactory((application as MaderaApplication).repositoryRequest)
+    }
+    //endregion
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,11 +86,10 @@ class DetailsClientActivity : AppCompatActivity() {
 
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_contact)
-        val adapterContact = ContactListAdapter(contactViewModel, this)
+        val adapterContact = ContactListAdapter(contactViewModel, this,requestViewModel,clientViewModel,projetViewModel,chantierViewModel)
         recyclerView.adapter = adapterContact
         recyclerView.layoutManager = LinearLayoutManager(this)
         //endregion
-
 
 
         clientId = intent.getIntExtra(EXTRA_CLIENT_ID, 1)
@@ -145,7 +164,7 @@ class DetailsClientActivity : AppCompatActivity() {
             clientPostal.isEnabled = true
             clientDescription.isEnabled = true
             btnValideUpdate.isVisible = true
-            clientProfessionnel.isVisible = false
+
         }
 
         userIdentifiant = findViewById(R.id.nameUserDetailClient) as TextView
@@ -159,8 +178,50 @@ class DetailsClientActivity : AppCompatActivity() {
             val codePostalToInt = codePostal.toInt()
             clientViewModel.updateClient(clientDetail.refClient,clientName.text.toString(),clientAdress.text.toString(),codePostalToInt,clientCity.text.toString(),proCheckBox.isChecked,clientActivity.text.toString(),clientDescription.text.toString())
 
+            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    val allRequest = requestViewModel.getAllRequest()
+                    for (request in allRequest){
+                        when(request.requestType){
+                            "connectToApi" -> {
+                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionClientAPI" -> {
+                                API.suppressionClientAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionContactAPI" -> {
+                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionContactAPI" -> {
+                                API.suppressionContactAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "updateClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            else -> {
+                                val pasderequest = ""
+                            }
+                        }
+                    }
+                    API.insertionClientAPI("update",clientName.text.toString(),clientAdress.text.toString(),proCheckBox.isChecked.toString(),clientActivity.text.toString(),clientCity.text.toString(),codePostal,clientDescription.text.toString(),clientDetail.refClient.toString())
+                }
 
-            API.insertionClientAPI("update",clientName.text.toString(),clientAdress.text.toString(),proCheckBox.isChecked.toString(),clientActivity.text.toString(),clientCity.text.toString(),codePostal,clientDescription.text.toString(),clientDetail.refClient.toString())
+                override fun onError(anError: ANError?) {
+                    requestViewModel.saveRequest(Request(null,"updateClientAPI","update",clientName.text.toString(),clientAdress.text.toString(),proCheckBox.isChecked.toString(),clientActivity.text.toString(),clientCity.text.toString(),codePostal,clientDescription.text.toString(),clientDetail.refClient.toString()))
+                }
+            }
+            );
+
+
             btnDoUpdate.isVisible = true
             proCheckBox.isVisible = false
             clientName.isEnabled = false
@@ -170,13 +231,7 @@ class DetailsClientActivity : AppCompatActivity() {
             clientPostal.isEnabled = false
             clientDescription.isEnabled = false
             btnValideUpdate.isVisible = false
-            clientProfessionnel.isVisible = true
 
-            if (proCheckBox.isChecked){
-                clientProfessionnel.text = "Client Professionnel"
-            }else{
-                clientProfessionnel.text = "Client Particulier"
-            }
 
 
         }
@@ -187,7 +242,50 @@ class DetailsClientActivity : AppCompatActivity() {
 
         buttonDelete.setOnClickListener {
             clientViewModel.deleteClient(clientDetail)
-            API.suppressionClientAPI(clientDetail.refClient.toString())
+            /**/
+            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    val allRequest = requestViewModel.getAllRequest()
+                    for (request in allRequest){
+                        when(request.requestType){
+                            "connectToApi" -> {
+                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionClientAPI" -> {
+                                API.suppressionClientAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionContactAPI" -> {
+                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionContactAPI" -> {
+                                API.suppressionContactAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "updateClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            else -> {
+                                val pasderequest = ""
+                            }
+                        }
+                    }
+                    API.suppressionClientAPI(clientDetail.refClient.toString())
+                }
+
+                override fun onError(anError: ANError?) {
+                    requestViewModel.saveRequest(Request(null,"suppressionClientAPI",clientDetail.refClient.toString(),null,null,null,null,null,null,null,null))
+                }
+            }
+            );
+
             super.onBackPressed()
         }
 
@@ -242,7 +340,51 @@ class DetailsClientActivity : AppCompatActivity() {
             val rnds = (0..99999999).random().toLong()
             contactViewModel.createContact(Contact(null,rnds,clientId,nomContact,prenomContact,fonctionContact,phoneContact,mailContact))
             val client = clientViewModel.getClientById(clientId)
-            API.insertionContactAPI(nomContact,prenomContact,fonctionContact,phoneContact,mailContact,client.refClient.toString(),rnds.toString())
+
+            /**/
+            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    val allRequest = requestViewModel.getAllRequest()
+                    for (request in allRequest){
+                        when(request.requestType){
+                            "connectToApi" -> {
+                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionClientAPI" -> {
+                                API.suppressionClientAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionContactAPI" -> {
+                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionContactAPI" -> {
+                                API.suppressionContactAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "updateClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            else -> {
+                                val pasderequest = ""
+                            }
+                        }
+                    }
+                    API.insertionContactAPI(nomContact,prenomContact,fonctionContact,phoneContact,mailContact,client.refClient.toString(),rnds.toString())
+                }
+
+                override fun onError(anError: ANError?) {
+                    requestViewModel.saveRequest(Request(null,"insertionContactAPI",nomContact,prenomContact,fonctionContact,phoneContact,mailContact,client.refClient.toString(),rnds.toString(),null,null))
+                }
+            }
+            );
+            /**/
 
         }else{
             Toast.makeText(

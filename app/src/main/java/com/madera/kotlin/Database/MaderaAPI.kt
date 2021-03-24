@@ -4,23 +4,57 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.ANResponse
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.madera.kotlin.Entity.*
 import com.madera.kotlin.ViewModel.*
-import org.json.JSONArray
+import okhttp3.Response
 import org.json.JSONException
 import org.json.JSONObject
-import java.lang.Exception
-import kotlin.math.log
+import kotlin.concurrent.thread
 
 
 class MaderaAPI(context: Context)
 {
 
+
     //region Requêtes API
+    /**
+     * Vérifie la connexion à l'API
+     */
+    fun checkConnexion() : Boolean{
+        var isConnexionOK : Boolean = false
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("validrequest", "OK")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+
+            val request = AndroidNetworking.post("http://maderaprod.mconan.ovh/API/checkconnexion")
+                    .addBodyParameter("validrequest", "OK")
+                    .build()
+
+            val response: ANResponse<JSONObject> = request.executeForJSONObject() as ANResponse<JSONObject>
+
+            if (response.isSuccess) {
+                val jsonObject = response.result
+                var isOk = jsonObject.get("valide")
+                if (isOk == true){
+                    isConnexionOK = true
+                }
+                return isConnexionOK
+
+            } else {
+                val error = response.error
+                isConnexionOK = false
+                return isConnexionOK
+            }
+    }
+
     /**
      * Récupération des utilisateurs
      */
@@ -39,7 +73,7 @@ class MaderaAPI(context: Context)
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
                         val jsonArry = response.optJSONArray("users")
-                        for (i in 0 until jsonArry.length()){
+                        for (i in 0 until jsonArry.length()) {
                             val jsonObject = jsonArry.getJSONObject(i)
                             val id = jsonObject.get("id")
                             val username = jsonObject.get("username")
@@ -51,9 +85,9 @@ class MaderaAPI(context: Context)
                             val refuser = jsonObject.get("refuser")
 
                             try {
-                                    val user = User(id.toString().toLong(),refuser.toString().toLong(),username.toString(),password.toString(),nom.toString(),prenom.toString(),idrole.toString().toInt())
-                                    viewModel.insert(user)
-                            }catch (e: Exception){
+                                val user = User(id.toString().toLong(), refuser.toString().toLong(), username.toString(), password.toString(), nom.toString(), prenom.toString(), idrole.toString().toInt())
+                                viewModel.insert(user)
+                            } catch (e: Exception) {
                                 e.printStackTrace()
                             }
 
@@ -75,11 +109,10 @@ class MaderaAPI(context: Context)
     }
 
 
-
     /**
      * Connexion à l'API, renvoi la mise à jour de la base de données
      */
-    fun connectToApi(user: String, pass: String, viewModelClient: ClientViewModel, viewModelContact : ContactViewModel, viewModelProjet: ProjetViewModel, viewModelChantier: ChantierViewModel) {
+    fun connectToApi(user: String, pass: String, viewModelClient: ClientViewModel, viewModelContact: ContactViewModel, viewModelProjet: ProjetViewModel, viewModelChantier: ChantierViewModel) {
 
             val jsonObject = JSONObject()
             try {
@@ -100,9 +133,9 @@ class MaderaAPI(context: Context)
                         var isOk = response.get("valide")
                         if (isOk == true) {
                             getAllClientsAPI(viewModelClient)
-                            getAllContactsAPI(viewModelContact,viewModelClient)
-                            getAllProjetsAPI(viewModelProjet,viewModelClient)
-                            getAllChantiersAPI(viewModelChantier,viewModelProjet)
+                            getAllContactsAPI(viewModelContact, viewModelClient)
+                            getAllProjetsAPI(viewModelProjet, viewModelClient)
+                            getAllChantiersAPI(viewModelChantier, viewModelProjet)
                         } else {
                             val ok = "wewentthere"
                         }
@@ -141,8 +174,8 @@ class MaderaAPI(context: Context)
                 .build()
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
-                       val jsonArry = response.optJSONArray("clients")
-                        for (i in 0 until jsonArry.length()){
+                        val jsonArry = response.optJSONArray("clients")
+                        for (i in 0 until jsonArry.length()) {
                             val jsonObject = jsonArry.getJSONObject(i)
                             val nom = jsonObject.get("nom")
                             val adresse = jsonObject.get("adresse")
@@ -155,14 +188,14 @@ class MaderaAPI(context: Context)
 
                             try {
 
-                                if (viewModel.isClientExist(refClient.toString().toLong())){
-                                    viewModel.updateClient(refClient.toString().toLong(),nom.toString(),adresse.toString(),codepostal.toString().toInt(),ville.toString(),estPro.toString().toBoolean(),secteur.toString(),description.toString())
-                                }else{
-                                    val client = Client(null,refClient.toString().toLong(),nom.toString(),adresse.toString(),codepostal.toString().toInt(),ville.toString(),estPro.toString().toBoolean(),secteur.toString(),description.toString())
+                                if (viewModel.isClientExist(refClient.toString().toLong())) {
+                                    viewModel.updateClient(refClient.toString().toLong(), nom.toString(), adresse.toString(), codepostal.toString().toInt(), ville.toString(), estPro.toString().toBoolean(), secteur.toString(), description.toString())
+                                } else {
+                                    val client = Client(null, refClient.toString().toLong(), nom.toString(), adresse.toString(), codepostal.toString().toInt(), ville.toString(), estPro.toString().toBoolean(), secteur.toString(), description.toString())
                                     viewModel.createClient(client)
                                 }
 
-                            }catch (e: Exception){
+                            } catch (e: Exception) {
                                 e.printStackTrace()
                             }
 
@@ -186,7 +219,7 @@ class MaderaAPI(context: Context)
     /**
      * Requête de récupération des contacts
      */
-    fun getAllContactsAPI(viewModel: ContactViewModel, viewModelCli : ClientViewModel){
+    fun getAllContactsAPI(viewModel: ContactViewModel, viewModelCli: ClientViewModel){
         val jsonObject = JSONObject()
         try {
             jsonObject.put("validrequest", "OK")
@@ -201,7 +234,7 @@ class MaderaAPI(context: Context)
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
                         val jsonArry = response.optJSONArray("contacts")
-                        for (i in 0 until jsonArry.length()){
+                        for (i in 0 until jsonArry.length()) {
                             val jsonObject = jsonArry.getJSONObject(i)
                             val refClient = jsonObject.get("refClient")
                             val nom = jsonObject.get("nom")
@@ -214,15 +247,15 @@ class MaderaAPI(context: Context)
 
                             try {
 
-                                if (viewModel.isContactExist(refContact.toString().toLong())){
+                                if (viewModel.isContactExist(refContact.toString().toLong())) {
 
-                                }else{
+                                } else {
                                     val cli = viewModelCli.getClientByRef(refClient.toString().toLong())
-                                   val contact = Contact(null,refContact.toString().toLong(),cli.idClient,nom.toString(),prenom.toString(),fonction.toString(),telephone.toString(),mail.toString())
+                                    val contact = Contact(null, refContact.toString().toLong(), cli.idClient, nom.toString(), prenom.toString(), fonction.toString(), telephone.toString(), mail.toString())
                                     viewModel.createContact(contact)
                                 }
 
-                            }catch (e: Exception){
+                            } catch (e: Exception) {
                                 e.printStackTrace()
                             }
 
@@ -261,7 +294,7 @@ class MaderaAPI(context: Context)
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
                         val jsonArry = response.optJSONArray("projets")
-                        for (i in 0 until jsonArry.length()){
+                        for (i in 0 until jsonArry.length()) {
                             val jsonObject = jsonArry.getJSONObject(i)
                             val refClient = jsonObject.get("refClient")
                             val refProjet = jsonObject.get("refProjet")
@@ -271,15 +304,15 @@ class MaderaAPI(context: Context)
 
                             try {
 
-                                if (viewModelProjet.isProjetExist(refProjet.toString().toLong())){
+                                if (viewModelProjet.isProjetExist(refProjet.toString().toLong())) {
                                     val client = viewModelClient.getClientByRef(refClient.toString().toLong())
-                                    viewModelProjet.updateProjet(client.idClient,nom.toString(),notes.toString(),refProjet.toString().toLong())
-                                }else{
+                                    viewModelProjet.updateProjet(client.idClient, nom.toString(), notes.toString(), refProjet.toString().toLong())
+                                } else {
                                     val client = viewModelClient.getClientByRef(refClient.toString().toLong())
-                                    viewModelProjet.createProject(Projet(null,refProjet.toString().toLong(),client.idClient,nom.toString(),dateCreation.toString(),notes.toString()))
+                                    viewModelProjet.createProject(Projet(null, refProjet.toString().toLong(), client.idClient, nom.toString(), dateCreation.toString(), notes.toString()))
                                 }
 
-                            }catch (e: Exception){
+                            } catch (e: Exception) {
                                 e.printStackTrace()
                             }
 
@@ -318,7 +351,7 @@ class MaderaAPI(context: Context)
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
                         val jsonArry = response.optJSONArray("chantiers")
-                        for (i in 0 until jsonArry.length()){
+                        for (i in 0 until jsonArry.length()) {
                             val jsonObject = jsonArry.getJSONObject(i)
                             val refProjet = jsonObject.get("refProjet")
                             val nom = jsonObject.get("nom")
@@ -333,15 +366,15 @@ class MaderaAPI(context: Context)
 
                             try {
 
-                                if (viewModelChantier.isChantierExist(refChantier.toString().toLong())){
+                                if (viewModelChantier.isChantierExist(refChantier.toString().toLong())) {
                                     val projet = viewModelProjet.getProjectByRef(refProjet.toString().toLong())
-                                    viewModelChantier.updateChantier(projet.idProjet,idUser.toString().toInt(),nom.toString(),adresse.toString(),codePostal.toString().toInt(),ville.toString(),notes.toString(),datecreation.toString(),datelancement.toString(),refChantier.toString().toLong())
-                                }else{
+                                    viewModelChantier.updateChantier(projet.idProjet, idUser.toString().toInt(), nom.toString(), adresse.toString(), codePostal.toString().toInt(), ville.toString(), notes.toString(), datecreation.toString(), datelancement.toString(), refChantier.toString().toLong())
+                                } else {
                                     val projet = viewModelProjet.getProjectByRef(refProjet.toString().toLong())
-                                    viewModelChantier.createChantier(Chantier(null,refChantier.toString().toLong(),projet.idProjet,idUser.toString().toInt(),nom.toString(),adresse.toString(),codePostal.toString().toInt(),ville.toString(),notes.toString(),datecreation.toString(),datelancement.toString()))
+                                    viewModelChantier.createChantier(Chantier(null, refChantier.toString().toLong(), projet.idProjet, idUser.toString().toInt(), nom.toString(), adresse.toString(), codePostal.toString().toInt(), ville.toString(), notes.toString(), datecreation.toString(), datelancement.toString()))
                                 }
 
-                            }catch (e: Exception){
+                            } catch (e: Exception) {
                                 e.printStackTrace()
                             }
 
@@ -366,7 +399,7 @@ class MaderaAPI(context: Context)
     /**
      * Ajoute et mets à jours le client en base en ligne
      */
-    fun insertionClientAPI(create: String, nom: String, adresse: String, ispro: String, secteur: String, ville:String, codepostal: String, description: String,refClient:String) {
+    fun insertionClientAPI(create: String, nom: String, adresse: String, ispro: String, secteur: String, ville: String, codepostal: String, description: String, refClient: String) {
 
         val jsonObject = JSONObject()
         try {
@@ -421,7 +454,7 @@ class MaderaAPI(context: Context)
     /**
      * Supprime le client en base en ligne
      */
-    fun suppressionClientAPI(refClient:String) {
+    fun suppressionClientAPI(refClient: String) {
 
         val jsonObject = JSONObject()
         try {
@@ -460,7 +493,7 @@ class MaderaAPI(context: Context)
     /**
      * Ajoute le contact en base en ligne
      */
-    fun insertionContactAPI(nom: String, prenom: String, fonction: String, telephone: String, mail:String, refclient: String, refcontact: String) {
+    fun insertionContactAPI(nom: String, prenom: String, fonction: String, telephone: String, mail: String, refclient: String, refcontact: String) {
 
         val jsonObject = JSONObject()
         try {
@@ -511,7 +544,7 @@ class MaderaAPI(context: Context)
     /**
      * Supprime le contact en base en ligne
      */
-    fun suppressionContactAPI(refContact:String) {
+    fun suppressionContactAPI(refContact: String) {
 
         val jsonObject = JSONObject()
         try {

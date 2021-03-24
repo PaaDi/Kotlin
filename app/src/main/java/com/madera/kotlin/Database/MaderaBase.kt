@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 
 @Database(entities = arrayOf(
-        User::class, Client::class, Projet::class, Chantier::class, Contact::class
+        User::class, Client::class, Projet::class, Chantier::class, Contact::class, Request::class
 ), version = 1)
 abstract class MaderaBase : RoomDatabase() {
 
@@ -24,6 +24,7 @@ abstract class MaderaBase : RoomDatabase() {
     abstract fun projetDao() : ProjetDao
     abstract fun chantierDao() : ChantierDao
     abstract fun contactDao() : ContactDao
+    abstract fun requestDao() : RequestDao
 
 
     // Singleton de ma database permettant de l'appeller quand nécessaire via instances

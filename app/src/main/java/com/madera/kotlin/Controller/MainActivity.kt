@@ -11,14 +11,19 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.madera.kotlin.Controller.Authentification.PasswordMissActivity
 import com.madera.kotlin.Controller.Home.HomeActivity
+import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
+import com.madera.kotlin.Entity.Request
 import com.madera.kotlin.Entity.User
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.MaderaApplication.Companion.globalTest
 import com.madera.kotlin.ViewModel.*
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +63,10 @@ class MainActivity : AppCompatActivity() {
             val chantierViewModel : ChantierViewModel by viewModels {
                 ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
             }
+
+            val requestViewModel : RequestViewModel by viewModels {
+                RequestViewModelFactory((application as MaderaApplication).repositoryRequest)
+            }
         //endregion
         //region API
             val API = MaderaAPI(this)
@@ -78,7 +87,48 @@ class MainActivity : AppCompatActivity() {
 
                      Toast.makeText(this@MainActivity, "Connexion réussie !", Toast.LENGTH_SHORT).show()
 
-                    val test = API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString(), clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                     CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                         override fun onResponse(response: JSONObject?) {
+                             val allRequest = requestViewModel.getAllRequest()
+                             for (request in allRequest){
+                                 when(request.requestType){
+                                     "connectToApi" -> {
+                                         API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     "insertionClientAPI" -> {
+                                         API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     "suppressionClientAPI" -> {
+                                         API.suppressionClientAPI(request.param1.toString())
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     "insertionContactAPI" -> {
+                                         API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     "suppressionContactAPI" -> {
+                                         API.suppressionContactAPI(request.param1.toString())
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     "updateClientAPI" -> {
+                                         API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                         requestViewModel.deleteRequest(request)
+                                     }
+                                     else -> {
+                                         val pasderequest = ""
+                                     }
+                                 }
+                             }
+                             API.connectToApi(userToConnect.text.toString(),passToConnect.text.toString(), clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                         }
+
+                         override fun onError(anError: ANError?) {
+                             requestViewModel.saveRequest(Request(null,"connectToApi",userToConnect.text.toString(),passToConnect.text.toString(),null,null,null,null,null,null,null))
+                         }
+                     }
+                     );
 
 
                      val i = Intent(this, HomeActivity::class.java)

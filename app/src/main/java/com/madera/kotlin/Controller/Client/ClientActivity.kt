@@ -16,16 +16,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.ClientListAdapter
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
 import com.madera.kotlin.Controller.Client.NewClientActivity
+import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Client
+import com.madera.kotlin.Entity.Request
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
-import com.madera.kotlin.ViewModel.ClientViewModel
-import com.madera.kotlin.ViewModel.ClientViewModelFactory
+import com.madera.kotlin.ViewModel.*
+import org.json.JSONObject
 
 
 class ClientActivity : AppCompatActivity(), CellClickListener {
@@ -35,8 +39,28 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
     private lateinit var userIdentifiant: TextView
     //endregion
     //region viewModel Implement
-    val clientViewModel: ClientViewModel by viewModels {
+    val userViewModel: UserViewModel by viewModels{
+        UserViewModelFactory((application as MaderaApplication).repositoryUser)
+    }
+
+    val clientViewModel : ClientViewModel by viewModels {
         ClientViewModelFactory((application as MaderaApplication).repositoryClient)
+    }
+
+    val contactViewModel : ContactViewModel by viewModels {
+        ContactViewModelFactory((application as MaderaApplication).repositoryContact)
+    }
+
+    val projetViewModel : ProjetViewModel by viewModels {
+        ProjetViewModelFactory((application as MaderaApplication).repositoryProjet)
+    }
+
+    val chantierViewModel : ChantierViewModel by viewModels {
+        ChantierViewModelFactory((application as MaderaApplication).repositoryChantier)
+    }
+
+    val requestViewModel : RequestViewModel by viewModels {
+        RequestViewModelFactory((application as MaderaApplication).repositoryRequest)
     }
     //endregion
 
@@ -44,7 +68,6 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.client_view)
-
         //region Implement Recylcer
             /* FOR CLIENT */
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_client)
@@ -153,8 +176,48 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
 
             val API = MaderaAPI(this)
 
-            API.insertionClientAPI("create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString())
+            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    val allRequest = requestViewModel.getAllRequest()
+                    for (request in allRequest){
+                        when(request.requestType){
+                            "connectToApi" -> {
+                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionClientAPI" -> {
+                                API.suppressionClientAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "insertionContactAPI" -> {
+                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "suppressionContactAPI" -> {
+                                API.suppressionContactAPI(request.param1.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            "updateClientAPI" -> {
+                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                requestViewModel.deleteRequest(request)
+                            }
+                            else -> {
+                                requestViewModel.saveRequest(Request(null,"insertionClientAPI","create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString()))
+                            }
+                        }
+                    }
+                    API.insertionClientAPI("create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString())
+                }
 
+                override fun onError(anError: ANError?) {
+                    requestViewModel.saveRequest(Request(null,"insertionClientAPI","create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString()))
+                }
+            }
+            );
 
         }else{
             Toast.makeText(

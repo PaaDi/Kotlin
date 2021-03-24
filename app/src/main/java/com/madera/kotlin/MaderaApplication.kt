@@ -29,6 +29,7 @@ class MaderaApplication : Application() {
     val repositoryChantier by lazy { ChantierRepository(database.chantierDao())}
     val repositoryProjet by lazy {ProjetRepository(database.projetDao())}
     val repositoryContact by lazy { ContactRepository(database.contactDao()) }
+    val repositoryRequest by lazy { RequestRepository(database.requestDao()) }
 
 
 
