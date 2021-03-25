@@ -11,6 +11,10 @@ class ProjetViewModel(private val repository: ProjetRepository) : ViewModel() {
         return repository.getProjectByRef(ref)
     }
 
+    fun getProjectById(id: Int?): Projet{
+        return repository.getProjectById(id)
+    }
+
     fun getAllProjetsByUser(id: Int) : LiveData<List<Projet>>{
         return repository.getAllProjetsByUser(id).asLiveData()
     }

@@ -1,7 +1,5 @@
 package com.madera.kotlin.Controller.Client
 
-import android.content.Intent
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.madera.kotlin.Controller.Home.ClientActivity
 import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.R
 
@@ -32,7 +29,7 @@ class ClientListAdapter(private val cellClickListener: CellClickListener) : List
     class ClientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
         private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
-        val clientImage: ImageView = itemView.findViewById(R.id.iconClient)
+        val clientImage: ImageView = itemView.findViewById(R.id.iconChantier)
         val arrowImage : ImageView = itemView.findViewById(R.id.arrowIcon)
 
 

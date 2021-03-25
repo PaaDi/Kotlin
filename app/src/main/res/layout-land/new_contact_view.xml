@@ -159,7 +159,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/titleName"
+        android:id="@+id/chantierName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="276dp"
@@ -169,7 +169,7 @@
         android:text="Nom :"
         android:textColor="#222222"
         android:textSize="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
+        app:layout_constraintBottom_toTopOf="@+id/nameChantierDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
@@ -224,7 +224,7 @@
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierName" />
 
     <TextView
         android:id="@+id/titleFonction"

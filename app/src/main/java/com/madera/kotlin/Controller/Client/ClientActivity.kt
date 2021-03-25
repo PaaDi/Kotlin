@@ -125,6 +125,11 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
         userIdentifiant = findViewById(R.id.nameUserClient) as TextView
         userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
 
+        val btnBack = findViewById<Button>(R.id.btn_backClient)
+        btnBack.setOnClickListener {
+            super.onBackPressed()
+        }
+
     }
 
     override fun onCellClickListener(id: Int?) {

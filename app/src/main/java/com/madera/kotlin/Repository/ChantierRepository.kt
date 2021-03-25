@@ -17,6 +17,14 @@ class ChantierRepository(private val chantierDao: ChantierDao) {
         return chantierDao.getAllChantiersByUser(ref)
     }
 
+    fun getChantierById(id:Int?): Chantier{
+        return chantierDao.getChantierById(id)
+    }
+
+    fun getAllChantiersByProjectId(id: Int): Flow<List<Chantier>>{
+        return chantierDao.getAllChantiersByProjectId(id)
+    }
+
     fun isChantierExist(ref:Long) : Boolean{
         return chantierDao.isChantierExist(ref)
     }

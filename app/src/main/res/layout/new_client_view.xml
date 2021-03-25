@@ -102,26 +102,16 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="169dp" />
 
-        <ImageView
-            android:id="@+id/btnRetourClient"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="50px"
-            android:layout_marginLeft="50px"
-
-            app:srcCompat="@drawable/ic_previous" />
-
-        <TextView
-            android:id="@+id/txtRetour"
+        <Button
+            android:id="@+id/btn_backNewClient"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150px"
-            android:layout_marginLeft="150px"
-            android:layout_marginTop="20px"
+            android:drawableLeft="@drawable/ic_previous"
             android:text="Retour"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF" />
+
+
     </RelativeLayout>
 
     <TextView
@@ -153,10 +143,10 @@
         android:textColorHighlight="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierNote" />
 
     <EditText
-        android:id="@+id/nameClientDetails"
+        android:id="@+id/nameChantierDetails"
         android:layout_width="790dp"
         android:layout_height="55dp"
         android:layout_marginStart="44dp"
@@ -170,11 +160,11 @@
         android:padding="5dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/titleSecteur"
+        app:layout_constraintBottom_toTopOf="@+id/chantierCommercialName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierName" />
 
     <EditText
         android:id="@+id/cityClientDetails"
@@ -210,7 +200,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
 
     <EditText
-        android:id="@+id/descriptionClientDetails"
+        android:id="@+id/chantierNote"
         android:layout_width="784dp"
         android:layout_height="115dp"
         android:layout_marginStart="46dp"
@@ -226,7 +216,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleCity2" />
+        app:layout_constraintTop_toBottomOf="@+id/projectNotes" />
 
     <TextView
         android:id="@+id/titlePostal"
@@ -248,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
-        android:id="@+id/titleName"
+        android:id="@+id/chantierName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -258,7 +248,7 @@
         android:text="Nom :"
         android:textColor="#222222"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameClientDetails"
+        app:layout_constraintBottom_toTopOf="@+id/nameChantierDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
@@ -281,7 +271,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
 
     <EditText
-        android:id="@+id/activityClientDetails"
+        android:id="@+id/nameCommercialChantierDetails"
         android:layout_width="788dp"
         android:layout_height="59dp"
         android:layout_marginStart="46dp"
@@ -296,10 +286,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleSecteur" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierCommercialName" />
 
     <TextView
-        android:id="@+id/titleSecteur"
+        android:id="@+id/chantierCommercialName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -309,7 +299,7 @@
         android:textColor="#222222"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/nameChantierDetails" />
 
     <TextView
         android:id="@+id/titleAdress"
@@ -322,7 +312,7 @@
         android:textColor="#222222"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/nameCommercialChantierDetails" />
 
     <TextView
         android:id="@+id/titleCity"
@@ -338,7 +328,7 @@
         app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
-        android:id="@+id/titleCity2"
+        android:id="@+id/projectNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -348,7 +338,7 @@
         android:text="Description :"
         android:textColor="#222222"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionClientDetails"
+        app:layout_constraintBottom_toTopOf="@+id/chantierNote"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 

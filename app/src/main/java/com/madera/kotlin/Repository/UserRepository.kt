@@ -18,6 +18,10 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getUserByName(pseudo)
     }
 
+    fun getUserById(id: Int?): User{
+        return userDao.getUserById(id)
+    }
+
     fun connectUser(login: String, pass: String) : Boolean
     {
         return userDao.connectUser(login,pass)

@@ -22,6 +22,10 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
     {
         return repository.connectUser(login,pass)
     }
+
+    fun getUserById(id: Int?): User{
+        return repository.getUserById(id)
+    }
 }
 
 /**

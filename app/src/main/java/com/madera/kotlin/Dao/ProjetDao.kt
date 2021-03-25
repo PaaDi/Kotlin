@@ -13,6 +13,8 @@ interface ProjetDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun createProject(projet:Projet)
 
+    @Query("SELECT * FROM Projet WHERE idProjet=:id")
+    fun getProjectById(id: Int?): Projet
 
     @Query("SELECT * FROM Projet WHERE refProjet = :ref")
     fun getProjectByRef(ref: Long) : Projet

@@ -12,6 +12,10 @@ class ProjetRepository(private val projetDao: ProjetDao) {
         return projetDao.getProjectByRef(ref)
     }
 
+    fun getProjectById(id: Int?): Projet{
+        return projetDao.getProjectById(id)
+    }
+
     fun getAllProjetsByUser(id: Int) : Flow<List<Projet>> {
         return projetDao.getProjectByUser(id)
     }

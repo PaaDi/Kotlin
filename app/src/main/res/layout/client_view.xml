@@ -57,6 +57,14 @@
             android:textColor="#0C5A43"
             android:textSize="36sp"
             app:backgroundTint="#FFFFFF" />
+        <Button
+            android:id="@+id/btn_backClient"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_previous"
+            android:text="Retour"
+            android:textColor="#FFFFFF" />
 
     </RelativeLayout>
 

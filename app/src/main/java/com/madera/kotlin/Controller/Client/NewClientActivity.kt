@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.madera.kotlin.Controller.Contact.NewContactActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
@@ -32,12 +31,12 @@ class NewClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_client_view)
 
-        ClientNameView = findViewById(R.id.nameClientDetails)
-        ClientSecteurView = findViewById(R.id.activityClientDetails)
+        ClientNameView = findViewById(R.id.nameChantierDetails)
+        ClientSecteurView = findViewById(R.id.nameCommercialChantierDetails)
         ClientAdresseView = findViewById(R.id.adressClientDetails)
         ClientVilleView = findViewById(R.id.cityClientDetails)
         ClientCodePostalView = findViewById(R.id.postalClientDetails)
-        ClientDescriptionView = findViewById(R.id.descriptionClientDetails)
+        ClientDescriptionView = findViewById(R.id.chantierNote)
         ClientIsProView = findViewById(R.id.checkProfessionnel)
 
 
@@ -72,6 +71,10 @@ class NewClientActivity : AppCompatActivity() {
             finish()
         }
 
+        val btnBack = findViewById<Button>(R.id.btn_backNewClient)
+        btnBack.setOnClickListener {
+            super.onBackPressed()
+        }
 
         // Bulle d'information
         imageHelpNewClient.setOnClickListener {

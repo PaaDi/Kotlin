@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -19,14 +18,12 @@ import com.madera.kotlin.Controller.Contact.ContactListAdapter
 import com.madera.kotlin.Controller.Contact.NewContactActivity
 import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
-import com.madera.kotlin.Entity.Client
 import com.madera.kotlin.Entity.Contact
 import com.madera.kotlin.Entity.Request
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.*
 import org.json.JSONObject
-import kotlin.properties.Delegates
 
 
 class DetailsClientActivity : AppCompatActivity() {
@@ -119,13 +116,13 @@ class DetailsClientActivity : AppCompatActivity() {
         }
 
 
-        clientIdentifiant = findViewById(R.id.idClientDetails)
-        clientName = findViewById(R.id.nameClientDetails)
-        clientActivity = findViewById(R.id.activityClientDetails)
+        clientIdentifiant = findViewById(R.id.idChantierDetails)
+        clientName = findViewById(R.id.nameChantierDetails)
+        clientActivity = findViewById(R.id.nameCommercialChantierDetails)
         clientAdress = findViewById(R.id.adressClientDetails)
         clientCity = findViewById(R.id.cityClientDetails)
         clientPostal = findViewById(R.id.postalClientDetails)
-        clientDescription = findViewById(R.id.descriptionClientDetails)
+        clientDescription = findViewById(R.id.chantierNote)
         proCheckBox = findViewById(R.id.checkProfessionnel)
         btnValideUpdate = findViewById(R.id.btn_valideUpdate)
         btnDoUpdate = findViewById(R.id.btn_DoUpdate)

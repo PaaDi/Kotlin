@@ -14,6 +14,9 @@ interface UserDao {
     @Query("DELETE FROM user")
     suspend fun deleteAll()
 
+    @Query("SELECT * FROM user WHERE idUser=:id")
+    fun getUserById(id: Int?): User
+
     @Query("SELECT * FROM user WHERE pseudoUser=:login AND passwordUser=:pass")
     fun connectUser(login: String, pass: String) : Boolean
 

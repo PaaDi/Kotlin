@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
+import com.madera.kotlin.Controller.Project.DetailsProjectActivity
 import com.madera.kotlin.Entity.Chantier
 import com.madera.kotlin.Entity.Projet
 import com.madera.kotlin.MaderaApplication
@@ -115,8 +116,8 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
     }
 
     override fun onCellClickListener(id: Int?) {
-        val intent = Intent(this, DetailsClientActivity::class.java)
-        intent.putExtra(DetailsClientActivity.EXTRA_CLIENT_ID, id)
+        val intent = Intent(this, DetailsProjectActivity::class.java)
+        intent.putExtra(DetailsProjectActivity.EXTRA_PROJECT_ID, id)
         startActivity(intent)
     }
 }

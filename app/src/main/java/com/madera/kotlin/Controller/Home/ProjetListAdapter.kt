@@ -6,19 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.viewModels
 import com.madera.kotlin.Entity.Projet
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Client.CellClickListener
-import com.madera.kotlin.Dao.ChantierDao
-import com.madera.kotlin.MaderaApplication
 
 
 import com.madera.kotlin.R
-import com.madera.kotlin.Repository.ClientRepository
 import com.madera.kotlin.ViewModel.ClientViewModel
-import com.madera.kotlin.ViewModel.ClientViewModelFactory
 
 class ProjetListAdapter(private val cellClickListener: CellClickListener, private val viewModel: ClientViewModel) : ListAdapter<Projet, ProjetListAdapter.ProjetViewHolder>(ProjetsComparator()){
 
@@ -34,7 +29,7 @@ class ProjetListAdapter(private val cellClickListener: CellClickListener, privat
         holder.bind(current.nomProjet + " -  Réf: " + current.refProjet.toString(), "Client: " + client.nom)
 
         holder.itemView.setOnClickListener {
-            cellClickListener.onCellClickListener(current.clientId)
+            cellClickListener.onCellClickListener(current.idProjet)
         }
     }
 
@@ -42,7 +37,7 @@ class ProjetListAdapter(private val cellClickListener: CellClickListener, privat
     class ProjetViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         private val clientItemView: TextView = itemView.findViewById(R.id.textView)
         private val clientItemView2: TextView = itemView.findViewById(R.id.textView2)
-        val clientImage: ImageView = itemView.findViewById(R.id.iconClient)
+        val clientImage: ImageView = itemView.findViewById(R.id.iconChantier)
         val arrowImage : ImageView = itemView.findViewById(R.id.arrowIcon)
 
 

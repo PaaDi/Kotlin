@@ -3,6 +3,7 @@ package com.madera.kotlin.ViewModel
 import androidx.lifecycle.*
 import com.madera.kotlin.Entity.Chantier
 import com.madera.kotlin.Repository.ChantierRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
@@ -10,6 +11,14 @@ class ChantierViewModel(private val repository: ChantierRepository) : ViewModel(
 
     fun getAllChantiersByUser(ref : Int) : LiveData<List<Chantier>>{
         return repository.getAllChantiersByUser(ref).asLiveData()
+    }
+
+    fun getAllChantiersByProjectId(id: Int): LiveData<List<Chantier>>{
+        return repository.getAllChantiersByProjectId(id).asLiveData()
+    }
+
+    fun getChantierById(id:Int?): Chantier{
+        return repository.getChantierById(id)
     }
 
     fun createChantier(chantier: Chantier) = viewModelScope.launch {

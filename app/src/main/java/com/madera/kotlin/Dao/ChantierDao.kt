@@ -19,6 +19,12 @@ interface ChantierDao {
     """)
     fun getAllChantiersByUser(ref : Int) : Flow<List<Chantier>>
 
+    @Query("SELECT * FROM Chantier WHERE idChantier=:id")
+    fun getChantierById(id:Int?): Chantier
+
+    @Query("SELECT * FROM Chantier WHERE projetId =:id")
+    fun getAllChantiersByProjectId(id: Int): Flow<List<Chantier>>
+
     @Query("SELECT * FROM Chantier WHERE refChantier=:ref")
     fun isChantierExist(ref:Long) : Boolean
 

@@ -135,13 +135,13 @@
         android:textColor="#222222"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/titleSecteur"
+        app:layout_constraintBottom_toTopOf="@+id/chantierCommercialName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         app:layout_constraintVertical_bias="0.416" />
 
     <TextView
-        android:id="@+id/titleCity2"
+        android:id="@+id/projectNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="256dp"
@@ -151,12 +151,12 @@
         android:text="Description :"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionClientDetails"
+        app:layout_constraintBottom_toTopOf="@+id/chantierNote"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityClientDetails" />
 
     <EditText
-        android:id="@+id/nameClientDetails"
+        android:id="@+id/nameChantierDetails"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="56dp"
@@ -171,7 +171,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleName" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierName" />
 
     <TextView
         android:id="@+id/titleCity"
@@ -205,7 +205,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAdress" />
 
     <TextView
-        android:id="@+id/titleSecteur"
+        android:id="@+id/chantierCommercialName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Secteur d'activité :"
@@ -234,7 +234,7 @@
         app:layout_constraintTop_toBottomOf="@+id/adressClientDetails" />
 
     <TextView
-        android:id="@+id/titleName"
+        android:id="@+id/chantierName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="256dp"
@@ -279,7 +279,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titlePostal" />
 
     <EditText
-        android:id="@+id/descriptionClientDetails"
+        android:id="@+id/chantierNote"
         android:layout_width="775dp"
         android:layout_height="113dp"
         android:layout_marginStart="46dp"
@@ -294,10 +294,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleCity2" />
+        app:layout_constraintTop_toBottomOf="@+id/projectNotes" />
 
     <EditText
-        android:id="@+id/activityClientDetails"
+        android:id="@+id/nameCommercialChantierDetails"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="46dp"
@@ -312,7 +312,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleSecteur" />
+        app:layout_constraintTop_toBottomOf="@+id/chantierCommercialName" />
 
     <TextView
         android:id="@+id/titleAdress"
@@ -325,7 +325,7 @@
         android:textColor="#222222"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/nameChantierDetails" />
 
     <CheckBox
         android:id="@+id/checkProfessionnel"
@@ -343,7 +343,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toEndOf="@+id/adressClientDetails"
-        app:layout_constraintTop_toBottomOf="@+id/activityClientDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/nameCommercialChantierDetails" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
