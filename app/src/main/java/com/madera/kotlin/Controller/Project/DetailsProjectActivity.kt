@@ -3,14 +3,13 @@ package com.madera.kotlin.Controller.Project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Chantier.DetailsChantierActivity
 import com.madera.kotlin.Controller.Client.CellClickListener
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.*
@@ -47,6 +46,19 @@ class DetailsProjectActivity : AppCompatActivity(), CellClickListener {
         //region NavBar Implement
             userIdentifiant = findViewById(R.id.nameUserDetailClient) as TextView
             userIdentifiant.text = MaderaApplication.globalTest.pseudoUser
+
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@DetailsProjectActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
             val btnBack = findViewById<Button>(R.id.btn_backDetailsProjet)
             btnBack.setOnClickListener {

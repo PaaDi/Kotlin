@@ -18,6 +18,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageDisconnect"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="1570px"
+            android:layout_marginLeft="1570px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/ic_open_exit_door" />
+
+        <ImageView
             android:id="@+id/imageViewP"
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -44,8 +53,8 @@
             android:id="@+id/imageView2"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1370px"
-            android:layout_marginLeft="1370px"
+            android:layout_marginStart="1170px"
+            android:layout_marginLeft="1170px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_profile" />
 
@@ -53,8 +62,8 @@
             android:id="@+id/imageHelpNewClient"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1570px"
-            android:layout_marginLeft="1570px"
+            android:layout_marginStart="1370px"
+            android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
 
@@ -62,8 +71,8 @@
             android:id="@+id/nameUserNewClient"
             android:layout_width="167dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1150px"
-            android:layout_marginLeft="1150px"
+            android:layout_marginStart="1050px"
+            android:layout_marginLeft="1050px"
             android:layout_marginTop="60px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"

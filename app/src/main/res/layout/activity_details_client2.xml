@@ -44,8 +44,8 @@
             android:id="@+id/imageView2"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1370px"
-            android:layout_marginLeft="1370px"
+            android:layout_marginStart="1170px"
+            android:layout_marginLeft="1170px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_profile" />
 
@@ -53,8 +53,8 @@
             android:id="@+id/nameUserDetailClient"
             android:layout_width="167dp"
             android:layout_height="67dp"
-            android:layout_marginStart="1220px"
-            android:layout_marginLeft="1220px"
+            android:layout_marginStart="1050px"
+            android:layout_marginLeft="1050px"
             android:layout_marginTop="50px"
             android:layout_marginEnd="10px"
             android:layout_marginRight="10px"
@@ -67,10 +67,86 @@
             android:id="@+id/imageHelpDetailsClient"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginStart="1570px"
-            android:layout_marginLeft="1570px"
+            android:layout_marginStart="1370px"
+            android:layout_marginLeft="1370px"
             android:layout_marginTop="30px"
             app:srcCompat="@drawable/ic_information" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="912dp"
+            android:layout_height="82dp"
+            android:background="#0C5A43"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewP"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|left"
+                android:layout_marginStart="40px"
+                android:layout_marginLeft="40px"
+                android:src="@drawable/unnamed" />
+
+            <TextView
+                android:id="@+id/txtAccueilProject"
+                android:layout_width="265dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="180px"
+                android:layout_marginLeft="180px"
+                android:layout_marginTop="30px"
+                android:layout_marginEnd="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="10px"
+                android:text="PYRAMID"
+                android:textColor="#FFFFFF"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1170px"
+                android:layout_marginLeft="1170px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/ic_profile" />
+
+            <ImageView
+                android:id="@+id/imageHelpHome"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1370px"
+                android:layout_marginLeft="1370px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/ic_information" />
+
+            <ImageView
+                android:id="@+id/imageDisconnect"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1570px"
+                android:layout_marginLeft="1570px"
+                android:layout_marginTop="30px"
+                app:srcCompat="@drawable/ic_open_exit_door" />
+
+            <TextView
+                android:id="@+id/nameUserHome"
+                android:layout_width="167dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="1050px"
+                android:layout_marginLeft="1050px"
+                android:layout_marginTop="60px"
+                android:layout_marginEnd="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="10px"
+                android:text="Username"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -111,8 +187,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginStart="211dp"
             android:layout_marginLeft="211dp"
-            android:layout_marginEnd="82dp"
-            android:layout_marginRight="82dp"
+            android:layout_marginEnd="81dp"
+            android:layout_marginRight="81dp"
             android:layout_toEndOf="@+id/delete_btn"
             android:layout_toRightOf="@+id/delete_btn"
             android:text="Ajouter un contact"
@@ -295,7 +371,7 @@
     <EditText
         android:id="@+id/adressClientDetails"
         android:layout_width="741dp"
-        android:layout_height="53dp"
+        android:layout_height="50dp"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="15dp"

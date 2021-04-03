@@ -22,6 +22,7 @@ import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.ClientListAdapter
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
 import com.madera.kotlin.Controller.Client.NewClientActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Client
@@ -80,12 +81,24 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
         //region Components
         val btnCreateClient = findViewById(R.id.btnCreateClient) as Button
         val imageHelpClient = findViewById(R.id.imageHelpClient) as ImageView
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
 
         //region Observer
             clientViewModel.AllClients.observe(this, Observer { clients ->
                 clients?.let { adapterClient.submitList(it) }
             })
         //endregion
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@ClientActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
         // Listener NewClientActivity
         btnCreateClient.setOnClickListener {

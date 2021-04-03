@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madera.kotlin.Controller.Client.CellClickListener
 import com.madera.kotlin.Controller.Client.DetailsClientActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.Controller.Project.DetailsProjectActivity
 import com.madera.kotlin.Entity.Chantier
 import com.madera.kotlin.Entity.Projet
@@ -42,6 +43,19 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         //region HEADER IMPLEMENTATION
         // Bulle d'information
         val imageHelpHome = findViewById(R.id.imageHelpHome) as ImageView
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@HomeActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+
         imageHelpHome.setOnClickListener {
             // build alert dialog
             val dialogBuilder = AlertDialog.Builder(this)
@@ -64,6 +78,8 @@ class HomeActivity : AppCompatActivity(), CellClickListener {
         }
 
         //endregion
+
+
 
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_projet)

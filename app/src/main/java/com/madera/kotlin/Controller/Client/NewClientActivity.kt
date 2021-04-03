@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
@@ -42,6 +43,18 @@ class NewClientActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.btn_DoUpdate)
         val imageHelpNewClient = findViewById(R.id.imageHelpNewClient) as ImageView
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@NewClientActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
         button.setOnClickListener {
             val replyIntent = Intent()

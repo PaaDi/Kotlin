@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.madera.kotlin.Controller.Client.NewClientActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
@@ -49,6 +50,18 @@ class NewContactActivity : AppCompatActivity() {
         val createContact = findViewById<Button>(R.id.button_saveContact)
 
         val idClient = intent.getIntExtra(EXTRA_CLIENT_ID_FORNEWCONTACT,1).toString()
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@NewContactActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
         // Listerner CreateContact
         createContact.setOnClickListener {

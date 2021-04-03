@@ -1,10 +1,12 @@
 package com.madera.kotlin.Controller.Home
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.MaderaApplication
 import com.madera.kotlin.R
 
@@ -18,8 +20,20 @@ class ProjectActivity : AppCompatActivity() {
         setContentView(R.layout.project_view)
 
         val imageHelpProject = findViewById(R.id.imageHelpProject) as ImageView
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
 
-        // Bulle d'information
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@ProjectActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+
+
         imageHelpProject.setOnClickListener {
             // build alert dialog
             val dialogBuilder = AlertDialog.Builder(this)

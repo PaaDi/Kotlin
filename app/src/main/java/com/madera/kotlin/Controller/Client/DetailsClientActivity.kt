@@ -16,6 +16,7 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.madera.kotlin.Controller.Contact.ContactListAdapter
 import com.madera.kotlin.Controller.Contact.NewContactActivity
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Contact
@@ -79,7 +80,18 @@ class DetailsClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_client2)
 
-        val btnSupressContact = findViewById<Button>(R.id.btn_deleteContact)
+        val imageDisconnect = findViewById(R.id.imageDisconnect) as ImageView
+
+        imageDisconnect.setOnClickListener {
+            // Le code a exécuté quand l'utilisateur à cliquer sur le bouton
+            Toast.makeText(
+                    this@DetailsClientActivity,
+                    "Déconnexion !",
+                    Toast.LENGTH_SHORT
+            ).show()
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
         //region Implement Recycler
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_contact)
