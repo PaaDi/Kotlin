@@ -17,6 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
+        <Button
+            android:id="@+id/btn_backClient"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_previous"
+            android:text="Retour"
+            android:textColor="#FFFFFF" />
+
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="1021dp"
@@ -104,7 +113,7 @@
             app:srcCompat="@drawable/ic_profile" />
 
         <TextView
-            android:id="@+id/nameUserDetailClient"
+            android:id="@+id/nameUserClient"
             android:layout_width="167dp"
             android:layout_height="67dp"
             android:layout_marginStart="1930px"

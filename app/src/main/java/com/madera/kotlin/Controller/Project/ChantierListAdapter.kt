@@ -41,7 +41,7 @@ class ChantierListAdapter(private val cellClickListener: CellClickListener, priv
             chantierItemView.text = text
             chantierItemView2.text = text2
             arrowImage.setImageResource(R.drawable.ic_play)
-            chantierImage.setImageResource(R.drawable.ic_particulier)
+            chantierImage.setImageResource(R.drawable.ic_chantier)
         }
 
         companion object{

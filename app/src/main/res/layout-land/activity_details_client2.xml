@@ -7,22 +7,6 @@
     android:background="#EEEEEE"
     tools:context=".Controller.Client.DetailsClientActivity">
 
-    <TextView
-        android:id="@+id/titleInfo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginRight="180dp"
-        android:layout_marginBottom="32dp"
-        android:text="Contact"
-        android:textColor="#222222"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview_contact"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="1282dp"
@@ -145,34 +129,25 @@
         <Button
             android:id="@+id/delete_btn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="217dp"
-            android:layout_marginLeft="217dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="237dp"
+            android:layout_marginLeft="237dp"
             android:layout_toEndOf="@+id/btnRetourClient"
             android:layout_toRightOf="@+id/btnRetourClient"
             android:text="Supprimer Client"
-            app:backgroundTint="#D11717" />
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:backgroundTint="#e8635a" />
 
-        <ImageView
-            android:id="@+id/btnRetourClient"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="50px"
-            android:layout_marginLeft="50px"
-
-            app:srcCompat="@drawable/ic_previous" />
-
-        <TextView
-            android:id="@+id/txtRetour"
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150px"
-            android:layout_marginLeft="150px"
-            android:layout_marginTop="12px"
+            android:drawableLeft="@drawable/ic_previous"
             android:text="Retour"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btn_valideUpdate"
@@ -190,18 +165,22 @@
         android:id="@+id/chantierNote"
         android:layout_width="720dp"
         android:layout_height="109dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="15dp"
+        android:paddingLeft="30dip"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/recyclerview_contact"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/projectNotes" />
+        app:layout_constraintTop_toBottomOf="@+id/projectNotes"
+        app:layout_constraintVertical_bias="0.493" />
 
     <EditText
         android:id="@+id/postalClientDetails"
@@ -214,6 +193,7 @@
         android:layout_marginRight="56dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
+        android:paddingLeft="30dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -230,6 +210,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
+        android:paddingLeft="30dip"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
@@ -276,6 +257,7 @@
         android:layout_marginRight="56dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
+        android:paddingLeft="30dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -315,9 +297,10 @@
         android:id="@+id/nameChantierDetails"
         android:layout_width="330dp"
         android:layout_height="55dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="30dip"
         android:background="@drawable/edittext_corner"
         android:ems="10"
         android:inputType="textPersonName"
@@ -334,6 +317,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_corner"
         android:ems="10"
+        android:paddingLeft="30dip"
         android:inputType="textPersonName"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -410,7 +394,6 @@
         android:layout_height="635dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:clickable="true"
@@ -419,23 +402,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chantierNote"
-        app:layout_constraintTop_toBottomOf="@+id/titleInfo2"
         tools:listitem="@layout/recyclerview_contact" />
 
     <ScrollView
-        android:layout_width="407dp"
-        android:layout_height="837dp"
+        android:layout_width="411dp"
+        android:layout_height="634dp"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
-        android:layout_marginTop="63dp"
         android:layout_marginEnd="19dp"
         android:layout_marginRight="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/recyclerview_contact"
-        app:layout_constraintTop_toBottomOf="@+id/titleInfo2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintStart_toEndOf="@+id/recyclerview_contact">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -134,7 +134,8 @@
             android:layout_toEndOf="@+id/btnRetourClient"
             android:layout_toRightOf="@+id/btnRetourClient"
             android:text="Supprimer Client"
-            app:backgroundTint="#D11717" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#e8635a" />
 
         <Button
             android:id="@+id/btn_valideUpdate"

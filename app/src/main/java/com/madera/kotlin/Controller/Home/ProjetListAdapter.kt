@@ -43,7 +43,7 @@ class ProjetListAdapter(private val cellClickListener: CellClickListener, privat
 
         fun bind(text: String?, text2: String?) {
             arrowImage.setImageResource(R.drawable.ic_play)
-            clientImage.setImageResource(R.drawable.ic_particulier)
+            clientImage.setImageResource(R.drawable.ic_project)
             clientItemView.text = text
             clientItemView2.text = text2
 

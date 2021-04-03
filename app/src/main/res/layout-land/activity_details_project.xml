@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context=".Controller.Project.DetailsProjectActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="1282dp"
+        android:layout_height="81dp"
+        android:background="#0C5A43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nameUserDetailClient"
+            android:layout_width="167dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="1930px"
+            android:layout_marginLeft="1930px"
+            android:layout_marginTop="60px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="Username"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageViewP"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|left"
+            android:layout_marginStart="40px"
+            android:layout_marginLeft="40px"
+            android:src="@drawable/unnamed" />
+
+        <TextView
+            android:id="@+id/txtAccueilProject"
+            android:layout_width="265dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="180px"
+            android:layout_marginLeft="180px"
+            android:layout_marginTop="30px"
+            android:layout_marginEnd="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="10px"
+            android:text="PYRAMID"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2090px"
+            android:layout_marginLeft="2090px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/ic_profile" />
+
+
+        <ImageView
+            android:id="@+id/imageHelpDetailsClient"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2290px"
+            android:layout_marginLeft="2290px"
+            android:layout_marginTop="30px"
+            app:srcCompat="@drawable/ic_information" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="1282dp"
+        android:layout_height="50dp"
+        android:background="#00AD59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+
+        <Button
+            android:id="@+id/btn_backDetailsProjet"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_previous"
+            android:text="Retour"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/nameChantierDetails"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="236dp"
+        android:layout_marginLeft="236dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="5dip"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chantierName" />
+
+    <EditText
+        android:id="@+id/chantierNote"
+        android:layout_width="778dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:gravity="top|left"
+        android:inputType="textPersonName"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+
+        android:padding="5dip"
+        android:scrollbars="vertical"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/projectChantier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projectNotes" />
+
+    <TextView
+        android:id="@+id/chantierName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginLeft="236dp"
+        android:layout_marginTop="100dp"
+        android:text="Nom du projet :"
+        android:textColor="#222222"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <EditText
+        android:id="@+id/nameCommercialChantierDetails"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginRight="240dp"
+        android:background="@drawable/edittext_corner"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="5dip"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toEndOf="@+id/nameChantierDetails"
+        app:layout_constraintTop_toBottomOf="@+id/chantierCommercialName" />
+
+    <TextView
+        android:id="@+id/chantierCommercialName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="444dp"
+        android:layout_marginRight="444dp"
+        android:text="Nom du client :"
+        android:textColor="#222222"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <TextView
+        android:id="@+id/idChantierDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginStart="408dp"
+        android:layout_marginLeft="408dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="464dp"
+        android:layout_marginRight="464dp"
+        android:text="ID"
+        android:textColor="#222222"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <TextView
+        android:id="@+id/projectNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginLeft="236dp"
+        android:layout_marginTop="35dp"
+        android:text="Notes :"
+        android:textColor="#222222"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameChantierDetails" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_chantier"
+        android:layout_width="1175dp"
+        android:layout_height="268dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/projectChantier"
+        tools:listitem="@layout/recyclerview_contact" />
+
+    <TextView
+        android:id="@+id/projectChantier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="550dp"
+        android:layout_marginLeft="550dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="550dp"
+        android:layout_marginRight="550dp"
+        android:layout_marginBottom="25dp"
+        android:text="Chantiers :"
+        android:textColor="#222222"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview_chantier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chantierNote" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,7 @@
             app:srcCompat="@drawable/ic_profile" />
 
         <TextView
-            android:id="@+id/nameUserDetailClient"
+            android:id="@+id/nameUserContact"
             android:layout_width="167dp"
             android:layout_height="67dp"
             android:layout_marginStart="1930px"

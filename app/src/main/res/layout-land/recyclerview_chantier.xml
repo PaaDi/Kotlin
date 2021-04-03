@@ -37,14 +37,14 @@
 
             <ImageView
                 android:id="@+id/iconChantierChantier"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/ic_chantier" />
+                tools:srcCompat="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/textViewChantier2"
@@ -64,8 +64,8 @@
                 android:id="@+id/arrowIconChantier"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="724dp"
-                android:layout_marginLeft="724dp"
+                android:layout_marginStart="900dp"
+                android:layout_marginLeft="900dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
