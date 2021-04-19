@@ -229,6 +229,7 @@ class DetailsClientActivity : AppCompatActivity() {
 
                 override fun onError(anError: ANError?) {
                     requestViewModel.saveRequest(Request(null,"updateClientAPI","update",clientName.text.toString(),clientAdress.text.toString(),proCheckBox.isChecked.toString(),clientActivity.text.toString(),clientCity.text.toString(),codePostal,clientDescription.text.toString(),clientDetail.refClient.toString()))
+                    Toast.makeText(this@DetailsClientActivity, "Aucune connexion réseau. La synchronisation sera effectuée à la prochaine connexion.", Toast.LENGTH_LONG).show()
                 }
             }
             );
@@ -253,52 +254,71 @@ class DetailsClientActivity : AppCompatActivity() {
         buttonDelete = findViewById(R.id.delete_btn)
 
         buttonDelete.setOnClickListener {
-            clientViewModel.deleteClient(clientDetail)
-            /**/
-            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
-                override fun onResponse(response: JSONObject?) {
-                    val allRequest = requestViewModel.getAllRequest()
-                    for (request in allRequest){
-                        when(request.requestType){
-                            "connectToApi" -> {
-                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
-                                requestViewModel.deleteRequest(request)
+
+            val builder = AlertDialog.Builder(this@DetailsClientActivity)
+            builder.setMessage("Voulez-vous vraiment supprimer ce client ?")
+                    .setCancelable(false)
+                    .setPositiveButton("Confirmer") { dialog, id ->
+                        // Suppression confrimé
+                        clientViewModel.deleteClient(clientDetail)
+                        /**/
+                        CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                            override fun onResponse(response: JSONObject?) {
+                                val allRequest = requestViewModel.getAllRequest()
+                                for (request in allRequest){
+                                    when(request.requestType){
+                                        "connectToApi" -> {
+                                            API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        "insertionClientAPI" -> {
+                                            API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        "suppressionClientAPI" -> {
+                                            API.suppressionClientAPI(request.param1.toString())
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        "insertionContactAPI" -> {
+                                            API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        "suppressionContactAPI" -> {
+                                            API.suppressionContactAPI(request.param1.toString())
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        "updateClientAPI" -> {
+                                            API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                            requestViewModel.deleteRequest(request)
+                                        }
+                                        else -> {
+                                            val pasderequest = ""
+                                        }
+                                    }
+                                }
+                                API.suppressionClientAPI(clientDetail.refClient.toString())
                             }
-                            "insertionClientAPI" -> {
-                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
-                                requestViewModel.deleteRequest(request)
-                            }
-                            "suppressionClientAPI" -> {
-                                API.suppressionClientAPI(request.param1.toString())
-                                requestViewModel.deleteRequest(request)
-                            }
-                            "insertionContactAPI" -> {
-                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
-                                requestViewModel.deleteRequest(request)
-                            }
-                            "suppressionContactAPI" -> {
-                                API.suppressionContactAPI(request.param1.toString())
-                                requestViewModel.deleteRequest(request)
-                            }
-                            "updateClientAPI" -> {
-                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
-                                requestViewModel.deleteRequest(request)
-                            }
-                            else -> {
-                                val pasderequest = ""
+
+                            override fun onError(anError: ANError?) {
+                                requestViewModel.saveRequest(Request(null,"suppressionClientAPI",clientDetail.refClient.toString(),null,null,null,null,null,null,null,null))
+                                Toast.makeText(this@DetailsClientActivity, "Aucune connexion réseau. La synchronisation sera effectuée à la prochaine connexion.", Toast.LENGTH_SHORT).show()
                             }
                         }
+                        );
+
+                        super.onBackPressed()
+
                     }
-                    API.suppressionClientAPI(clientDetail.refClient.toString())
-                }
+                    .setNegativeButton("Annuler") { dialog, id ->
+                        // Suppression annulé
+                        dialog.dismiss()
+                    }
+            val alert = builder.create()
+            alert.show()
 
-                override fun onError(anError: ANError?) {
-                    requestViewModel.saveRequest(Request(null,"suppressionClientAPI",clientDetail.refClient.toString(),null,null,null,null,null,null,null,null))
-                }
-            }
-            );
 
-            super.onBackPressed()
+
+
         }
 
         // Bulle d'information
@@ -393,6 +413,7 @@ class DetailsClientActivity : AppCompatActivity() {
 
                 override fun onError(anError: ANError?) {
                     requestViewModel.saveRequest(Request(null,"insertionContactAPI",nomContact,prenomContact,fonctionContact,phoneContact,mailContact,client.refClient.toString(),rnds.toString(),null,null))
+                    Toast.makeText(this@DetailsClientActivity, "Aucune connexion réseau. La synchronisation sera effectuée à la prochaine connexion.", Toast.LENGTH_SHORT).show()
                 }
             }
             );
