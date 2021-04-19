@@ -126,6 +126,7 @@ class MainActivity : AppCompatActivity() {
 
                          override fun onError(anError: ANError?) {
                              requestViewModel.saveRequest(Request(null,"connectToApi",userToConnect.text.toString(),passToConnect.text.toString(),null,null,null,null,null,null,null))
+                             Toast.makeText(this@MainActivity, "Aucune connexion réseau. La synchronisation sera effectuée à la prochaine connexion.", Toast.LENGTH_SHORT).show()
                          }
                      }
                      );

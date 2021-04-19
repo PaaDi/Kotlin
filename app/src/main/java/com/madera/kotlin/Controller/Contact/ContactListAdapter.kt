@@ -1,5 +1,6 @@
 package com.madera.kotlin.Controller.Contact
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.madera.kotlin.Controller.MainActivity
 import com.madera.kotlin.Database.CheckConnection
 import com.madera.kotlin.Database.MaderaAPI
 import com.madera.kotlin.Entity.Contact
@@ -20,7 +23,7 @@ import com.madera.kotlin.R
 import com.madera.kotlin.ViewModel.*
 import org.json.JSONObject
 
-class ContactListAdapter(private val contactViewModel: ContactViewModel, context: Context, private val requestViewModel: RequestViewModel, private val clientViewModel: ClientViewModel, private val projetViewModel: ProjetViewModel, private val chantierViewModel: ChantierViewModel) : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
+class ContactListAdapter(private val contactViewModel: ContactViewModel, private val context: Context, private val requestViewModel: RequestViewModel, private val clientViewModel: ClientViewModel, private val projetViewModel: ProjetViewModel, private val chantierViewModel: ChantierViewModel) : ListAdapter<Contact, ContactListAdapter.ContactViewHolder>(ContactsComparator()){
 
     val API = MaderaAPI(context)
 
@@ -31,7 +34,7 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel, context
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         val current = getItem(position)
 
-        holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, contactViewModel,API, requestViewModel, clientViewModel,projetViewModel,chantierViewModel )
+        holder.bind(current.nomContact + " " + current.prenomContact + " - " + current.fonctionContact, "Téléphone : " + current.numeroContact, "Email : " + current.mailContact, current, contactViewModel,API, requestViewModel, clientViewModel,projetViewModel,chantierViewModel, context )
     }
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -44,7 +47,7 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel, context
         val userTextView: ImageView = itemView.findViewById(R.id.iconUser)
 
 
-        fun bind(text: String?, text2: String?, text3: String?, contact: Contact, contactViewModel: ContactViewModel, API : MaderaAPI,requestViewModel: RequestViewModel, clientViewModel: ClientViewModel, projetViewModel: ProjetViewModel, chantierViewModel: ChantierViewModel){
+        fun bind(text: String?, text2: String?, text3: String?, contact: Contact, contactViewModel: ContactViewModel, API : MaderaAPI,requestViewModel: RequestViewModel, clientViewModel: ClientViewModel, projetViewModel: ProjetViewModel, chantierViewModel: ChantierViewModel, context: Context){
             contactItemView.text = text
             contactItemView2.text = text2
             contactItemView3.text = text3
@@ -52,51 +55,65 @@ class ContactListAdapter(private val contactViewModel: ContactViewModel, context
             mailTextView.setImageResource(R.drawable.ic_email)
             userTextView.setImageResource(R.drawable.ic_user)
             buttonSuppressContact.setOnClickListener {
-                contactViewModel.deleteContact(contact)
 
-                CheckConnection().getMyResponse(object : JSONObjectRequestListener {
-                    override fun onResponse(response: JSONObject?) {
-                        val allRequest = requestViewModel.getAllRequest()
-                        for (request in allRequest){
-                            when(request.requestType){
-                                "connectToApi" -> {
-                                    API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
-                                    requestViewModel.deleteRequest(request)
+
+
+
+                val builder = AlertDialog.Builder(context)
+                builder.setMessage("Voulez-vous vraiment supprimer ce contact ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirmer") { dialog, id ->
+                            // Suppression confirmé
+                            contactViewModel.deleteContact(contact)
+
+                            CheckConnection().getMyResponse(object : JSONObjectRequestListener {
+                                override fun onResponse(response: JSONObject?) {
+                                    val allRequest = requestViewModel.getAllRequest()
+                                    for (request in allRequest){
+                                        when(request.requestType){
+                                            "connectToApi" -> {
+                                                API.connectToApi(request.param1.toString(),request.param2.toString(),clientViewModel,contactViewModel, projetViewModel,chantierViewModel)
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            "insertionClientAPI" -> {
+                                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            "suppressionClientAPI" -> {
+                                                API.suppressionClientAPI(request.param1.toString())
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            "insertionContactAPI" -> {
+                                                API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            "suppressionContactAPI" -> {
+                                                API.suppressionContactAPI(request.param1.toString())
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            "updateClientAPI" -> {
+                                                API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
+                                                requestViewModel.deleteRequest(request)
+                                            }
+                                            else -> {
+                                                val pasderequest = ""
+                                            }
+                                        }
+                                    }
+                                    API.suppressionContactAPI(contact.refContact.toString())
                                 }
-                                "insertionClientAPI" -> {
-                                    API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
-                                    requestViewModel.deleteRequest(request)
+
+                                override fun onError(anError: ANError?) {
+                                    requestViewModel.saveRequest(Request(null,"suppressionContactAPI",contact.refContact.toString(),null,null,null,null,null,null,null,null))
                                 }
-                                "suppressionClientAPI" -> {
-                                    API.suppressionClientAPI(request.param1.toString())
-                                    requestViewModel.deleteRequest(request)
-                                }
-                                "insertionContactAPI" -> {
-                                    API.insertionContactAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString())
-                                    requestViewModel.deleteRequest(request)
-                                }
-                                "suppressionContactAPI" -> {
-                                    API.suppressionContactAPI(request.param1.toString())
-                                    requestViewModel.deleteRequest(request)
-                                }
-                                "updateClientAPI" -> {
-                                    API.insertionClientAPI(request.param1.toString(),request.param2.toString(),request.param3.toString(),request.param4.toString(),request.param5.toString(),request.param6.toString(),request.param7.toString(),request.param8.toString(), request.param9.toString())
-                                    requestViewModel.deleteRequest(request)
-                                }
-                                else -> {
-                                    val pasderequest = ""
-                                }
-                            }
+                            });
                         }
-                        API.suppressionContactAPI(contact.refContact.toString())
-                    }
-
-                    override fun onError(anError: ANError?) {
-                        requestViewModel.saveRequest(Request(null,"suppressionContactAPI",contact.refContact.toString(),null,null,null,null,null,null,null,null))
-
-                    }
-                }
-                );
+                        .setNegativeButton("Annuler") { dialog, id ->
+                            // Annuler la suppression
+                            dialog.dismiss()
+                        }
+                val alert = builder.create()
+                alert.show()
 
             }
         }

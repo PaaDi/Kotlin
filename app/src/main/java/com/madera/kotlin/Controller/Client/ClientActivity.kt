@@ -233,6 +233,7 @@ class ClientActivity : AppCompatActivity(), CellClickListener {
 
                 override fun onError(anError: ANError?) {
                     requestViewModel.saveRequest(Request(null,"insertionClientAPI","create",nomClient,adresse,checkPro.toString(),secteurActivite,ville,codePostal,description,rnds.toString()))
+                    Toast.makeText(this@ClientActivity, "Aucune connexion réseau. La synchronisation sera effectuée à la prochaine connexion.", Toast.LENGTH_SHORT).show()
                 }
             }
             );
